@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "_AdmLayout";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.5.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    @RenderSection("header", false)
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="gird">
+        <div class="header">
+            <header>
+                <div class="topnav">
+                    <img src="~/Content/Wiki-wordmark.png">
+                    <!-- <a href="#news">News</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#about">About</a> -->
+                    <h1 style="color: #F65091; text-align: center;">Trang quản lý của Admin</h1>
+                    <p style="color: rgb(153, 65, 149);text-align: center;">Admin: Nguyễn Phát Thành Tài</p>
+                </div>
+            </header>
+
+            <div class="ThanhChucNang">
+                <a href="#">Quản lý nhân vật</a>
+                <a href="#">Quản lý hân vật</a>
+                <a href="#">Quản lý guình</a>
+                <a href="#">Thống kê</a>
+                <a href="#">Quản lý người dùng</a>
+            </div>
+        </div>
+
+        <div id="main">
+            @RenderBody()
+        </div>
+    </div>
+    <footer>
+        <coppy-right>Design by DHT team</coppy-right>
+    </footer>
+</body>
+
+</html>

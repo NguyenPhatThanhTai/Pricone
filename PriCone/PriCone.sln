@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriCone", "PriCone\PriCone.csproj", "{E9B7E632-DC94-4D79-AB94-B5FF24A00829}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9B7E632-DC94-4D79-AB94-B5FF24A00829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9B7E632-DC94-4D79-AB94-B5FF24A00829}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9B7E632-DC94-4D79-AB94-B5FF24A00829}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9B7E632-DC94-4D79-AB94-B5FF24A00829}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02E1B7BD-9B8E-48D5-AAF7-BFB9113A7B65}
+	EndGlobalSection
+EndGlobal

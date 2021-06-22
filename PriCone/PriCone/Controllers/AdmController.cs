@@ -122,7 +122,7 @@ namespace PriCone.Controllers
             //Xóa ảnh cũ đi nếu có
             try
             {
-                string path = System.Web.Hosting.HostingEnvironment.MapPath("~/Images/charICon/" + MaNhanVat + ".jpg");
+                string path = System.Web.Hosting.HostingEnvironment.MapPath("Images\\charICon" + MaNhanVat + ".jpg");
                 FileInfo file = new FileInfo(path);
                 if (file.Exists)//check file exsit or not  
                 {
@@ -138,7 +138,8 @@ namespace PriCone.Controllers
             //string extension = System.IO.Path.GetExtension(create.ImageFile.FileName);
             fileName = fileName + ".jpg";
             string pathSave = "~/Images/charICon/" + fileName;
-            fileName = System.IO.Path.Combine(Server.MapPath("~/Images/charICon/"), MaNhanVat + ".jpg");
+            fileName = System.IO.Path.Combine(Server.MapPath("~/Images/charICon"), MaNhanVat + ".jpg");
+
             //save ảnh lại
             addViewModel.Icon.SaveAs(fileName);
 

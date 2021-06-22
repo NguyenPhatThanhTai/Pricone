@@ -72,7 +72,6 @@ D:\PriCone\PriCone\bin\System.Web.WebPages.Razor.xml
 D:\PriCone\PriCone\bin\Newtonsoft.Json.xml
 D:\PriCone\PriCone\bin\Antlr3.Runtime.pdb
 D:\PriCone\PriCone\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\PriCone\PriCone\obj\Debug\PriCone.csproj.AssemblyReference.cache
 D:\PriCone\PriCone\obj\Debug\PriCone.csproj.CoreCompileInputs.cache
 D:\PriCone\PriCone\obj\Debug\PriCone.csproj.CopyComplete
 D:\PriCone\PriCone\obj\Debug\PriCone.dll

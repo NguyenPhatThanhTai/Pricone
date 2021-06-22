@@ -97,30 +97,30 @@
         </tr>
         @foreach (var items in ViewBag.listChar)
         {
-    <tr>
-        <td>@items.CharId</td>
-        <td>@items.CharName</td>
-        <td>@items.Guild.GuildName</td>
-        <td><img width="70" src="~/Images/charICon/@items.Icon"></td>
-        <td>
-            <button class="btn btn-warning" id="GetChar" value="@items.CharId" onclick="openPopUp()">Chỉnh sửa</button>
-            <button class="btn btn-danger" style="color: white;" value="Delete">Xoá</button>
-        </td>
-    </tr>
+            <tr>
+                <td>@items.CharId</td>
+                <td>@items.CharName</td>
+                <td>@items.Guild.GuildName</td>
+                <td><img width="70" src="~/Images/charICon/@items.Icon"></td>
+                <td>
+                    <button class="btn btn-warning" id="GetChar" value="@items.CharId" onclick="openPopUp()">Chỉnh sửa</button>
+                    <button class="btn btn-danger" style="color: white;" value="Delete">Xoá</button>
+                </td>
+            </tr>
         }
     </table>
 </div>
 
 <!-- The Modal -->
-<div id="myModal " class="modal ">
+<div id="myModal" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
         <div class="modal-header">
-            <span onclick="closePopUp() " class="close">&times;</span>
+            <span class="close" onclick="closePopUp()">&times;</span>
         </div>
         <div class="modal-body">
         </div>
-        <div class="modal-footer ">
+        <div class="modal-footer">
             <h3>Modal Footer</h3>
         </div>
     </div>
@@ -137,11 +137,11 @@
 </script>
 <script>
     function openPopUp() {
-        document.getElementById("myModal ").style.display = "block";
+        document.getElementById("myModal").style.display = "block";
     }
 
     function closePopUp() {
-        document.getElementById("myModal ").style.display = "none";
+        document.getElementById("myModal").style.display = "none";
     }
 </script>
 <script>

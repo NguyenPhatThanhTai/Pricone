@@ -97,16 +97,16 @@
         </tr>
         @foreach (var items in ViewBag.listChar)
         {
-            <tr>
-                <td id="charId">@items.CharId</td>
-                <td>@items.CharName</td>
-                <td>@items.Guild.GuildName</td>
-                <td><img width="70" src="~/Images/charICon/@items.Icon"></td>
-                <td>
-                    <a id="GetChar" onclick="openPopUp()">Chỉnh sửa | </a>
-                    <a href="#" style="color: red;">Xoá</a>
-                </td>
-            </tr>
+    <tr>
+        <td>@items.CharId</td>
+        <td>@items.CharName</td>
+        <td>@items.Guild.GuildName</td>
+        <td><img width="70" src="~/Images/charICon/@items.Icon"></td>
+        <td>
+            <button class="btn btn-warning" id="GetChar" value="@items.CharId" onclick="openPopUp()">Chỉnh sửa</button>
+            <button class="btn btn-danger" style="color: white;" value="Delete">Xoá</button>
+        </td>
+    </tr>
         }
     </table>
 </div>
@@ -137,7 +137,6 @@
 </script>
 <script>
     function openPopUp() {
-        @{ var Id = "CH211710";}
         document.getElementById("myModal ").style.display = "block";
     }
 
@@ -146,10 +145,16 @@
     }
 </script>
 <script>
-    $('#GetChar').click(function (e) {
+    $('#list-character button').click(function (e) {
         e.preventDefault();
         e.stopPropagation();
-        $('.modal-body').load('@Url.Action("getChar", "Adm", new { Id = @Id })');
+        var Id = $(this).val();
+        if (Id == "Delete") {
+
+        }
+        else {
+            $('.modal-body').load('@Url.Action("getChar", "Adm")?Id=' + Id);
+        }
     })
 </script>
 

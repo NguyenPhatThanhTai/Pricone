@@ -74,5 +74,38 @@ namespace PriCone.Models
                 return null;
             }
         }
+
+        public bool updateChar(Characters characters)
+        {
+            bool flag = false;
+            try
+            {
+                var result = dao.Characters.FirstOrDefault(p => p.CharId.Equals(characters.CharId));
+                if (result != null)
+                {
+                    result.CharName = characters.CharName;
+                    result.Height = characters.Height;
+                    result.Weight = characters.Weight;
+                    result.Birthday = characters.Birthday;
+                    result.BloodType = characters.BloodType;
+                    result.Race = characters.Race;
+                    result.Hobbies = characters.Hobbies;
+                    result.VA = characters.VA;
+                    result.Description = characters.Description;
+                    result.Detail = characters.Detail;
+                    result.Icon = characters.Icon;
+                    result.GuildId = characters.GuildId;
+
+                    dao.SaveChanges();
+                    flag = true;
+                }
+            }
+            catch(Exception e)
+            {
+                e.Message.ToString();
+                flag = false;         
+            }
+            return flag;
+        }
     }
 }

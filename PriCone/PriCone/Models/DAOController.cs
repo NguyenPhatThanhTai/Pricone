@@ -54,5 +54,25 @@ namespace PriCone.Models
                 return false;
             }
         }
+
+        public Characters getChar(string Id)
+        {
+            try {
+                var result = dao.Characters.FirstOrDefault(p => p.CharId.Equals(Id));
+                if(result != null)
+                {
+                    return result;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch(Exception e)
+            {
+                e.Message.ToString();
+                return null;
+            }
+        }
     }
 }

@@ -92,5 +92,11 @@ namespace PriCone.Controllers
                 }
             }
         }
+
+        public ActionResult getChar(string Id)
+        {
+            Characters charInf = new DAOController().getChar(Id);
+            return View(charInf);
+        }
     }
 }

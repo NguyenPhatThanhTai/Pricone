@@ -107,5 +107,70 @@ namespace PriCone.Models
             }
             return flag;
         }
+
+        public bool deleteChar(string Id)
+        {
+            bool flag = false;
+            try
+            {
+                var result = dao.Characters.FirstOrDefault(p => p.CharId.Equals(Id));
+                if (result != null)
+                {
+                    dao.Characters.Remove(result);
+                    dao.SaveChanges();
+                    flag = true;
+                }
+                else
+                {
+                    flag = false;
+                }
+            }catch(Exception e)
+            {
+                e.Message.ToString();
+                flag = false;
+            }
+            return flag;
+        }
+
+        public bool checkLogin(string user, string pass)
+        {
+            try
+            {
+                var result = dao.User.FirstOrDefault(p => p.Username.Equals(user) && p.Password.Equals(pass));
+                if(result != null)
+                {
+                    if(result.Status == false)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }catch(Exception e)
+            {
+                e.Message.ToString();
+                return false;
+            }
+        }
+
+        public bool registerUser(User user)
+        {
+            try
+            {
+                dao.User.Add(user);
+                dao.SaveChanges();
+                return true;
+            }catch(Exception e)
+            {
+                e.Message.ToString();
+                return false;
+            }
+        }
     }
 }

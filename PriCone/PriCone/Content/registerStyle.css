@@ -1,0 +1,146 @@
+﻿body {
+    background-image: url("Wiki-background.jpg");
+    background-size: cover;
+}
+
+#form-login #right {
+    float: left;
+    width: 500px;
+    height: 600px;
+    margin-top: 5%;
+    text-align: center;
+    box-shadow: 5px 10px 20px 20px rgba(0, 0, 0, 0.507);
+    border-radius: 25px;
+    transition: 0.5s;
+}
+
+#form-login #left {
+    float: left;
+    margin-top: 10%;
+    margin-left: 5%;
+    transition: 0.5s;
+}
+
+    #form-login #left img {
+        width: 800px;
+        transition: 0.5s;
+    }
+
+#form-login #right h1 {
+    font-size: 50px;
+    color: rgb(107, 101, 105);
+    padding-top: 10px;
+    transition: 0.5s;
+}
+
+#form-login #right form {
+    margin: 40px;
+    margin-top: 30px;
+    transition: 0.5s;
+}
+
+#form-login #right #submit {
+    padding-top: 10px;
+    transition: 0.5s;
+}
+
+#form-login #right #log {
+    background-color: rgb(59, 145, 105);
+    color: white;
+    margin-top: 10px;
+    transition: 0.5s;
+}
+
+    #form-login #right #log:hover {
+        background-color: rgb(34, 119, 94);
+    }
+
+#form-login #right p {
+    color: white;
+    transition: 0.5s;
+}
+
+#form-login #right a {
+    text-decoration: none;
+    color: pink;
+    transition: 0.5s;
+}
+
+#form-login #right #usr:hover {
+    transition: 0.3s;
+    border: 3px solid rgba(255, 192, 203, 0.658);
+}
+
+#form-login #right #usr:focus {
+    border: 3px solid rgba(255, 192, 203, 0.658);
+}
+
+#form-login #right #pwd:hover {
+    transition: 0.3s;
+    border: 3px solid rgba(255, 192, 203, 0.658);
+}
+
+#form-login #right #pwd:focus {
+    border: 3px solid rgba(255, 192, 203, 0.658);
+}
+
+#form-login #right #col {
+    display: block;
+    margin-top: 10px;
+    transition: 0.5s;
+}
+
+.fb {
+    background-color: rgb(44, 98, 168);
+    width: 400px;
+    margin-bottom: 10px;
+}
+
+.google {
+    background-color: rgb(206, 65, 94);
+    width: 400px;
+}
+
+@media only screen and (max-width: 600px) {
+    #form-login #left {
+        float: left;
+        margin-top: 10%;
+    }
+
+        #form-login #left img {
+            width: 350px;
+        }
+
+    #form-login #right #logo {
+        width: 300px;
+    }
+
+    #form-login #right {
+        float: left;
+        width: 370px;
+        height: 570px;
+        margin-top: 10%;
+        text-align: center;
+        box-shadow: 5px 10px 20px 20px rgba(0, 0, 0, 0.507);
+        border-radius: 25px;
+        margin-left: 5%;
+        margin-bottom: 30px;
+    }
+
+    .fb {
+        background-color: rgb(44, 98, 168);
+        width: 300px;
+        margin-bottom: 10px;
+    }
+
+    .google {
+        background-color: rgb(206, 65, 94);
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 1367px) and (min-width: 767px) {
+    #form-login #left img {
+        width: 650px;
+    }
+}

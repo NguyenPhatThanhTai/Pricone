@@ -86,3 +86,4 @@ D:\PriCone\PriCone\bin\System.Web.Http.WebHost.dll
 D:\PriCone\PriCone\bin\System.Net.Http.Formatting.xml
 D:\PriCone\PriCone\bin\System.Web.Http.xml
 D:\PriCone\PriCone\bin\System.Web.Http.WebHost.xml
+D:\PriCone\PriCone\obj\Debug\PriCone.csproj.AssemblyReference.cache

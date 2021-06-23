@@ -154,6 +154,7 @@
     <Compile Include="Models\dataModels\Skill.cs" />
     <Compile Include="Models\dataModels\User.cs" />
     <Compile Include="Models\viewModels\addViewModel.cs" />
+    <Compile Include="Models\viewModels\registerViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -162,8 +163,10 @@
     <Content Include="Content\detailCharStyle.css" />
     <Content Include="Content\GourmetEdificeHeader.png" />
     <Content Include="Content\home_kv_chara.png" />
+    <Content Include="Content\loginStyle.css" />
     <Content Include="Content\nen.png" />
     <Content Include="Content\Nozomi-christmas-sprite-normal.png" />
+    <Content Include="Content\registerStyle.css" />
     <Content Include="Content\Wiki-background.jpg" />
     <Content Include="Content\Wiki-wordmark.png" />
     <Content Include="Content\wp5828620.png" />
@@ -202,6 +205,8 @@
     <Content Include="Views\Adm\TrangChu.cshtml" />
     <Content Include="Views\Adm\ThemNhanVat.cshtml" />
     <Content Include="Views\Adm\getChar.cshtml" />
+    <Content Include="Views\Char\Login.cshtml" />
+    <Content Include="Views\Char\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

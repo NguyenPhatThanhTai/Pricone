@@ -168,5 +168,27 @@ namespace PriCone.Controllers
                 return RedirectToAction("ThemNhanVat", "Adm");
             }
         }
+
+        public ActionResult deleteChar(string Id)
+        {
+            // sau này sẽ delete skill, feedback rồi này nọ.....
+            try
+            {
+                if(new DAOController().deleteChar(Id))
+                {
+                    return RedirectToAction("TrangChu", "Char");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Có lỗi xảy ra rồi");
+                    return RedirectToAction("ThemNhanVat", "Adm");
+                }
+            }catch(Exception e)
+            {
+                ModelState.AddModelError("", "Có lỗi xảy ra rồi");
+                e.Message.ToString();
+                return RedirectToAction("ThemNhanVat", "Adm");
+            }
+        }
     }
 }

@@ -104,7 +104,7 @@
                 <td><img width="70" src="~/Images/charICon/@items.Icon"></td>
                 <td>
                     <button class="btn btn-warning" id="GetChar" value="@items.CharId" onclick="openPopUp()">Chỉnh sửa</button>
-                    <button class="btn btn-danger" style="color: white;" value="Delete">Xoá</button>
+                    <button class="btn btn-danger" style="color: white;" value="Delete" data-value="@items.CharId">Xoá</button>
                 </td>
             </tr>
         }
@@ -131,6 +131,18 @@
     </div>
 </div>
 
+<!-- The Modal check delete -->
+<div id="modelDelete" class="modal">
+    <!-- Modal content -->
+    <div class="modal-footer">
+        <div style="float: left">
+            <h3>Xác nhận xóa nhân vật <span id="Id-Delete"></span></h3>
+        </div>
+        <button class="btn btn-success" id="confirm-delete">Xác nhận xóa</button>
+        <button class="btn btn-danger" onclick="closeCheckDelete()">Hủy xóa</button>
+    </div>
+</div>
+
 <script>
     var loadFile = function (event) {
         var output = document.getElementById('iconPick');
@@ -148,6 +160,10 @@
     function closePopUp() {
         document.getElementById("myModal").style.display = "none";
     }
+
+    function closeCheckDelete() {
+        document.getElementById("modelDelete").style.display = "none";
+    }
 </script>
 <script>
     $('#list-character button').click(function (e) {
@@ -155,11 +171,21 @@
         e.stopPropagation();
         var Id = $(this).val();
         if (Id == "Delete") {
-
+            document.getElementById("confirm-delete").value = $(this).attr("data-value");
+            document.getElementById("Id-Delete").innerHTML = $(this).attr("data-value");
+            document.getElementById("modelDelete").style.display = "block";
         }
         else {
             $('.modal-body').load('@Url.Action("getChar", "Adm")?Id=' + Id);
         }
+    })
+</script>
+
+<script>
+    //Xóa ở đây
+    $('#confirm-delete').click(function (e) {
+        //Thực hiện xóa ở đây
+        window.location.href = '@Url.Action("deleteChar", "Adm")?Id=' + $("#confirm-delete").val();
     })
 </script>
 

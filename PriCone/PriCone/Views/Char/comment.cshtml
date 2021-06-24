@@ -1,0 +1,29 @@
+﻿@model List<PriCone.Models.dataModels.Feedback>
+@{
+    Layout = null;
+}
+
+
+@foreach(var items in Model)
+{
+    <div class="feed-back">
+        <div id="feed-back-pic">
+            <div id="avatar">
+                <b>@items.Avatar</b>
+            </div>
+        </div>
+        <div id="feed-back-content">
+            <div id="top-feed-back">
+                <b>@items.GuestName</b>
+            </div>
+            <div id="content-feed-back">
+                <p>
+                    @items.Comment
+                </p>
+            </div>
+            <div id="footer-feed-back">
+                <b>@items.Created</b>
+            </div>
+        </div>
+    </div>   
+}

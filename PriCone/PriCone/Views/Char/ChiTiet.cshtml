@@ -6,6 +6,9 @@
 
 @section header{
     <link rel="stylesheet" href="~/Content/detailCharStyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 }
 
 <div id="name">@Model.CharName</div>
@@ -34,6 +37,7 @@
     </div>
     <div id="content">
         <div id="content-infomation">
+            <input id="charId" type="hidden" value="@Model.CharId">
             <h3>1. Thông tin cá nhân</h3>
             <p>Tên trong trò chơi: @Model.CharName</p>
             <p>Bang hội: @Model.Guild.GuildName</p>
@@ -73,27 +77,80 @@
                 able to transform alongside Yui into her Princess Form. In this new form she and Yui are able to easily defeat Kariza's powered up monsters.
             </p>
         </div>
-        <div id="Trong đời sống thật"></div>
-        <p>
-            Pecorine is a human-race member in the game with long, orange hair and light blue eyes. Her hair extends below her waist and appears to fade into a slightly more yellow tinge. It mostly hangs freely, but a section is braided behind her
-            right ear. She also has a noticeably large ahoge. On the left side of her head she has a red ribbon tied in her hair and she wears her Royal Armament, which is a jewel-looking tiara. She wears a blue and white blouse with a window
-            cut around the collarbone area. On her right shoulder is a large armor plate. She has white gloves on both of her hands and a black sleeve that goes up her entire right arm. She wields a giant sword, which has a bitemark on the blade.
-            Pecorine is a human-race member in the game with long, orange hair and light blue eyes. Her hair extends below her waist and appears to fade into a slightly more yellow tinge. It mostly hangs freely, but a section is braided behind
-            her right ear. She also has a noticeably large ahoge. On the left side of her head she has a red ribbon tied in her hair and she wears her Royal Armament, which is a jewel-looking tiara. She wears a blue and white blouse with a window
-            cut around the collarbone area. On her right shoulder is a large armor plate. She has white gloves on both of her hands and a black sleeve that goes up her entire right arm. She wields a giant sword, which has a bitemark on the blade.
-            Pecorine is a human-race member in the game with long, orange hair and light blue eyes. Her hair extends below her waist and appears to fade into a slightly more yellow tinge. It mostly hangs freely, but a section is braided behind
-            her right ear. She also has a noticeably large ahoge. On the left side of her head she has a red ribbon tied in her hair and she wears her Royal Armament, which is a jewel-looking tiara. She wears a blue and white blouse with a window
-            cut around the collarbone area. On her right shoulder is a large armor plate. She has white gloves on both of her hands and a black sleeve that goes up her entire right arm. She wields a giant sword, which has a bitemark on the blade.
-            Pecorine is a human-race member in the game with long, orange hair and light blue eyes. Her hair extends below her waist and appears to fade into a slightly more yellow tinge. It mostly hangs freely, but a section is braided behind
-            her right ear. She also has a noticeably large ahoge. On the left side of her head she has a red ribbon tied in her hair and she wears her Royal Armament, which is a jewel-looking tiara. She wears a blue and white blouse with a window
-            cut around the collarbone area. On her right shoulder is a large armor plate. She has white gloves on both of her hands and a black sleeve that goes up her entire right arm. She wields a giant sword, which has a bitemark on the blade.
-            Pecorine is a human-race member in the game with long, orange hair and light blue eyes. Her hair extends below her waist and appears to fade into a slightly more yellow tinge. It mostly hangs freely, but a section is braided behind
-            her right ear. She also has a noticeably large ahoge. On the left side of her head she has a red ribbon tied in her hair and she wears her Royal Armament, which is a jewel-looking tiara. She wears a blue and white blouse with a window
-            cut around the collarbone area. On her right shoulder is a large armor plate. She has white gloves on both of her hands and a black sleeve that goes up her entire right arm. She wields a giant sword, which has a bitemark on the blade.
-            Pecorine is a human-race member in the game with long, orange hair and light blue eyes. Her hair extends below her waist and appears to fade into a slightly more yellow tinge. It mostly hangs freely, but a section is braided behind
-            her right ear. She also has a noticeably large ahoge. On the left side of her head she has a red ribbon tied in her hair and she wears her Royal Armament, which is a jewel-looking tiara. She wears a blue and white blouse with a window
-            cut around the collarbone area. On her right shoulder is a large armor plate. She has white gloves on both of her hands and a black sleeve that goes up her entire right arm. She wields a giant sword, which has a bitemark on the blade.
-        </p>
+        <div id="content-history">
+            <h3>4. Trong đời sống thật</h3>
+            <p>
+                Pecorine is a human-race member in the game with long, orange hair and light blue eyes. Her hair extends below her waist and appears to fade into a slightly more yellow tinge. It mostly hangs freely, but a section is braided behind her
+                right ear. She also has a noticeably large ahoge. On the left side of her head she has a red ribbon tied in her hair and she wears her Royal Armament, which is a jewel-looking tiara. She wears a blue and white blouse with a window
+                cut around the collarbone area. On her right shoulder is a large armor plate. She has white gloves on both of her hands and a black sleeve that goes up her entire right arm. She wields a giant sword, which has a bitemark on the blade.
+                Pecorine is a human-race member in the game with long, orange hair and light blue eyes. Her hair extends below her waist and appears to fade into a slightly more yellow tinge. It mostly hangs freely, but a section is braided behind
+                her right ear. She also has a noticeably large ahoge. On the left side of her head she has a red ribbon tied in her hair and she wears her Royal Armament, which is a jewel-looking tiara. She wears a blue and white blouse with a window
+                cut around the collarbone area. On her right shoulder is a large armor plate. She has white gloves on both of her hands and a black sleeve that goes up her entire right arm. She wields a giant sword, which has a bitemark on the blade.
+                Pecorine is a human-race member in the game with long, orange hair and light blue eyes. Her hair extends below her waist and appears to fade into a slightly more yellow tinge. It mostly hangs freely, but a section is braided behind
+                her right ear. She also has a noticeably large ahoge. On the left side of her head she has a red ribbon tied in her hair and she wears her Royal Armament, which is a jewel-looking tiara. She wears a blue and white blouse with a window
+                cut around the collarbone area. On her right shoulder is a large armor plate. She has white gloves on both of her hands and a black sleeve that goes up her entire right arm. She wields a giant sword, which has a bitemark on the blade.
+                Pecorine is a human-race member in the game with long, orange hair and light blue eyes. Her hair extends below her waist and appears to fade into a slightly more yellow tinge. It mostly hangs freely, but a section is braided behind
+                her right ear. She also has a noticeably large ahoge. On the left side of her head she has a red ribbon tied in her hair and she wears her Royal Armament, which is a jewel-looking tiara. She wears a blue and white blouse with a window
+                cut around the collarbone area. On her right shoulder is a large armor plate. She has white gloves on both of her hands and a black sleeve that goes up her entire right arm. She wields a giant sword, which has a bitemark on the blade.
+                Pecorine is a human-race member in the game with long, orange hair and light blue eyes. Her hair extends below her waist and appears to fade into a slightly more yellow tinge. It mostly hangs freely, but a section is braided behind
+                her right ear. She also has a noticeably large ahoge. On the left side of her head she has a red ribbon tied in her hair and she wears her Royal Armament, which is a jewel-looking tiara. She wears a blue and white blouse with a window
+                cut around the collarbone area. On her right shoulder is a large armor plate. She has white gloves on both of her hands and a black sleeve that goes up her entire right arm. She wields a giant sword, which has a bitemark on the blade.
+                Pecorine is a human-race member in the game with long, orange hair and light blue eyes. Her hair extends below her waist and appears to fade into a slightly more yellow tinge. It mostly hangs freely, but a section is braided behind
+                her right ear. She also has a noticeably large ahoge. On the left side of her head she has a red ribbon tied in her hair and she wears her Royal Armament, which is a jewel-looking tiara. She wears a blue and white blouse with a window
+                cut around the collarbone area. On her right shoulder is a large armor plate. She has white gloves on both of her hands and a black sleeve that goes up her entire right arm. She wields a giant sword, which has a bitemark on the blade.
+            </p>
+        </div>
+        <div id="content-history">
+            <h3>4. Phần bình luận cho nhân vật</h3>
+            <div class="non-feed-back">
+                <div class="type-comment">
+                    <div id="type-pic">
+                        <img src="~/Content/main.png">
+                    </div>
+                    <div id="comment">
+                        <form>
+                            <div class="form-group">
+                                <input name="GuestName" id="Name-feedback" type="text" class="form-control" placeholder="Mời nhâp tên..." required>
+                                <textarea name="Comment" class="form-control" id="Comment-feedback" rows="9" placeholder="Mời để lại bình luận..." required></textarea>
+                                <input id="send-feedback" style="background-color: pink; color: white;" type="submit" value="Gửi" class="form-control">
+                                <input type="hidden" id="Char-feedback" name="CharId" value="@Model.CharId" />
+                            </div>
+                        </form>
+                        </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+<div id="modal-body"></div>
+
+<script>
+    $(document).ready(function (e) {
+        //e.preventDefault();
+        //e.stopPropagation();
+        $('#modal-body').load('@Url.Action("comment", "Char")?Id=' + $('#charId').val());
+    })
+</script>
+
+<script>
+    $("#send-feedback").click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var content = {
+            'GuestName': $('#Name-feedback').val(),
+            'Comment': $('#Comment-feedback').val(),
+            'CharId': $('#Char-feedback').val()
+        };
+        $.ajax({
+            url: "../comment",
+            type: "POST",
+            data: content,
+/*            contentType: "application/json",*/
+            success: function (data) {
+                $('#modal-body').load('@Url.Action("comment", "Char")?Id=' + $('#charId').val());
+            }
+        })
+    })
+</script>
 

@@ -164,6 +164,7 @@
     <Content Include="Content\GourmetEdificeHeader.png" />
     <Content Include="Content\home_kv_chara.png" />
     <Content Include="Content\loginStyle.css" />
+    <Content Include="Content\main.png" />
     <Content Include="Content\nen.png" />
     <Content Include="Content\Nozomi-christmas-sprite-normal.png" />
     <Content Include="Content\registerStyle.css" />
@@ -207,6 +208,7 @@
     <Content Include="Views\Adm\getChar.cshtml" />
     <Content Include="Views\Char\Login.cshtml" />
     <Content Include="Views\Char\Register.cshtml" />
+    <Content Include="Views\Char\comment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -107,5 +107,39 @@ namespace PriCone.Controllers
                 return View();
             }
         }
+
+        public ActionResult comment(string Id)
+        {
+            List<Feedback> feedbacks = new DAOController().comment(Id);
+            return View(feedbacks);
+        }
+
+        [HttpPost]
+        public ActionResult comment(Feedback feedback)
+        {
+            //Tạo mã feedback
+            DateTime time = DateTime.Now;
+            string day = DateTime.Now.ToString("dd");
+            string month = DateTime.Now.ToString("MM");
+            string year = DateTime.Now.ToString("yyyy");
+            string Min = DateTime.Now.ToString("mm");
+            string sec = DateTime.Now.ToString("ss");
+
+            feedback.FeedId = "FB" + day + "" + Min + "" + sec;
+            feedback.Avatar = feedback.GuestName.Substring(0, 1);
+            feedback.Created = time;
+
+            if (new DAOController().addComment(feedback))
+            {
+                List<Feedback> feedbacks = new DAOController().comment(feedback.CharId);
+                return View(feedbacks);
+            }
+            else
+            {
+                ModelState.AddModelError("", "Lỗi rồi...");
+                List<Feedback> feedbacks = new DAOController().comment(feedback.CharId);
+                return View(feedbacks);
+            }
+        }
     }
 }

@@ -172,5 +172,32 @@ namespace PriCone.Models
                 return false;
             }
         }
+
+        public List<Feedback> comment(string Id)
+        {
+            try {
+                return dao.Feedback.Where(p => p.CharId.Equals(Id)).ToList();
+            }
+            catch (Exception e)
+            {
+                e.Message.ToString();
+                return null;
+            }
+        }
+
+        public bool addComment(Feedback feedback)
+        {
+            try
+            {
+                dao.Feedback.Add(feedback);
+                dao.SaveChanges();
+                return true;
+            }
+            catch(Exception e)
+            {
+                e.Message.ToString();
+                return false;
+            }
+        }
     }
 }

@@ -149,6 +149,7 @@
 /*            contentType: "application/json",*/
             success: function (data) {
                 $('#modal-body').load('@Url.Action("comment", "Char")?Id=' + $('#charId').val());
+                $("html, body").animate({ scrollTop: $(document).height() }, 1000);
             }
         })
     })

@@ -331,6 +331,12 @@
             margin-left: 20px;
             margin-top: 10px;
         }
+
+        .feed-back #feed-back-content #top-feed-back button {
+            float: right;
+            border-radius: 30px;
+            margin-right: 30px;
+        }
         
         .feed-back #feed-back-content #content-feed-back {
             margin: 20px;

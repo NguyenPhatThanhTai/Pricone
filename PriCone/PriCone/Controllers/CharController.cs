@@ -14,7 +14,7 @@ namespace PriCone.Controllers
         [HttpGet]
         public ActionResult TrangChu()
         {
-            if(Session["User"] == null)
+            if (Session["User"] == null)
             {
                 ViewBag.Login = "Login";
                 ViewBag.CheckLogin = "Đăng nhập/Đăng ký";
@@ -22,9 +22,18 @@ namespace PriCone.Controllers
             else
             {
                 ViewBag.Login = "TrangChu";
-                ViewBag.CheckLogin = Session["User"].ToString();
+                User u = Session["User"] as User;
+                if (u.Role == true)
+                {
+                    ViewBag.CheckLogin = u.FullName + " - Admin";
+                    Session["Admin"] = "true";
+                }
+                else
+                {
+                    User us = Session["User"] as User;
+                    ViewBag.CheckLogin = us.FullName + " - User";
+                }
             }
-
             List<Guild> guildList = new DAOController().getAllGuild();
             ViewBag.guild = guildList;
             List<Characters> list = new DAOController().getAllChar();
@@ -54,9 +63,10 @@ namespace PriCone.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(string user, string pass)
         {
-            if(new DAOController().checkLogin(user, pass))
+            if(new DAOController().checkLogin(user, pass) != null)
             {
-                Session["User"] = user;
+                User u = new DAOController().checkLogin(user, pass);
+                Session["User"] = u;
                 return RedirectToAction("TrangChu", "Char");
             }
             else
@@ -139,6 +149,22 @@ namespace PriCone.Controllers
                 ModelState.AddModelError("", "Lỗi rồi...");
                 List<Feedback> feedbacks = new DAOController().comment(feedback.CharId);
                 return View(feedbacks);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult deleteComment(string FeedId, string Id)
+        {
+            if(new DAOController().deleteComent(FeedId))
+            {
+                List<Feedback> feedbacks = new DAOController().comment(Id);
+                return RedirectToAction("comment", feedbacks);
+            }
+            else
+            {
+                ModelState.AddModelError("", "Lỗi rồi...");
+                List<Feedback> feedbacks = new DAOController().comment(Id);
+                return RedirectToAction("comment", feedbacks);
             }
         }
     }

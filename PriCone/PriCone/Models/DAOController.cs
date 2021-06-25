@@ -132,7 +132,7 @@ namespace PriCone.Models
             return flag;
         }
 
-        public bool checkLogin(string user, string pass)
+        public User checkLogin(string user, string pass)
         {
             try
             {
@@ -141,21 +141,21 @@ namespace PriCone.Models
                 {
                     if(result.Status == false)
                     {
-                        return false;
+                        return null;
                     }
                     else
                     {
-                        return true;
+                        return result;
                     }
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }catch(Exception e)
             {
                 e.Message.ToString();
-                return false;
+                return null;
             }
         }
 
@@ -194,6 +194,28 @@ namespace PriCone.Models
                 return true;
             }
             catch(Exception e)
+            {
+                e.Message.ToString();
+                return false;
+            }
+        }
+
+        public bool deleteComent(string FeedId)
+        {
+            try
+            {
+                var result = dao.Feedback.FirstOrDefault(p => p.FeedId.Equals(FeedId));
+                if(result != null)
+                {
+                    dao.Feedback.Remove((Feedback)result);
+                    dao.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }catch(Exception e)
             {
                 e.Message.ToString();
                 return false;

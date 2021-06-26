@@ -17,21 +17,21 @@ namespace PriCone.Controllers
             if (Session["User"] == null)
             {
                 ViewBag.Login = "Login";
+                ViewBag.display = "none";
                 ViewBag.CheckLogin = "Đăng nhập/Đăng ký";
             }
             else
             {
                 ViewBag.Login = "TrangChu";
+                ViewBag.display = "static";
                 User u = Session["User"] as User;
                 if (u.Role == true)
                 {
                     ViewBag.CheckLogin = u.FullName + " - Admin";
-                    Session["Admin"] = "true";
                 }
                 else
                 {
-                    User us = Session["User"] as User;
-                    ViewBag.CheckLogin = us.FullName + " - User";
+                    ViewBag.CheckLogin = u.FullName + " - User";
                 }
             }
             List<Guild> guildList = new DAOController().getAllGuild();
@@ -74,6 +74,14 @@ namespace PriCone.Controllers
                 ModelState.AddModelError("", "Sai mật khẩu, tài khoản hoặc tài khoản đã bị khóa!");
                 return View();
             }
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Remove("User");
+            ViewBag.Login = "Login";
+            ViewBag.CheckLogin = "Đăng nhập/Đăng ký";
+            return RedirectToAction("Login");
         }
 
         public ActionResult Register()
@@ -156,7 +164,7 @@ namespace PriCone.Controllers
         public ActionResult deleteComment(string FeedId, string Id)
         {
             if(new DAOController().deleteComent(FeedId))
-            {
+            { 
                 List<Feedback> feedbacks = new DAOController().comment(Id);
                 return RedirectToAction("comment", feedbacks);
             }

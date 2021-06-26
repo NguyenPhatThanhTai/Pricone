@@ -116,6 +116,8 @@ namespace PriCone.Models
                 var result = dao.Characters.FirstOrDefault(p => p.CharId.Equals(Id));
                 if (result != null)
                 {
+                    var res = dao.Feedback.Where(p => p.CharId.Equals(Id));
+                    dao.Feedback.RemoveRange(res);
                     dao.Characters.Remove(result);
                     dao.SaveChanges();
                     flag = true;

@@ -6,7 +6,7 @@
 
 @foreach (var items in Model)
 {
-    <div class="feed-back">
+    <div class="feed-back" id="feed">
         <div id="feed-back-pic">
             <div id="avatar">
                 <b>@items.Avatar</b>
@@ -33,6 +33,14 @@
         </div>
     </div>   
 }
+
+<script>
+    $(document).ready(function(){
+        $("[id^=feed]").each(function () {
+            $(this).fadeIn();
+        });
+    })
+</script>
 
 <script>
     $("#top-feed-back button").click(function (e) {

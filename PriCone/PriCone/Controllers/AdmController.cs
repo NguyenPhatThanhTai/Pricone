@@ -16,17 +16,33 @@ namespace PriCone.Controllers
         // GET: Adm/TrangChu
         public ActionResult TrangChu()
         {
-            return View();
+            User u = Session["User"] as User;
+            if (Session["User"] == null || u.Role == false)
+            {
+                return RedirectToAction("Login", "Char");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpGet]
         public ActionResult ThemNhanVat()
         {
-            List<Guild> listGuild = new DAOController().getListGuild();
-            List<Characters> listChar = new DAOController().getAllChar();
-            ViewBag.listGuild = listGuild;
-            ViewBag.listChar = listChar;
-            return View();
+            User u = Session["User"] as User;
+            if (Session["User"] == null || u.Role == false)
+            {
+                return RedirectToAction("Login", "Char");
+            }
+            else
+            {
+                List<Guild> listGuild = new DAOController().getListGuild();
+                List<Characters> listChar = new DAOController().getAllChar();
+                ViewBag.listGuild = listGuild;
+                ViewBag.listChar = listChar;
+                return View();
+            }
         }
 
         [HttpPost]

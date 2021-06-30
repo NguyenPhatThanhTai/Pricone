@@ -16,7 +16,8 @@
             <div id="top-feed-back">
                 <b>@items.GuestName</b>
                 @{
-                    if (Session["Admin"] != null && Session["Admin"].Equals("true"))
+                    var u = (PriCone.Models.dataModels.User)Session["User"];
+                    if (u != null && u.Role == true)
                     {
                         <button id="delete-feed-back" type="button" class="btn btn-danger" value="@items.FeedId" data-value="@items.CharId">Xóa bình luận này</button>
                     }

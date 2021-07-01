@@ -1,0 +1,157 @@
+﻿@model List<PriCone.Models.viewModels.addCard>
+@{
+    ViewBag.Title = "cardManager";
+    Layout = "~/Views/Shared/_AdmLayout.cshtml";
+}
+@section header{
+    <link rel="stylesheet" href="~/Content/cardManagerStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+}
+<div class="form-group">
+    <form>
+        <div class="pickChar">
+            <select id="charId" name="char" class="custom-select mb-3" onchange="setvalue()" required>
+                <option selected>Chọn nhân vật</option>
+                @foreach (var items in ViewBag.listChar)
+                {
+                    <option value="@items.CharId">@items.CharName</option>
+                }
+            </select>
+        </div>
+        <div class="form-group submit">
+            <input type="submit" size="30" class="form-control submit" id="pwd" value="Tải nhân vật lên" required>
+        </div>
+    </form>
+</div>
+<div id="tieude">
+    <h4>Ảnh trang chi tiết</h4>
+</div>
+<div id="detail-picture">
+    @Html.ValidationSummary(true, null)
+    @using (Html.BeginForm("addCardDetail", "Adm", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()<div id="pic">
+            <div id="detail">
+                <p>Mùa hè</p>
+            </div>
+            <div id="image">
+                @*@if (ViewBag.MH.Card1 != null)
+                {
+
+                    <img src="~/Images/charCard/ViewBag.MH.Card1" />
+                }
+                else
+                {
+                    <img src="~/Images/charCard/default.png" />
+                }*@
+                <img id="load1" src="Nozomi-christmas-sprite-normal.png">
+            </div>
+            <div id="detail">
+                <input name="Card" type="file" accept="image/*" onchange="loadFile(event, 'load1')" required>
+            </div>
+            <input type="hidden" value="MH" name="flag" />
+            <input id="hiddencharid"  value="" name="CharId" />
+            <input class="btn btn-success" type="submit" value="Save">
+        </div>
+    }
+    @Html.ValidationSummary(true, null)
+    @using (Html.BeginForm("addCardDetail", "Adm", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div id="pic">
+            <div id="detail">
+                <p>Mùa xuân</p>
+            </div>
+            <div id="image">
+                <img id="load2" src="Nozomi-christmas-sprite-normal.png">
+            </div>
+            <div id="detail">
+                <input name="Card" type="file" accept="image/*" onchange="loadFile(event, 'load2')" required>
+            </div>
+            <input type="hidden" value="MX" name="flag" />
+            <input class="btn btn-success" type="submit" value="Save">
+        </div>
+    }
+    @Html.ValidationSummary(true, null)
+    @using (Html.BeginForm("addCardDetail", "Adm", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div id="pic">
+            <div id="detail">
+                <p>Mùa đông</p>
+            </div>
+            <div id="image">
+                <img id="load3" src="Nozomi-christmas-sprite-normal.png">
+            </div>
+            <div id="detail">
+                <input name="Card" type="file" accept="image/*" onchange="loadFile(event, 'load3')" required>
+            </div>
+            <input type="hidden" value="MD" name="flag" />
+            <input class="btn btn-success" type="submit" value="Save">
+        </div>
+    }
+    </div>
+<div id="tieude">
+    <h4>Card của nhân vật</h4>
+</div>
+<div id="addCard">
+    <img id="addNewCard" src="https://redive.estertion.win/card/full/102961.webp@w400">
+    <input type="file" accept="image/*" onchange="loadFile(event, 'addNewCard')">
+    <button type="button" class="btn btn-success">Thêm card</button>
+</div>
+<div id="card-picture">
+    <div id=card>
+        <img src="https://redive.estertion.win/card/full/102961.webp@w400">
+    </div>
+    <div id=card>
+        <img src="https://redive.estertion.win/card/full/102561.webp">
+    </div>
+    <div id=card>
+        <img src="https://redive.estertion.win/card/full/115931.webp">
+    </div>
+    <div id=card>
+        <img src="https://redive.estertion.win/card/full/103661.webp">
+    </div>
+    <div id=card>
+        <img src="https://redive.estertion.win/card/full/106431.webp">
+    </div>
+    <div id=card>
+        <img src="https://redive.estertion.win/card/full/113931.webp">
+    </div>
+    <div id=card>
+        <img src="https://redive.estertion.win/card/full/113631.webp">
+    </div>
+    <div id=card>
+        <img src="https://redive.estertion.win/card/full/113531.webp">
+    </div>
+    <div id=card>
+        <img src="https://redive.estertion.win/card/full/106631.webp">
+    </div>
+    <div id=card>
+        <img src="https://redive.estertion.win/card/full/113031.webp">
+    </div>
+    <div id=card>
+        <img src="https://redive.estertion.win/card/full/104661.webp">
+    </div>
+    <div id=card>
+        <img src="https://redive.estertion.win/card/full/112431.webp">
+    </div>
+</div>
+
+<script>
+    var loadFile = function (event, load) {
+        var output = document.getElementById(load);
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function () {
+            URL.revokeObjectURL(output.src) // free memory
+        }
+    };
+</script>
+
+<script>
+    $('#charId').on('change', function () {
+        alert(this.value);
+        $("#hiddencharid").val(this.value);
+    });
+</script>
+

@@ -206,5 +206,70 @@ namespace PriCone.Controllers
                 return RedirectToAction("ThemNhanVat", "Adm");
             }
         }
+
+        public ActionResult cardManager(string Id)
+        {
+            if(Id == null)
+            {
+                List<Characters> listChar = new DAOController().getAllChar();
+                ViewBag.listChar = listChar;
+                return View();
+            }
+            else
+            {
+                List<Card> list = new DAOController().getCard(Id);
+                List<Characters> listChar = new DAOController().getAllChar();
+                ViewBag.MH = new DAOController().getCardDetail("MH", Id);
+                ViewBag.listChar = listChar;
+                return View(list);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult addCardDetail(addCard addCard)
+        {
+            if(addCard == null)
+            {
+                List<Characters> listChar = new DAOController().getAllChar();
+                ViewBag.listChar = listChar;
+                return RedirectToAction("cardManager", "Adm");
+            }
+            else
+            {
+                //Tạo mã ảnh
+                DateTime time = DateTime.Now;
+                string day = DateTime.Now.ToString("dd");
+                string month = DateTime.Now.ToString("MM");
+                string year = DateTime.Now.ToString("yyyy");
+                string Min = DateTime.Now.ToString("mm");
+                string sec = DateTime.Now.ToString("ss");
+
+                string MaAnh = addCard.flag + day + "" + Min + "" + sec;
+
+                //lấy ảnh đã chọn từ front-end
+                string fileName = System.IO.Path.GetFileNameWithoutExtension(addCard.Card.FileName);
+                //string extension = System.IO.Path.GetExtension(create.ImageFile.FileName);
+                fileName = fileName + ".png";
+                string pathSave = "~/Images/charCard/" + fileName;
+                fileName = System.IO.Path.Combine(Server.MapPath("~/Images/charCard/"), addCard.flag + addCard.CharId + ".png");
+                addCard.Card.SaveAs(fileName);
+
+                Card card = new Card();
+                card.CardId = MaAnh;
+                card.CharId = addCard.CharId;
+                card.Card1 = addCard.flag + addCard.CharId + ".png";
+
+                if (new DAOController().addCardDetail(card))
+                {
+                    return RedirectToAction("cardManager", "Adm");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Có lỗi xảy ra rồi");
+                    return RedirectToAction("cardManager", "Adm");
+                }
+            }
+        }
     }
 }

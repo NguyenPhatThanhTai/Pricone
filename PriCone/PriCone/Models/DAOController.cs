@@ -25,7 +25,7 @@ namespace PriCone.Models
         public Characters detailChar(String Id)
         {
             var result = dao.Characters.FirstOrDefault(p => p.CharId.Equals(Id));
-            if(result != null)
+            if (result != null)
             {
                 return result;
             }
@@ -59,7 +59,7 @@ namespace PriCone.Models
         {
             try {
                 var result = dao.Characters.FirstOrDefault(p => p.CharId.Equals(Id));
-                if(result != null)
+                if (result != null)
                 {
                     return result;
                 }
@@ -68,7 +68,7 @@ namespace PriCone.Models
                     return null;
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 e.Message.ToString();
                 return null;
@@ -100,10 +100,10 @@ namespace PriCone.Models
                     flag = true;
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 e.Message.ToString();
-                flag = false;         
+                flag = false;
             }
             return flag;
         }
@@ -126,7 +126,7 @@ namespace PriCone.Models
                 {
                     flag = false;
                 }
-            }catch(Exception e)
+            } catch (Exception e)
             {
                 e.Message.ToString();
                 flag = false;
@@ -139,9 +139,9 @@ namespace PriCone.Models
             try
             {
                 var result = dao.User.FirstOrDefault(p => p.Username.Equals(user) && p.Password.Equals(pass));
-                if(result != null)
+                if (result != null)
                 {
-                    if(result.Status == false)
+                    if (result.Status == false)
                     {
                         return null;
                     }
@@ -154,7 +154,7 @@ namespace PriCone.Models
                 {
                     return null;
                 }
-            }catch(Exception e)
+            } catch (Exception e)
             {
                 e.Message.ToString();
                 return null;
@@ -168,7 +168,7 @@ namespace PriCone.Models
                 dao.User.Add(user);
                 dao.SaveChanges();
                 return true;
-            }catch(Exception e)
+            } catch (Exception e)
             {
                 e.Message.ToString();
                 return false;
@@ -195,7 +195,7 @@ namespace PriCone.Models
                 dao.SaveChanges();
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 e.Message.ToString();
                 return false;
@@ -207,7 +207,7 @@ namespace PriCone.Models
             try
             {
                 var result = dao.Feedback.FirstOrDefault(p => p.FeedId.Equals(FeedId));
-                if(result != null)
+                if (result != null)
                 {
                     dao.Feedback.Remove((Feedback)result);
                     dao.SaveChanges();
@@ -217,10 +217,53 @@ namespace PriCone.Models
                 {
                     return false;
                 }
-            }catch(Exception e)
+            } catch (Exception e)
             {
                 e.Message.ToString();
                 return false;
+            }
+        }
+        public List<Card> getCard(string Id) 
+        {
+            try
+            {
+                return dao.Card.Where(p => p.CharId.Equals(Id)).ToList();
+            }catch(Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
+        }
+
+        public bool addCardDetail(Card card)
+        {
+            var flag = false;
+            try
+            {
+                if(card != null)
+                {
+                    dao.Card.Add(card);
+                    dao.SaveChanges();
+                    flag =  true;
+                }
+            }catch(Exception ex)
+            {
+                ex.Message.ToString();
+                flag = false;
+            }
+            return flag;
+        }
+
+        public Card getCardDetail(string flag, string id)
+        {
+            try 
+            {
+                return dao.Card.FirstOrDefault(p => p.Card1.Contains(flag + id));
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
             }
         }
     }

@@ -1,0 +1,64 @@
+﻿@model List<PriCone.Models.dataModels.Feedback>
+@{
+    Layout = null;
+}
+
+
+@foreach (var items in Model)
+{
+    <div class="feed-back" id="feed">
+        <div id="feed-back-pic">
+            <div id="avatar">
+                <b>@items.Avatar</b>
+            </div>
+        </div>
+        <div id="feed-back-content">
+            <div id="top-feed-back">
+                <b>@items.GuestName</b>
+                @{
+                    var u = (PriCone.Models.dataModels.User)Session["User"];
+                    if (u != null && u.Role == true)
+                    {
+                        <button id="delete-feed-back" type="button" class="btn btn-danger" value="@items.FeedId" data-value="@items.CharId">Xóa bình luận này</button>
+                    }
+                }
+            </div>
+            <div id="content-feed-back">
+                <p>
+                    @items.Comment
+                </p>
+            </div>
+            <div id="footer-feed-back">
+                <b>@items.Created</b>
+            </div>
+        </div>
+    </div>   
+}
+
+<script>
+    $(document).ready(function(){
+        $("[id^=feed]").each(function () {
+            $(this).fadeIn();
+        });
+    })
+</script>
+
+<script>
+    $("#top-feed-back button").click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var content = {
+            'FeedId': $(this).val(),
+            'Id': $(this).attr("data-value")
+            };
+        $.ajax({
+            url: "../deleteComment",
+            type: "POST",
+            data: content,
+/*            contentType: "application/json",*/
+            success: function (data) {
+                $('#modal-body').load('@Url.Action("comment", "Char")?Id=' + $('#charId').val());
+            }
+        })
+    })
+</script>

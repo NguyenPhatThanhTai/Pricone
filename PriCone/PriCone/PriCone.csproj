@@ -153,17 +153,18 @@
     <Compile Include="Models\dataModels\Saved.cs" />
     <Compile Include="Models\dataModels\Skill.cs" />
     <Compile Include="Models\dataModels\User.cs" />
+    <Compile Include="Models\viewModels\addCard.cs" />
     <Compile Include="Models\viewModels\addViewModel.cs" />
     <Compile Include="Models\viewModels\registerViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\adminStyle.css" />
+    <Content Include="Content\cardManagerStyle.css" />
     <Content Include="Content\charStyle.css" />
     <Content Include="Content\detailCharStyle.css" />
     <Content Include="Content\GourmetEdificeHeader.png" />
     <Content Include="Content\home_kv_chara.png" />
-    <Content Include="Content\layoutChar.css" />
     <Content Include="Content\loginStyle.css" />
     <Content Include="Content\main.png" />
     <Content Include="Content\nen.png" />
@@ -176,8 +177,10 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\charCard\default.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -210,6 +213,7 @@
     <Content Include="Views\Char\Login.cshtml" />
     <Content Include="Views\Char\Register.cshtml" />
     <Content Include="Views\Char\comment.cshtml" />
+    <Content Include="Views\Adm\cardManager.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

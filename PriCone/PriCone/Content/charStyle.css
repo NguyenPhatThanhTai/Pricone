@@ -1,13 +1,13 @@
-﻿/*body {
+﻿body {
     font-family: Cursive, Helvetica, sans-serif;
     background-image: url("Wiki-background.jpg");
     background-attachment: fixed;
     transition: 0.5s;
     text-align: c;
-}*/
+}
 /* slide bar bên trái */
 
-/*.sidenav {
+.sidenav {
     grid-area: left;
     height: 1480px;
     width: 0;
@@ -42,10 +42,10 @@
         right: 25px;
         font-size: 36px;
         margin-left: 50px;
-    }*/
+    }
 /* Header đầu trang (logo...) */
 
-/*.topnav {
+.topnav {
     transition: 0.5s;
     overflow: hidden;
     background-color: white;
@@ -98,12 +98,12 @@
         .topnav #img-left img {
             transition: 0.5s;
             width: 300px;
-        }*/
+        }
 /* .topnav #img-left h2 {
         font-size: ;
     } */
 
-/*.ThanhChucNang {
+.ThanhChucNang {
     transition: 0.5s;
     background-color: rgb(229, 119, 233);
     text-align: center;
@@ -133,7 +133,7 @@
     margin-right: 150px;
     transition: margin-right .5s;
     transition: margin-left .5s;
-}*/
+}
 /* Nội dung content */
 
 #main {
@@ -358,12 +358,22 @@ footer {
         margin: 0;
     }
 
-        #header .topnav #logo {
+        #header .topnav #logo-left {
             display: none;
         }
 
-        #header .topnav img {
-            width: 400px;
+        #header .topnav #img-left img {
+            text-align: center;
+            width: 325px;
+        }
+
+        #header .topnav #img-left h2 {
+            display: none;
+        }
+
+        #header .topnav #login-right {
+            float: none;
+            text-align: center;
         }
 
     #main #header-main {
@@ -373,6 +383,9 @@ footer {
 
     .topnav {
         margin: 0;
+        float: none;
+        text-align: center;
+        height: 120px;
     }
 
         .topnav h1 {
@@ -380,7 +393,7 @@ footer {
         }
 
     .ThanhChucNang {
-        margin: 0;
+        margin-top: 10px;
     }
 
     #main #picture {

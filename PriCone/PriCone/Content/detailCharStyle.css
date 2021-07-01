@@ -1,12 +1,12 @@
-        body {
-            font-family: Cursive, Helvetica, sans-serif;
+        /*body {*/
+            /*font-family: Cursive, Helvetica, sans-serif;
             background-image: url("Wiki-background.jpg");
             background-attachment: fixed;
             transition: 0.5s;
-        }
+        }*/
         /* slide bar bên trái */
         
-        .sidenav {
+        /*.sidenav {
             grid-area: left;
             height: 1480px;
             width: 0;
@@ -41,24 +41,24 @@
             right: 25px;
             font-size: 36px;
             margin-left: 50px;
-        }
+        }*/
         /* Header đầu trang (logo...) */
-        
-        .topnav {
-            transition: 0.5s;
-            overflow: hidden;
-            background-color: white;
-            border-top: 5px solid pink;
-            height: 80px;
-        }
-        
-        .topnav #logo-left {
-            float: left;
-            text-align: center;
-            width: 50px;
-            height: 80px;
-        }
-        
+
+/*.topnav {
+    transition: 0.5s;
+    overflow: hidden;
+    background-color: white;
+    border-top: 5px solid pink;
+    height: 80px;
+}
+
+    .topnav #logo-left {
+        float: left;
+        text-align: center;
+        width: 50px;
+        height: 80px;
+    }
+
         .topnav #logo-left #logo {
             transition: 0.5s;
             background-color: pink;
@@ -67,42 +67,42 @@
             padding-top: 25px;
             padding-bottom: 35px;
         }
-        
+
         .topnav #logo-left a {
             text-decoration: none;
         }
-        
-        .topnav #login-right {
-            float: right;
-            text-align: right;
-        }
-        
+
+    .topnav #login-right {
+        float: right;
+        text-align: right;
+    }
+
         .topnav #login-right a {
             text-decoration: none;
             color: rgba(59, 56, 56, 0.753);
             padding: 4px;
             background-color: pink;
         }
-        
+
         .topnav #login-right p {
             margin-right: 10px;
         }
-        
-        .topnav #img-left {
-            float: left;
-            margin-left: 20px;
-            margin-right: 20px;
-        }
-        
+
+    .topnav #img-left {
+        float: left;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
         .topnav #img-left img {
             transition: 0.5s;
             width: 300px;
-        }
+        }*/
         /* .topnav #img-left h2 {
         font-size: ;
     } */
         
-        .ThanhChucNang {
+        /*.ThanhChucNang {
             transition: 0.5s;
             background-color: rgb(229, 119, 233);
             text-align: center;
@@ -132,7 +132,7 @@
             margin-right: 150px;
             transition: margin-right .5s;
             transition: margin-left .5s;
-        }
+        }*/
         
         #main {
             transition: 0.5s;

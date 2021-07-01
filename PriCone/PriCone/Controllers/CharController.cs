@@ -49,6 +49,26 @@ namespace PriCone.Controllers
             }
             else
             {
+                if (Session["User"] == null)
+                {
+                    ViewBag.Login = "Login";
+                    ViewBag.display = "none";
+                    ViewBag.CheckLogin = "Đăng nhập/Đăng ký";
+                }
+                else
+                {
+                    ViewBag.Login = "TrangChu";
+                    ViewBag.display = "static";
+                    User u = Session["User"] as User;
+                    if (u.Role == true)
+                    {
+                        ViewBag.CheckLogin = u.FullName + " - Admin";
+                    }
+                    else
+                    {
+                        ViewBag.CheckLogin = u.FullName + " - User";
+                    }
+                }
                 Characters characters = new DAOController().detailChar(Id);
                 return View(characters);
             }

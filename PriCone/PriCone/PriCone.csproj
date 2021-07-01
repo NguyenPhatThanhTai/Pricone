@@ -163,6 +163,7 @@
     <Content Include="Content\detailCharStyle.css" />
     <Content Include="Content\GourmetEdificeHeader.png" />
     <Content Include="Content\home_kv_chara.png" />
+    <Content Include="Content\layoutChar.css" />
     <Content Include="Content\loginStyle.css" />
     <Content Include="Content\main.png" />
     <Content Include="Content\nen.png" />

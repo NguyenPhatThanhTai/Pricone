@@ -6,6 +6,7 @@
 
 @section header{
     <link rel="stylesheet" href="~/Content/charStyle.css">
+    <link rel="stylesheet" href="~/Content/layoutChar.css">
 }
 
 <div id="header-main">
@@ -67,14 +68,14 @@
         {
             <p>@items.GuildName</p>
             <div id="guild-container">
-                @foreach (var ite in Model) 
+                @foreach (var ite in Model)
                 {
                     if (ite.GuildId.Equals(items.GuildId))
                     {
-                    <a href="@Url.Action("ChiTiet", "Char", new { Id = ite.CharId })">
-                        <img src="~/Images/charICon/@ite.Icon" alt="">
-                        <h3>@ite.CharName</h3>
-                    </a>
+                        <a href="@Url.Action("ChiTiet", "Char", new { Id = ite.CharId })">
+                            <img src="~/Images/charICon/@ite.Icon" alt="">
+                            <h3>@ite.CharName</h3>
+                        </a>
                     }
                 }
             </div>
@@ -127,8 +128,8 @@
 </div>
 
 @*<script>
-    $("guild-container").hover(funtion(e)){
-        var audio = 
-    }
-</script>*@
+        $("guild-container").hover(funtion(e)){
+            var audio =
+        }
+    </script>*@
 

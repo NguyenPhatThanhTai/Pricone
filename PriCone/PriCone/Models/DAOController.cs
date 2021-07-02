@@ -235,6 +235,19 @@ namespace PriCone.Models
             }
         }
 
+        public List<Card> getListCard(string Id)
+        {
+            try
+            {
+                return dao.Card.Where(p => p.Card1.Contains("CA"+Id)).ToList();
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
+        }
+
         public bool addCardDetail(Card card)
         {
             var flag = false;
@@ -265,6 +278,39 @@ namespace PriCone.Models
                 ex.Message.ToString();
                 return null;
             }
+        }
+
+        public List<Card> getAllCard(string flag, string id)
+        {
+            try 
+            {
+                return dao.Card.Where(p => p.Card1.Contains(flag + id)).ToList();
+            }catch(Exception ex)
+            {
+                return null;
+                ex.Message.ToString();
+            }
+        }
+
+        public bool deleteCard(string IdCard)
+        {
+            var flag = false;
+            try
+            {
+                var card = dao.Card.FirstOrDefault(p => p.Card1.Equals(IdCard));
+                if(card != null)
+                {
+                    dao.Card.Remove(card);
+                    dao.SaveChanges();
+                    flag = true;
+                }
+            }
+            catch(Exception ex)
+            {
+                flag = false;
+                ex.Message.ToString();
+            }
+            return flag;
         }
     }
 }

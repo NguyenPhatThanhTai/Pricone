@@ -74,6 +74,21 @@ namespace PriCone.Controllers
             }
         }
 
+        public ActionResult setSection(string flag, string Id)
+        {
+            if (flag.Equals("sectionChiTiet"))
+            {
+                Characters characters = new DAOController().detailChar(Id);
+                return View("sectionChiTiet", characters);
+            }
+            else if (flag.Equals("sectionCard"))
+            {
+                List<Card> listCard = new DAOController().getListCard(Id);
+                return View("sectionCard", listCard);
+            }
+            return null;
+        }
+
         public ActionResult Login()
         {
             return View();

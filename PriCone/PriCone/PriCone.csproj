@@ -214,6 +214,9 @@
     <Content Include="Views\Char\Register.cshtml" />
     <Content Include="Views\Char\comment.cshtml" />
     <Content Include="Views\Adm\cardManager.cshtml" />
+    <Content Include="Views\Adm\getCardDetail.cshtml" />
+    <Content Include="Views\Char\sectionChiTiet.cshtml" />
+    <Content Include="Views\Char\sectionCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

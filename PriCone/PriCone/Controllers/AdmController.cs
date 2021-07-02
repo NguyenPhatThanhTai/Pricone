@@ -209,24 +209,50 @@ namespace PriCone.Controllers
 
         public ActionResult cardManager(string Id)
         {
-            if(Id == null)
+            User u = Session["User"] as User;
+            if (Session["User"] == null || u.Role == false)
             {
-                List<Characters> listChar = new DAOController().getAllChar();
-                ViewBag.listChar = listChar;
-                return View();
+                return RedirectToAction("Login", "Char");
             }
             else
             {
-                List<Card> list = new DAOController().getCard(Id);
-                List<Characters> listChar = new DAOController().getAllChar();
-                ViewBag.MH = new DAOController().getCardDetail("MH", Id);
-                ViewBag.listChar = listChar;
-                return View(list);
+                if (Id == null)
+                {
+                    var viewModel = new addCard
+                    {
+                        listChar = new DAOController().getAllChar(),
+                    };
+                    return View(viewModel);
+                }
+                else
+                {
+                    var viewModel = new addCard
+                    {
+                        CharId = Id,
+                        listChar = new DAOController().getAllChar(),
+                        MH = new DAOController().getCardDetail("MH", Id),
+                        MD = new DAOController().getCardDetail("MD", Id),
+                        MX = new DAOController().getCardDetail("MX", Id),
+                    };
+                    return View(viewModel);
+                }
             }
         }
 
+        public ActionResult getCardDetail(string Id)
+        {
+            var viewModel = new addCard
+            {
+                CharId = Id,
+                listCard = new DAOController().getAllCard("CA", Id),
+                MH = new DAOController().getCardDetail("MH", Id),
+                MD = new DAOController().getCardDetail("MD", Id),
+                MX = new DAOController().getCardDetail("MX", Id),
+            };
+            return View(viewModel);
+        }
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult addCardDetail(addCard addCard)
         {
             if(addCard == null)
@@ -247,28 +273,70 @@ namespace PriCone.Controllers
 
                 string MaAnh = addCard.flag + day + "" + Min + "" + sec;
 
+                //Xóa ảnh cũ đi nếu có
+                try
+                {
+                    string path = System.Web.Hosting.HostingEnvironment.MapPath("Images\\charCard" + addCard.flag + addCard.CharId + ".png");
+                    FileInfo file = new FileInfo(path);
+                    if (file.Exists)//check file exsit or not  
+                    {
+                        file.Delete();
+                    }
+                }
+                catch (Exception ioExp)
+                {
+                    Console.WriteLine(ioExp.Message);
+                }
+
                 //lấy ảnh đã chọn từ front-end
                 string fileName = System.IO.Path.GetFileNameWithoutExtension(addCard.Card.FileName);
                 //string extension = System.IO.Path.GetExtension(create.ImageFile.FileName);
                 fileName = fileName + ".png";
                 string pathSave = "~/Images/charCard/" + fileName;
-                fileName = System.IO.Path.Combine(Server.MapPath("~/Images/charCard/"), addCard.flag + addCard.CharId + ".png");
+                var flag = addCard.flag;
+                if (addCard.flag.Equals("CA"))
+                {
+                    flag = Min + sec + addCard.flag;
+                }
+
+                fileName = System.IO.Path.Combine(Server.MapPath("~/Images/charCard/"), flag + addCard.CharId + ".png");
                 addCard.Card.SaveAs(fileName);
 
                 Card card = new Card();
                 card.CardId = MaAnh;
                 card.CharId = addCard.CharId;
-                card.Card1 = addCard.flag + addCard.CharId + ".png";
+                card.Card1 = flag + addCard.CharId + ".png";
 
                 if (new DAOController().addCardDetail(card))
                 {
-                    return RedirectToAction("cardManager", "Adm");
+                    return RedirectToAction("cardManager", "Adm", new { Id = addCard.CharId });
                 }
                 else
                 {
                     ModelState.AddModelError("", "Có lỗi xảy ra rồi");
-                    return RedirectToAction("cardManager", "Adm");
+                    return RedirectToAction("cardManager", "Adm", new { Id = addCard.CharId });
                 }
+            }
+        }
+
+        [HttpPost]
+        public ActionResult deleteCard(string IdCard)
+        {
+            //Xóa ảnh cũ đi nếu có
+            if (new DAOController().deleteCard(IdCard))
+            {
+                string path = System.Web.Hosting.HostingEnvironment.MapPath("~/Images/charCard/" + IdCard);
+                FileInfo file = new FileInfo(path);
+                if (file.Exists)//check file exsit or not  
+                {
+                    file.Delete();
+                }
+                return RedirectToAction("cardManager", "Adm");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Có lỗi xảy ra rồi");
+                return RedirectToAction("cardManager", "Adm");
             }
         }
     }

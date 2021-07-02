@@ -14,23 +14,23 @@
                     <div id="logo" class="active" onclick="openNav()"><a href="#">&#9776; </a></div>
                 </div>
                 <div id="img-left">
-                    <img id="logo-image" src="~/Content/Wiki-wordmark.png">
-                </div>
-                <div id="img-left">
                     <h2 style="color: rgba(187, 93, 196, 0.692); text-align: center;">Giới thiệu hệ thống nhân vật</h2>
                 </div>
                 <div id="login-right">
                     <a href="@Url.Action(ViewBag.Login,"Char")">@ViewBag.CheckLogin</a>
                     <a style="display: @ViewBag.display;" href="@Url.Action("Logout","Char")">Đăng xuất</a>
                 </div>
-                @*<a href="#news">News</a>
-                    <a href="#contact">Contact</a>
-                    <a href="#about">About</a>*@
+                <div id="img-left">
+                    <img id="logo-image" src="~/Content/Wiki-wordmark.png">
+                </div>
+                <!-- <a href="#news">News</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About</a> -->
             </div>
         </header>
 
         <div id="mySidenav" class="sidenav">
-            <a href="#">Trang chủ</a>
+            <a href="@Url.Action("TrangChu", "Char")">Trang chủ</a>
             <a href="#">Liên hệ</a>
             <a href="#">Đăng nhập</a>
             <a href="#">Đăng ký</a>
@@ -39,7 +39,7 @@
         </div>
 
         <div class="ThanhChucNang">
-            <a href="#">Trang chủ</a>
+            <a href="@Url.Action("TrangChu", "Char")">Trang chủ</a>
             <a href="#">Cốt truyện</a>
             <a href="#">Thông tin nhân vật</a>
             <a href="#">các bộ trang bị</a>

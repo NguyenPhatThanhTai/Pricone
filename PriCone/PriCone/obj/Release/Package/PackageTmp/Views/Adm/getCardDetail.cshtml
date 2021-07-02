@@ -1,0 +1,139 @@
+﻿@model PriCone.Models.viewModels.addCard
+@{
+    Layout = null;
+}
+
+<div id="detail-picture">
+    @Html.ValidationSummary(true, null)
+    @using (Html.BeginForm("addCardDetail", "Adm", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div id="pic">
+            <div id="detail">
+                <p>Mùa hè</p>
+            </div>
+            <div id="image">
+                @if (Model.MH != null)
+                {
+                    <img id="load1" src="~/Images/charCard/@Model.MH.Card1" />
+                }
+                else
+                {
+                    <img id="load1" src="~/Images/charCard/default.png" />
+                }
+            </div>
+            <div id="detail">
+                <input name="Card" type="file" accept="image/*" onchange="loadFile(event, 'load1')" required>
+            </div>
+            <input type="hidden" value="MH" name="flag" />
+            <input type="hidden" id="hiddencharid" value="@Model.CharId" name="CharId" />
+            <input class="btn btn-success" type="submit" value="Save">
+        </div>
+    }
+    @Html.ValidationSummary(true, null)
+    @using (Html.BeginForm("addCardDetail", "Adm", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div id="pic">
+            <div id="detail">
+                <p>Mùa xuân</p>
+            </div>
+            <div id="image">
+                @if (Model.MX != null)
+                {
+                    <img id="load2" src="~/Images/charCard/@Model.MX.Card1" />
+                }
+                else
+                {
+                    <img id="load2" src="~/Images/charCard/default.png" />
+                }
+            </div>
+            <div id="detail">
+                <input name="Card" type="file" accept="image/*" onchange="loadFile(event, 'load2')" required>
+            </div>
+            <input type="hidden" value="MX" name="flag" />
+            <input type="hidden" id="hiddencharid" value="@Model.CharId" name="CharId" />
+            <input class="btn btn-success" type="submit" value="Save">
+        </div>
+    }
+    @Html.ValidationSummary(true, null)
+    @using (Html.BeginForm("addCardDetail", "Adm", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div id="pic">
+            <div id="detail">
+                <p>Mùa đông</p>
+            </div>
+            <div id="image">
+                @if (Model.MD != null)
+                {
+                    <img id="load3" src="~/Images/charCard/@Model.MD.Card1" />
+                }
+                else
+                {
+                    <img id="load3" src="~/Images/charCard/default.png" />
+                }
+            </div>
+            <div id="detail">
+                <input id="card" name="Card" type="file" accept="image/*" onchange="loadFile(event, 'load3')" required>
+            </div>
+            <input id="flag" type="hidden" value="MD" name="flag" />
+            <input type="hidden" id="hiddencharid" value="@Model.CharId" name="CharId" />
+            <input class="btn btn-success" type="submit" value="Save">
+        </div>
+    }
+</div>
+<div id="tieude">
+    <h4>Card của nhân vật</h4>
+</div>
+<div id="addCard">
+    @Html.ValidationSummary(true, null)
+    @using (Html.BeginForm("addCardDetail", "Adm", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <img id="addNewCard" src="https://redive.estertion.win/card/full/102961.webp@w400">
+        <input name="Card" type="file" accept="image/*" onchange="loadFile(event, 'addNewCard')">
+        <input id="flag" type="hidden" value="CA" name="flag" />
+        <input type="hidden" id="hiddencharid" value="@Model.CharId" name="CharId" />
+        <button type="submit" class="btn btn-success">Thêm card</button>
+    }
+</div>
+<div id="card-picture">
+    @foreach (var items in Model.listCard)
+    {
+        <div id=card>
+            <img src="~/Images/charCard/@items.Card1">
+            <br /><br />
+            <input class="btn btn-success" type="submit" value="@items.Card1" />
+        </div>
+    }
+</div>
+
+<script>
+    var loadFile = function (event, load) {
+        var output = document.getElementById(load);
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function () {
+            URL.revokeObjectURL(output.src) // free memory
+        }
+    };
+</script>
+
+<script>
+    $("#card input").click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var content = {
+            'IdCard': $(this).val()
+            };
+        $.ajax({
+            url: "/Adm/deleteCard",
+            type: "POST",
+            data: content,
+/*            contentType: "application/json",*/
+            success: function (data) {
+                $('.loadHere').load('@Url.Action("getCardDetail", "Adm")?Id=' + @Model.CharId);
+            }
+        })
+    })
+</script>

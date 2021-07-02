@@ -372,8 +372,12 @@ body {
         width: 50px;
     }
 
+
+
 .pic-contain {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
     .pic-contain img {

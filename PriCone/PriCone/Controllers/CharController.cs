@@ -86,6 +86,11 @@ namespace PriCone.Controllers
                 List<Card> listCard = new DAOController().getListCard(Id);
                 return View("sectionCard", listCard);
             }
+            else if (flag.Equals("sectionSkill")) 
+            {
+                //Lấy list sau
+                return View("sectionSkill");
+            }
             return null;
         }
 

@@ -118,6 +118,9 @@ namespace PriCone.Models
                 {
                     var res = dao.Feedback.Where(p => p.CharId.Equals(Id));
                     dao.Feedback.RemoveRange(res);
+                    var card = dao.Card.Where(p => p.CharId.Equals(Id));
+                    dao.Card.RemoveRange(card);
+                    //Xóa skill ở đây
                     dao.Characters.Remove(result);
                     dao.SaveChanges();
                     flag = true;

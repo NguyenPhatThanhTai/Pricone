@@ -14,11 +14,11 @@
 
 <div id="name">@Model.CharName</div>
 <div id="thanhchitiet">
-    <a href="javascript:void(0);" onclick="setSection('sectionChiTiet', '@Model.CharId')">Thông tin chung</a>
-    <a href="javascript:void(0);" onclick="setSection('sectionCard', '@Model.CharId')">Card</a>
-    <a href="javascript:void(0);">Hình ảnh</a>
-    <a href="javascript:void(0);">Thẻ hình</a>
-    <a href="javascript:void(0);">Cốt truyện</a>
+    <a class="btn active" href="javascript:void(0);" onclick="setSection('sectionChiTiet', '@Model.CharId')">Thông tin chung</a>
+    <a class="btn" href="javascript:void(0);" onclick="setSection('sectionCard', '@Model.CharId')">Hình ảnh</a>
+    <a class="btn" href="javascript:void(0);" onclick="setSection('sectionSkill', '@Model.CharId')">Kĩ năng</a>
+    <a class="btn" href="javascript:void(0);">Cốt truyện</a>
+    <a class="btn" href="javascript:void(0);">Comming soon...</a>
 </div>
 <div id="ThongTinNhanVat">
     @*  load ở đây    *@
@@ -87,6 +87,19 @@
 <script>
     function setSection(flag, Id) {
         $('#ThongTinNhanVat').load('@Url.Action("setSection", "Char")?flag=' + flag + '&&Id=' + Id);
+    }
+</script>
+
+<script>
+    // Add active class to the current button (highlight it)
+    var header = document.getElementById("thanhchitiet");
+    var btns = header.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace("active", "");
+            this.className += "active";
+        });
     }
 </script>
 

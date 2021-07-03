@@ -163,6 +163,7 @@
     <Content Include="Content\cardManagerStyle.css" />
     <Content Include="Content\charStyle.css" />
     <Content Include="Content\detailCharStyle.css" />
+    <Content Include="Content\FullArtMuimi.png" />
     <Content Include="Content\GourmetEdificeHeader.png" />
     <Content Include="Content\home_kv_chara.png" />
     <Content Include="Content\loginStyle.css" />
@@ -217,6 +218,7 @@
     <Content Include="Views\Adm\getCardDetail.cshtml" />
     <Content Include="Views\Char\sectionChiTiet.cshtml" />
     <Content Include="Views\Char\sectionCard.cshtml" />
+    <Content Include="Views\Char\sectionSkill.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

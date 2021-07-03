@@ -175,22 +175,17 @@ body {
             padding: 10px;
         }
 
-            #main #thanhchitiet a:hover {
-                text-decoration: dotted;
-                background-color: #e46ab1;
-                color: white;
-            }
+        #main #thanhchitiet a:hover {
+            text-decoration: dotted;
+            background-color: #e46ab1;
+            color: white;
+        }
 
 
 /* #main #ThongTinNhanVat #content {
             /* float: left; */
-
-
 /* width: 800px; */
-
-
 /* } */
-
 */ #main #ThongTinNhanVat #content p {
     text-indent: 3em;
     margin-left: 30px;
@@ -383,6 +378,48 @@ body {
     .pic-contain img {
         margin: 10px;
     }
+
+.Skill-Containner {
+    border: 3px solid rgb(202, 117, 117);
+    background-color: rgba(243, 180, 180, 0.7);
+    border-radius: 25px;
+    margin: 30px 0px 30px 0px;
+    padding: 30px;
+    text-align: center;
+}
+
+    .Skill-Containner h3 {
+        color: red;
+    }
+
+    .Skill-Containner p {
+        font-weight: normal;
+        font-size: 20px;
+        color: white;
+    }
+
+    .Skill-Containner img {
+        width: 70%;
+        border-radius: 30px;
+        margin: 20px;
+    }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f0b4b4;
+}
 
 @media screen and (max-width: 600px) {
     #main {

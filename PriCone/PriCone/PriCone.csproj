@@ -178,7 +178,25 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\charCard\2004CACH021448.png" />
+    <Content Include="Images\charCard\2052CACH021448.png" />
+    <Content Include="Images\charCard\2108CACH021448.png" />
+    <Content Include="Images\charCard\2124CACH021448.png" />
+    <Content Include="Images\charCard\2148CACH021448.png" />
     <Content Include="Images\charCard\default.png" />
+    <Content Include="Images\charCard\MDCH021118.png" />
+    <Content Include="Images\charCard\MDCH021448.png" />
+    <Content Include="Images\charCard\MHCH021118.png" />
+    <Content Include="Images\charCard\MHCH021448.png" />
+    <Content Include="Images\charCard\MXCH021118.png" />
+    <Content Include="Images\charCard\MXCH021448.png" />
+    <Content Include="Images\charICon\CH021118.jpg" />
+    <Content Include="Images\charICon\CH021448.jpg" />
+    <Content Include="Images\charICon\CH222509.jpg" />
+    <Content Include="Images\charICon\CH222616.jpg" />
+    <Content Include="Images\charICon\CH222705.jpg" />
+    <Content Include="Images\charICon\CH222752.jpg" />
+    <Content Include="Images\charICon\CH222848.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
@@ -222,7 +240,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\charICon\" />
     <Folder Include="Picture\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="DAO-Web.config Connection String" description="DAO Connection String used in web.config by the application to access the database." defaultValue="data source=TAEITAEI;initial catalog=PrincessConnect;uid=sa;pwd=123;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="D:\\PriCone\\PriCone\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DAO']/@connectionString" />
+  <parameter name="DAO-Web.config Connection String" description="DAO Connection String used in web.config by the application to access the database." defaultValue="Data Source=SQL5101.site4now.net;Initial Catalog=db_a76d87_thanhtai;User Id=db_a76d87_thanhtai_admin;Password=taitutoi952000;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ngtha\\source\\repos\\NguyenPhatThanhTai\\Pricone\\PriCone\\PriCone\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DAO']/@connectionString" />
   </parameter>
 </parameters>

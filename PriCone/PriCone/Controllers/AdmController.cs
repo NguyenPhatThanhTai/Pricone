@@ -99,7 +99,21 @@ namespace PriCone.Controllers
                 characters.Likes = 0;
                 characters.Released = NgayThem;
 
-                if (new DAOController().saveChar(characters))
+                var skillId = "SK" + day + "" + Min + "" + sec;
+
+                Skill skill = new Skill
+                {
+                    CharId = MaNhanVat,
+                    SkillId = skillId,
+                    EnSkill = "Chưa thiết lập",
+                    EnUB = "Chưa thiết lập",
+                    ExSkill = "Chưa thiết lập",
+                    Skill1 = "Chưa thiết lập",
+                    Skill2 = "Chưa thiết lập",
+                    UB = "Chưa thiết lập"
+                };
+
+                if (new DAOController().saveChar(characters) && new DAOController().addSkill(skill))
                 {
                     return RedirectToAction("ThemNhanVat", "Adm");
                 }
@@ -192,7 +206,7 @@ namespace PriCone.Controllers
             {
                 if(new DAOController().deleteChar(Id))
                 {
-                    return RedirectToAction("TrangChu", "Char");
+                    return RedirectToAction("ThemNhanVat", "Adm");
                 }
                 else
                 {
@@ -339,5 +353,44 @@ namespace PriCone.Controllers
                 return RedirectToAction("cardManager", "Adm");
             }
         }
+
+        public ActionResult skillManager()
+        {
+            var charList = new DAOController().getAllChar();
+            return View(charList);
+        }
+
+        public ActionResult getSkill(string Id)
+        {
+            var skill = new DAOController().getSkill(Id);
+            return View("getSkill", skill);
+        }
+
+        public ActionResult updateSkill(Skill skill)
+        {
+            Skill ski = new Skill
+            {
+                SkillId = skill.SkillId,
+                EnSkill = skill.EnSkill,
+                EnUB = skill.EnUB,
+                ExSkill = skill.ExSkill,
+                Skill1 = skill.Skill1,
+                Skill2 = skill.Skill2,
+                UB = skill.UB
+            };
+            if (new DAOController().updateSkill(ski))
+            {
+                var charList = new DAOController().getAllChar();
+                return RedirectToAction("skillManager", charList);
+            }
+            else
+            {
+                ModelState.AddModelError("", "Có lỗi xảy ra rồi");
+                var charList = new DAOController().getAllChar();
+                return RedirectToAction("skillManager", charList);
+            }
+        }
     }
+
+    //Xóa tất cả hình, xài vòng for xóa card và xóa icon theo charId
 }

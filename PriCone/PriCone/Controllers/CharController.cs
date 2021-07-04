@@ -88,8 +88,8 @@ namespace PriCone.Controllers
             }
             else if (flag.Equals("sectionSkill")) 
             {
-                //Lấy list sau
-                return View("sectionSkill");
+                Skill skill = new DAOController().getSkill(Id);
+                return View("sectionSkill", skill);
             }
             return null;
         }

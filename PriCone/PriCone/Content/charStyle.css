@@ -209,7 +209,6 @@
             background-color: pink;
             border: 2px solid rgb(241, 149, 164);
             color: white;
-            box-shadow: 5px 10px 20px 20px rgb(241, 149, 164);
             transition: 0.5s;
             margin: 10px;
             transform: scale(1);
@@ -293,17 +292,13 @@
 
 #visisted {
     margin-top: 30px;
-    padding-right: 35px;
-    padding-left: 20px;
-    border: 5px solid rgb(224, 112, 130);
-    background-color: rgba(219, 123, 139, 0.575);
-    width: 270px;
+    width: 350px;
     height: fit-content;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    box-shadow: 5px 10px 10px 10px rgba(185, 113, 125, 0.589);
     border-radius: 30px;
+    text-align: center;
 }
 
     #visisted #count {
@@ -325,11 +320,48 @@
 
 #facebook {
     text-align: center;
-    margin-top: 30px;
     grid-area: fb;
     width: 320px;
     height: 500px;
-    box-shadow: 5px 10px 8px 10px rgba(63, 123, 163, 0.589);
+    margin: 10px 0px 10px 10px;
+}
+
+#maps {
+    text-align: center;
+    grid-area: fb;
+    width: 320px;
+    height: 500px;
+    margin: 10px 0px 10px 10px ;
+}
+
+.footer {
+    float: left;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.548);
+    margin-top: 10px;
+}
+
+.center_footer{
+    width: 450px;
+    float: left;
+    color: white;
+    margin: 10px;
+}
+
+.left_footer {
+    float: left;
+    margin: 10px;
+}
+
+    .left_footer img{
+        margin: 30px;   
+    }
+
+.right_footer {
+    width: 300px;
+    float: left;
+    color: white;
+    margin: 10px;
 }
 
 @media (max-width:767px) {
@@ -426,8 +458,30 @@
     #facebook {
         display: none;
     }
-}
 
+    .center_footer {
+        width: 300px;
+        float: left;
+        color: white;
+        margin: 10px;
+    }
+
+    .left_footer {
+        float: left;
+        margin: 10px;
+    }
+
+        .left_footer img {
+            margin: 30px;
+        }
+
+    .right_footer {
+        width: 300px;
+        float: left;
+        color: white;
+        margin: 10px;
+    }
+}
 @media only screen and (max-width: 1366px) and (min-width: 768px) {
     #main #header-main {
         display: grid;
@@ -435,6 +489,7 @@
     }
 
     #content {
-        width: 500px;
+        width: 600px;
     }
 }
+

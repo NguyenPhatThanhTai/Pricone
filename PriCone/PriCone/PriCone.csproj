@@ -171,6 +171,7 @@
     <Content Include="Content\nen.png" />
     <Content Include="Content\Nozomi-christmas-sprite-normal.png" />
     <Content Include="Content\registerStyle.css" />
+    <Content Include="Content\skillManagerStyle.css" />
     <Content Include="Content\Wiki-background.jpg" />
     <Content Include="Content\Wiki-wordmark.png" />
     <Content Include="Content\wp5828620.png" />
@@ -219,6 +220,8 @@
     <Content Include="Views\Char\sectionChiTiet.cshtml" />
     <Content Include="Views\Char\sectionCard.cshtml" />
     <Content Include="Views\Char\sectionSkill.cshtml" />
+    <Content Include="Views\Adm\skillManager.cshtml" />
+    <Content Include="Views\Adm\getSkill.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

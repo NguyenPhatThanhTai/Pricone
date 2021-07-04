@@ -315,5 +315,65 @@ namespace PriCone.Models
             }
             return flag;
         }
+
+        public Skill getSkill(string Id)
+        {
+            var Skill = dao.Skill.FirstOrDefault(p => p.CharId.Equals(Id));
+            try {
+                if(Skill != null)
+                {
+                    return Skill;
+                }
+                else
+                {
+                    return Skill;
+                }
+            }catch(Exception ex)
+            {
+                ex.Message.ToString();
+                return Skill;
+            }
+
+        }
+
+        public bool addSkill(Skill skill)
+        {
+            try
+            {
+                dao.Skill.Add(skill);
+                dao.SaveChanges();
+                return true;
+            }catch(Exception ex)
+            {
+                ex.Message.ToString();
+                return false;
+            }
+        }
+
+        public bool updateSkill(Skill skill)
+        {
+            bool flag = false;
+            try 
+            {
+                var ski = dao.Skill.FirstOrDefault(p => p.SkillId.Equals(skill.SkillId));
+                if(ski != null)
+                {
+                    ski.EnSkill = skill.EnSkill;
+                    ski.EnUB = skill.EnUB;
+                    ski.ExSkill = skill.ExSkill;
+                    ski.Skill1 = skill.Skill1;
+                    ski.Skill2 = skill.Skill2;
+                    ski.UB = skill.UB;
+
+                    dao.SaveChanges();
+                    flag = true;
+                }
+            }catch(Exception ex)
+            {
+                ex.Message.ToString();
+                flag = false;
+            }
+            return flag;
+        }
     }
 }

@@ -1,8 +1,10 @@
-﻿using PriCone.Models;
+﻿using Facebook;
+using PriCone.Models;
 using PriCone.Models.dataModels;
 using PriCone.Models.viewModels;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -214,6 +216,77 @@ namespace PriCone.Controllers
                 List<Feedback> feedbacks = new DAOController().comment(Id);
                 return RedirectToAction("comment", feedbacks);
             }
+        }
+        private Uri RedirectUri
+        {
+            get
+            {
+                var uriBuilder = new UriBuilder(Request.Url);
+                uriBuilder.Query = null;
+                uriBuilder.Fragment = null;
+                uriBuilder.Path = Url.Action("FacebookCallback");
+                return uriBuilder.Uri;
+            }
+        }
+        public ActionResult LoginFacebook()
+        {
+            var fb = new FacebookClient();
+            var loginUrl = fb.GetLoginUrl(new
+            {
+                client_id = ConfigurationManager.AppSettings["FbAppID"],
+                client_secret = ConfigurationManager.AppSettings["FbAppSecret"],
+                redirect_uri = RedirectUri.AbsoluteUri,
+                response_type = "code",
+                scope = "email",
+            });
+            return Redirect(loginUrl.AbsoluteUri);
+        }
+        public ActionResult FacebookCallback(string code)
+        {
+            var fb = new FacebookClient();
+            dynamic result = fb.Post("oauth/access_token", new
+            {
+                client_id = ConfigurationManager.AppSettings["FbAppID"],
+                client_secret = ConfigurationManager.AppSettings["FbAppSecret"],
+                redirect_uri = RedirectUri.AbsoluteUri,
+                code = code
+            });
+            
+            var accessToken = result.access_token;
+            Session["AccessToken"] = accessToken;
+            fb.AccessToken = accessToken();
+            if (!string.IsNullOrEmpty(accessToken))
+            {
+                dynamic me = fb.Get("me?fields=first_name,middle_name,last_name,id,email");
+                string email = me.email;
+                string userName = me.email;
+                string firstName = me.first_name;
+                string middleName = me.middle_name;
+                string lastName = me.last_name;
+
+                DateTime time = DateTime.Now;
+                string day = DateTime.Now.ToString("dd");
+                string month = DateTime.Now.ToString("MM");
+                string year = DateTime.Now.ToString("yyyy");
+                string Min = DateTime.Now.ToString("mm");
+                string sec = DateTime.Now.ToString("ss");
+
+                string MaNguoiDung = "US" + day + "" + Min + "" + sec;
+
+                var user = new User();
+                user.UserId = MaNguoiDung;
+                user.Username = email;
+                user.Password = "Default";
+                user.FullName = firstName + middleName + lastName;
+                user.Email = email;
+                user.Avatar = "Default";
+                user.Status = true;
+            }
+            else
+            {
+
+            }
+            return RedirectToAction("Trang Chu", "Char");
         }
     }
 }

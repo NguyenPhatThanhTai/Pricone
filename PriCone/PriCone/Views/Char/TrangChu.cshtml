@@ -6,7 +6,6 @@
 
 @section header{
     <link rel="stylesheet" href="~/Content/charStyle.css">
-    <link rel="stylesheet" href="~/Content/layoutChar.css">
 }
 
 <div id="header-main">
@@ -72,8 +71,10 @@
                 {
                     if (ite.GuildId.Equals(items.GuildId))
                     {
+                        Random r = new Random();
+                        var pic = @ite.Icon + "?" + (r.Next(9, 9999) * 3.14);
                         <a href="@Url.Action("ChiTiet", "Char", new { Id = ite.CharId })">
-                            <img src="~/Images/charICon/@ite.Icon" alt="">
+                            <img src="~/Images/charICon/@pic" alt="@pic">
                             <h3>@ite.CharName</h3>
                         </a>
                     }
@@ -118,12 +119,7 @@
                 <img width="300" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/f77a4946-8ae3-447e-884b-97fd0e1ddb57/ddv97kc-b1640659-8c21-4be1-b1cf-d5365497d6ba.png">
             </div>
         </div>
-        <div id="facebook">
-            <img width="200" src="https://toppng.com/public/uploads/thumbnail/comingsoon-gif-anime-coming-soo-11563392254fix75m2abj.png">
-        </div>
-        <div id="facebook">
-            <img width="200" src="https://toppng.com/public/uploads/thumbnail/comingsoon-gif-anime-coming-soo-11563392254fix75m2abj.png">
-        </div>
+            <iframe id="facebook" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpriconne.en&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="320" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
     </div>
 </div>
 

@@ -210,14 +210,12 @@ body {
         flex-wrap: wrap;
         justify-content: center;
         background-color: rgb(123, 208, 219);
-        padding: 10px;
     }
 
         #main #ThongTinNhanVat #img-right #button-img a {
             padding: 10px;
             color: #3b3b3b;
             text-decoration: none;
-            background-color: transparent;
             font-size: 17px;
         }
 

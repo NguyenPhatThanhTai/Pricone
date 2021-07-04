@@ -245,8 +245,9 @@
 
     #content p {
         display: block;
-        background-color: rgb(144, 211, 231);
-        box-shadow: 5px 10px 8px 10px rgba(63, 123, 163, 0.589);
+        background-color: rgba(211, 141, 141, 0.685);
+        border-radius: 30px;
+        /* box-shadow: 5px 10px 8px 10px rgba(65, 90, 107, 0.589); */
         color: white;
         text-align: center;
         font-size: 30px;
@@ -292,7 +293,7 @@
 
 #visisted {
     margin-top: 30px;
-    padding-right: 20px;
+    padding-right: 35px;
     padding-left: 20px;
     border: 5px solid rgb(224, 112, 130);
     background-color: rgba(219, 123, 139, 0.575);
@@ -302,6 +303,7 @@
     flex-wrap: wrap;
     justify-content: center;
     box-shadow: 5px 10px 10px 10px rgba(185, 113, 125, 0.589);
+    border-radius: 30px;
 }
 
     #visisted #count {
@@ -324,30 +326,19 @@
 #facebook {
     text-align: center;
     margin-top: 30px;
-    padding-right: 30px;
-    padding-left: 30px;
     grid-area: fb;
-    background-color: #81818180;
-    width: 270px;
-    height: 300px;
-    border: 5px solid rgb(78, 146, 209);
+    width: 320px;
+    height: 500px;
     box-shadow: 5px 10px 8px 10px rgba(63, 123, 163, 0.589);
 }
 
-    #facebook img {
-        text-align: center;
-        margin-top: 50px;
+@media (max-width:767px) {
+    .social-icons li.title {
+        display: block;
+        margin-right: 0;
+        font-weight: 600
     }
-/* footer */
-
-footer {
-    background-color: #81818196;
-    margin-left: 150px;
-    margin-right: 150px;
-    margin-top: 10px;
-    padding: 30px;
 }
-/* reponsible */
 
 @media only screen and (max-width: 600px) {
     #main {

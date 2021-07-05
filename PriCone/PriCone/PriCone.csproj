@@ -159,6 +159,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\37773f088b060b34f0ac4686b1fbeec4.png" />
     <Content Include="Content\adminStyle.css" />
     <Content Include="Content\cardManagerStyle.css" />
     <Content Include="Content\charStyle.css" />
@@ -182,6 +183,7 @@
     <Content Include="Images\charCard\default.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\62K58PICb88i68HEwVnm5_PIC2018.gif" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

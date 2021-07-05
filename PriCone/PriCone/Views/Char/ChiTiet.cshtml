@@ -45,11 +45,17 @@
 </div>
 
 <div id="modal-body"></div>
+<div class="loading" id="load">
+    <img src="~/Content/62K58PICb88i68HEwVnm5_PIC2018.gif">
+</div>
 
 <script>
     $(document).ready(function (e) {
-        //e.preventDefault();
-        //e.stopPropagation();
+        document.getElementById('load').style.display = "block";
+        setTimeout(
+            function () {
+                document.getElementById('load').style.display = "none";
+            }, 3000);
         $('#modal-body').load('@Url.Action("comment", "Char")?Id=' + '@Model.CharId');
         $('#ThongTinNhanVat').load('@Url.Action("setSection", "Char")?flag=sectionChiTiet&&Id=' + '@Model.CharId');
     })

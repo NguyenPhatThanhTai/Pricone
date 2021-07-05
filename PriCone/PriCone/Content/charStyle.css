@@ -48,9 +48,11 @@
 .topnav {
     transition: 0.5s;
     overflow: hidden;
-    background-color: white;
     border-top: 5px solid pink;
     height: 80px;
+    background-image: url("37773f088b060b34f0ac4686b1fbeec4.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
     .topnav #logo-left {
@@ -388,6 +390,7 @@
         #header .topnav #img-left img {
             text-align: center;
             width: 325px;
+            margin-left: 10px;
         }
 
         #header .topnav #img-left h2 {
@@ -408,7 +411,7 @@
         margin: 0;
         float: none;
         text-align: center;
-        height: 120px;
+        height: 130px;
     }
 
         .topnav h1 {

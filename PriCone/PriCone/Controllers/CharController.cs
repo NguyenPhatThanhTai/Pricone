@@ -3,17 +3,21 @@ using PriCone.Models.dataModels;
 using PriCone.Models.viewModels;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace PriCone.Controllers
 {
     public class CharController : Controller
     {
         [HttpGet]
-        public ActionResult TrangChu()
+        public ActionResult TrangChu(int? page)
         {
+            if (page == null) page = 1;
+            List<Guild> pagedList = new DAOController().guildListPagedList();
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+
             if (Session["User"] == null)
             {
                 ViewBag.Login = "Login";
@@ -34,10 +38,10 @@ namespace PriCone.Controllers
                     ViewBag.CheckLogin = u.FullName + " - User";
                 }
             }
-            List<Guild> guildList = new DAOController().getAllGuild();
-            ViewBag.guild = guildList;
-            List<Characters> list = new DAOController().getAllChar();
-            return View(list);
+            //List<Guild> guildList = new DAOController().getAllGuild();
+            //ViewBag.guild = guildList;
+            //List<Characters> list = new DAOController().getAllChar();
+            return View(pagedList.ToPagedList(pageNumber, pageSize));
         }
 
         [HttpGet]

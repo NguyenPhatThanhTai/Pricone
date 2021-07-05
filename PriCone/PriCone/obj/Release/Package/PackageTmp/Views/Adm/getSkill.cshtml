@@ -1,0 +1,47 @@
+﻿@model PriCone.Models.dataModels.Skill
+@{
+    Layout = null;
+}
+
+@Html.ValidationSummary(true, null)
+@using (Html.BeginForm("updateSkill", "Adm", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        <label for="usr">Kỹ năng Union Burst:</label>
+        <input name="UB" type="text" size="50" class="form-control" id="usr" placeholder="Kỹ năng Union Burst" value="@Model.UB" required>
+        <input name="SkillId" type="hidden" value="@Model.SkillId"/>
+    </div>
+    <div class="form-group">
+        <label for="pwd">Kỹ năng 1:</label>
+        <input name="Skill1" type="text" size="30" class="form-control" id="pwd" placeholder="Kỹ năng 1" value="@Model.Skill1" required>
+    </div>
+    <div class="form-group">
+        <label for="pwd">Kỹ năng 2:</label>
+        <input name="Skill2" type="text" size="20" class="form-control" id="pwd" placeholder="Kỹ năng 2" value="@Model.Skill2" required>
+    </div>
+    <div class="form-group">
+        <label for="pwd">Kỹ năng Ex:</label>
+        <input name="ExSkill" type="text" class="form-control" id="pwd" placeholder="Kỹ năng Ex" value="@Model.ExSkill" required>
+    </div>
+    <div class="form-group">
+        <label for="pwd">Kỹ năng Enhanced:</label>
+        <input name="EnSkill" type="text" size="15" class="form-control" id="pwd" placeholder="Kỹ năng Enhanced" value="@Model.EnSkill" required>
+    </div>
+    <div class="form-group">
+        <label for="pwd">Kỹ năng Enhanced Union Burst:</label>
+        <input name="EnUB" type="text" size="25" class="form-control" id="pwd" placeholder="Kỹ năng Enhanced Union Burst" value="@Model.EnUB" required>
+    </div>
+    <div class="form-group">
+        <input type="submit" size="25" class="form-control" id="submit" value="Hoàn thành" required>
+    </div>
+}
+
+<script>
+    var loadFile = function (event) {
+        var output = document.getElementById('icon');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function () {
+            URL.revokeObjectURL(output.src) // free memory
+        }
+    };
+</script>

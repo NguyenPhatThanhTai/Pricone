@@ -6,7 +6,6 @@
 
 @section header{
     <link rel="stylesheet" href="~/Content/detailCharStyle.css">
-    <link rel="stylesheet" href="~/Content/layoutChar.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -46,13 +45,19 @@
 </div>
 
 <div id="modal-body"></div>
+<div class="loading" id="load">
+    <img src="~/Content/62K58PICb88i68HEwVnm5_PIC2018.gif">
+</div>
 
 <script>
     $(document).ready(function (e) {
-        //e.preventDefault();
-        //e.stopPropagation();
+        document.getElementById('load').style.display = "block";
+        setTimeout(
+            function () {
+                document.getElementById('load').style.display = "none";
+            }, 3000);
         $('#modal-body').load('@Url.Action("comment", "Char")?Id=' + '@Model.CharId');
-        $('#ThongTinNhanVat').load('@Url.Action("setSection", "Char")?flag=sectionChiTiet&&Id='+'@Model.CharId');
+        $('#ThongTinNhanVat').load('@Url.Action("setSection", "Char")?flag=sectionChiTiet&&Id=' + '@Model.CharId');
     })
 </script>
 
@@ -80,26 +85,13 @@
 
 <script>
     function chancePic(flag) {
-        $('#myImage').attr('src', '/Images/charCard/' + flag +@Model.CharId +'.png');
+        $('#myImage').attr('src', '/Images/charCard/' + flag + '@Model.CharId' + '.png?' + Math.random()+'');
     }
 </script>
 
 <script>
     function setSection(flag, Id) {
         $('#ThongTinNhanVat').load('@Url.Action("setSection", "Char")?flag=' + flag + '&&Id=' + Id);
-    }
-</script>
-
-<script>
-    // Add active class to the current button (highlight it)
-    var header = document.getElementById("thanhchitiet");
-    var btns = header.getElementsByClassName("btn");
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function () {
-            var current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace("active", "");
-            this.className += "active";
-        });
     }
 </script>
 

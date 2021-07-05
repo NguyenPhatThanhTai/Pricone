@@ -1,0 +1,71 @@
+﻿@model List<PriCone.Models.dataModels.Characters>
+@{
+    ViewBag.Title = "cardManager";
+    Layout = "~/Views/Shared/_AdmLayout.cshtml";
+}
+
+@section header{
+    <link rel="stylesheet" href="~/Content/skillManagerStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+}
+
+<div id="table-character">
+    <table id="list-character">
+        <tr>
+            <th>Mã nhân vật</th>
+            <th>Tên nhân vật</th>
+            <th>Hình ảnh</th>
+            <th>Thao tác</th>
+        </tr>
+        @foreach (var items in Model)
+        {
+            <tr>
+                <td>@items.CharId</td>
+                <td>@items.CharName</td>
+                <td><img width="70" src="~/Images/charICon/@items.Icon"></td>
+                <td>
+                    <button class="btn btn-warning" onclick="openPopUp()" value="@items.CharId">Chỉnh sửa</button>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <div style="float: left">
+                <h3>Sửa thông tin nhân vật</h3>
+            </div>
+            <div style="float: right">
+                <span class="close" onclick="closePopUp()">&times;</span>
+            </div>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+            <h3>Princess-Connect-Redive</h3>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openPopUp() {
+        document.getElementById("myModal").style.display = "block ";
+    }
+
+    function closePopUp() {
+        document.getElementById("myModal").style.display = "none ";
+    }
+</script>
+
+<script>
+    $('#list-character button').click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var Id = $(this).val();
+            $('.modal-body').load('@Url.Action("getSkill", "Adm")?Id=' + Id);
+    })
+</script>

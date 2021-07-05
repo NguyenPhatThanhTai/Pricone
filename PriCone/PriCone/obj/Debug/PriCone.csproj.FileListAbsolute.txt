@@ -56,6 +56,8 @@ D:\PriCone\PriCone\bin\EntityFramework.SqlServer.dll
 D:\PriCone\PriCone\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\PriCone\PriCone\bin\Microsoft.Web.Infrastructure.dll
 D:\PriCone\PriCone\bin\Newtonsoft.Json.dll
+D:\PriCone\PriCone\bin\PagedList.dll
+D:\PriCone\PriCone\bin\PagedList.Mvc.dll
 D:\PriCone\PriCone\bin\System.Net.Http.Formatting.dll
 D:\PriCone\PriCone\bin\System.Web.Helpers.dll
 D:\PriCone\PriCone\bin\System.Web.Http.dll
@@ -69,6 +71,8 @@ D:\PriCone\PriCone\bin\System.Web.WebPages.Razor.dll
 D:\PriCone\PriCone\bin\WebGrease.dll
 D:\PriCone\PriCone\bin\EntityFramework.xml
 D:\PriCone\PriCone\bin\EntityFramework.SqlServer.xml
+D:\PriCone\PriCone\bin\PagedList.xml
+D:\PriCone\PriCone\bin\PagedList.Mvc.xml
 D:\PriCone\PriCone\bin\System.Net.Http.Formatting.xml
 D:\PriCone\PriCone\bin\System.Web.Http.xml
 D:\PriCone\PriCone\bin\System.Web.Http.WebHost.xml
@@ -86,4 +90,3 @@ D:\PriCone\PriCone\obj\Debug\PriCone.csproj.CoreCompileInputs.cache
 D:\PriCone\PriCone\obj\Debug\PriCone.csproj.CopyComplete
 D:\PriCone\PriCone\obj\Debug\PriCone.dll
 D:\PriCone\PriCone\obj\Debug\PriCone.pdb
-D:\PriCone\PriCone\obj\Debug\PriCone.csproj.AssemblyReference.cache

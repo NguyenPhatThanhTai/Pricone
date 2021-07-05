@@ -1,4 +1,5 @@
-﻿@model List<PriCone.Models.dataModels.Characters>
+﻿@model PagedList.IPagedList<PriCone.Models.dataModels.Guild>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "TrangChu";
     Layout = "~/Views/Shared/_CharLayout.cshtml";
@@ -6,6 +7,8 @@
 
 @section header{
     <link rel="stylesheet" href="~/Content/charStyle.css">
+    <link rel="stylesheet" href="~/Content/PagedList.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
 }
 
 <div id="header-main">
@@ -63,11 +66,11 @@
 </div>
 <div id="main-content">
     <div id="content">
-        @foreach (var items in ViewBag.guild)
+        @foreach (var items in Model)
         {
             <p>@items.GuildName</p>
             <div id="guild-container">
-                @foreach (var ite in Model)
+                @foreach (var ite in items.Characters)
                 {
                     if (ite.GuildId.Equals(items.GuildId))
                     {
@@ -75,12 +78,20 @@
                         var pic = @ite.Icon + "?" + (r.Next(9, 9999) * 3.14);
                         <a href="@Url.Action("ChiTiet", "Char", new { Id = ite.CharId })">
                             <img src="~/Images/charICon/@pic" alt="@pic">
-                            <h3>@ite.CharName</h3>
+                            <h4>@ite.CharName</h4>
                         </a>
                     }
                 }
             </div>
         }
+        <div class="pagedList">
+            <!-- Thêm mã phân trang -->
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+            @Html.PagedListPager(Model, page => Url.Action("TrangChu",
+                new { page }))
+            <!-- Kết thúc -->
+        </div>
     </div>
     <div id="right-content">
         <div id="visisted">

@@ -87,3 +87,7 @@ D:\PriCone\PriCone\obj\Release\PriCone.csproj.CoreCompileInputs.cache
 D:\PriCone\PriCone\obj\Release\PriCone.csproj.CopyComplete
 D:\PriCone\PriCone\obj\Release\PriCone.dll
 D:\PriCone\PriCone\obj\Release\PriCone.pdb
+D:\PriCone\PriCone\bin\PagedList.dll
+D:\PriCone\PriCone\bin\PagedList.Mvc.dll
+D:\PriCone\PriCone\bin\PagedList.xml
+D:\PriCone\PriCone\bin\PagedList.Mvc.xml

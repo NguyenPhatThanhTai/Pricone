@@ -85,7 +85,7 @@
         </div>
     </div>
 }
-
+<input class="form-control submit" id="search" placeholder="Tìm nhân vật" />
 <div id="table-character">
     <table id="list-character">
         <tr>
@@ -97,11 +97,13 @@
         </tr>
         @foreach (var items in ViewBag.listChar)
         {
+            Random r = new Random();
+            var pic = @items.Icon + "?" + (r.Next(9, 9999) * 3.14);
             <tr>
                 <td>@items.CharId</td>
                 <td>@items.CharName</td>
                 <td>@items.Guild.GuildName</td>
-                <td><img width="70" src="~/Images/charICon/@items.Icon"></td>
+                <td><img width="70" src="~/Images/charICon/@pic"></td>
                 <td>
                     <button class="btn btn-warning" id="GetChar" value="@items.CharId" onclick="openPopUp()">Chỉnh sửa</button>
                     <button class="btn btn-danger" style="color: white;" value="Delete" data-value="@items.CharId">Xoá</button>
@@ -187,6 +189,17 @@
         //Thực hiện xóa ở đây
         window.location.href = '@Url.Action("deleteChar", "Adm")?Id=' + $("#confirm-delete").val();
     })
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#search").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#list-character tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
 </script>
 
 <!-- <script src="http://code.jquery.com/jquery-3.1.1.js"></script>

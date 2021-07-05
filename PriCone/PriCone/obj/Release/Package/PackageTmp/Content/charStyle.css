@@ -48,9 +48,11 @@
 .topnav {
     transition: 0.5s;
     overflow: hidden;
-    background-color: white;
     border-top: 5px solid pink;
     height: 80px;
+    background-image: url("37773f088b060b34f0ac4686b1fbeec4.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
     .topnav #logo-left {
@@ -209,7 +211,6 @@
             background-color: pink;
             border: 2px solid rgb(241, 149, 164);
             color: white;
-            box-shadow: 5px 10px 20px 20px rgb(241, 149, 164);
             transition: 0.5s;
             margin: 10px;
             transform: scale(1);
@@ -245,8 +246,9 @@
 
     #content p {
         display: block;
-        background-color: rgb(144, 211, 231);
-        box-shadow: 5px 10px 8px 10px rgba(63, 123, 163, 0.589);
+        background-color: rgba(211, 141, 141, 0.685);
+        border-radius: 30px;
+        /* box-shadow: 5px 10px 8px 10px rgba(65, 90, 107, 0.589); */
         color: white;
         text-align: center;
         font-size: 30px;
@@ -292,16 +294,13 @@
 
 #visisted {
     margin-top: 30px;
-    padding-right: 20px;
-    padding-left: 20px;
-    border: 5px solid rgb(224, 112, 130);
-    background-color: rgba(219, 123, 139, 0.575);
-    width: 270px;
+    width: 350px;
     height: fit-content;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    box-shadow: 5px 10px 10px 10px rgba(185, 113, 125, 0.589);
+    border-radius: 30px;
+    text-align: center;
 }
 
     #visisted #count {
@@ -323,31 +322,57 @@
 
 #facebook {
     text-align: center;
-    margin-top: 30px;
-    padding-right: 30px;
-    padding-left: 30px;
     grid-area: fb;
-    background-color: #81818180;
-    width: 270px;
-    height: 300px;
-    border: 5px solid rgb(78, 146, 209);
-    box-shadow: 5px 10px 8px 10px rgba(63, 123, 163, 0.589);
+    width: 320px;
+    height: 500px;
+    margin: 10px 0px 10px 10px;
 }
 
-    #facebook img {
-        text-align: center;
-        margin-top: 50px;
-    }
-/* footer */
+#maps {
+    text-align: center;
+    grid-area: fb;
+    width: 320px;
+    height: 500px;
+    margin: 10px 0px 10px 10px ;
+}
 
-footer {
-    background-color: #81818196;
-    margin-left: 150px;
-    margin-right: 150px;
+.footer {
+    float: left;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.548);
     margin-top: 10px;
-    padding: 30px;
 }
-/* reponsible */
+
+.center_footer{
+    width: 450px;
+    float: left;
+    color: white;
+    margin: 10px;
+}
+
+.left_footer {
+    float: left;
+    margin: 10px;
+}
+
+    .left_footer img{
+        margin: 30px;   
+    }
+
+.right_footer {
+    width: 300px;
+    float: left;
+    color: white;
+    margin: 10px;
+}
+
+@media (max-width:767px) {
+    .social-icons li.title {
+        display: block;
+        margin-right: 0;
+        font-weight: 600
+    }
+}
 
 @media only screen and (max-width: 600px) {
     #main {
@@ -365,6 +390,7 @@ footer {
         #header .topnav #img-left img {
             text-align: center;
             width: 325px;
+            margin-left: 10px;
         }
 
         #header .topnav #img-left h2 {
@@ -385,7 +411,7 @@ footer {
         margin: 0;
         float: none;
         text-align: center;
-        height: 120px;
+        height: 130px;
     }
 
         .topnav h1 {
@@ -435,15 +461,85 @@ footer {
     #facebook {
         display: none;
     }
+
+    .center_footer {
+        width: 300px;
+        float: left;
+        color: white;
+        margin: 10px;
+    }
+
+    .left_footer {
+        float: left;
+        margin: 10px;
+    }
+
+        .left_footer img {
+            margin: 30px;
+        }
+
+    .right_footer {
+        width: 300px;
+        float: left;
+        color: white;
+        margin: 10px;
+    }
+}
+@media only screen and (max-width: 1366px) and (min-width: 768px) {
+    #main {
+        margin: auto;
+    }
+
+    #header {
+        margin: 0;
+    }
+
+        #header .topnav #img-left img {
+            text-align: center;
+            width: 230px;
+            margin-left: 10px;
+        }
+
+    #myVideo {
+        height: 370px;
+    }
+
+    #main #header-main {
+        display: grid;
+        grid-template-areas: 'middle right';
+    }
+
+    #content {
+        width: 600px;
+    }
 }
 
-@media only screen and (max-width: 1366px) and (min-width: 768px) {
+@media only screen and (max-width: 960px) and (min-width: 600px) {
+    #main {
+        margin: auto;
+    }
+
+    #header {
+        margin: 0;
+    }
+
+        #header .topnav #img-left img {
+            text-align: center;
+            width: 230px;
+            margin-left: 10px;
+        }
+
+    #myVideo {
+        height: 370px;
+    }
+
     #main #header-main {
         display: grid;
         grid-template-areas: 'middle''right';
     }
 
     #content {
-        width: 500px;
+        width: 400px;
     }
 }
+

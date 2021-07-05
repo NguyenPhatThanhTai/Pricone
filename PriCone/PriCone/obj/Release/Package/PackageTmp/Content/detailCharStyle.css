@@ -51,9 +51,11 @@ body {
 .topnav {
     transition: 0.5s;
     overflow: hidden;
-    background-color: white;
     border-top: 5px solid pink;
-    height: 90px;
+    height: 80px;
+    background-image: url("37773f088b060b34f0ac4686b1fbeec4.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
     .topnav #logo-left {
@@ -210,14 +212,12 @@ body {
         flex-wrap: wrap;
         justify-content: center;
         background-color: rgb(123, 208, 219);
-        padding: 10px;
     }
 
         #main #ThongTinNhanVat #img-right #button-img a {
             padding: 10px;
             color: #3b3b3b;
             text-decoration: none;
-            background-color: transparent;
             font-size: 17px;
         }
 
@@ -421,6 +421,34 @@ tr:nth-child(even) {
     background-color: #f0b4b4;
 }
 
+.loading {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+    .loading img {
+        width: 300px;
+        margin-left: 40%;
+        margin-top: 8%;
+    }
+
+
 @media screen and (max-width: 600px) {
     #main {
         margin: auto;
@@ -512,5 +540,10 @@ tr:nth-child(even) {
     .type-comment #comment {
         width: 100%;
         margin: 10px;
+    }
+
+    .loading img {
+        width: 300px;
+        margin: 50px;
     }
 }

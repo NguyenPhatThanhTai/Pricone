@@ -15,7 +15,9 @@
             <div id="image">
                 @if (Model.MH != null)
                 {
-                    <img id="load1" src="~/Images/charCard/@Model.MH.Card1" />
+                    Random r = new Random();
+                    var pic = @Model.MH.Card1 + "?" + (r.Next(9, 9999) * 3.14);
+                    <img id="load1" src="~/Images/charCard/@pic" />
                 }
                 else
                 {
@@ -41,7 +43,9 @@
             <div id="image">
                 @if (Model.MX != null)
                 {
-                    <img id="load2" src="~/Images/charCard/@Model.MX.Card1" />
+                    Random r = new Random();
+                    var pic = @Model.MX.Card1 + "?" + (r.Next(9, 9999) * 3.14);
+                    <img id="load2" src="~/Images/charCard/@pic" />
                 }
                 else
                 {
@@ -67,7 +71,9 @@
             <div id="image">
                 @if (Model.MD != null)
                 {
-                    <img id="load3" src="~/Images/charCard/@Model.MD.Card1" />
+                    Random r = new Random();
+                    var pic = @Model.MD.Card1 + "?" + (r.Next(9, 9999) * 3.14);
+                    <img id="load3" src="~/Images/charCard/@pic" />
                 }
                 else
                 {
@@ -92,7 +98,7 @@
     {
         @Html.AntiForgeryToken()
         <img id="addNewCard" src="https://redive.estertion.win/card/full/102961.webp@w400">
-        <input name="Card" type="file" accept="image/*" onchange="loadFile(event, 'addNewCard')">
+        <input name="Card" type="file" accept="image/*" onchange="loadFile(event, 'addNewCard')" required>
         <input id="flag" type="hidden" value="CA" name="flag" />
         <input type="hidden" id="hiddencharid" value="@Model.CharId" name="CharId" />
         <button type="submit" class="btn btn-success">Thêm card</button>

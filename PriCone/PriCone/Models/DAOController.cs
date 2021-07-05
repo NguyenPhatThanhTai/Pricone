@@ -375,5 +375,10 @@ namespace PriCone.Models
             }
             return flag;
         }
+
+        public List<Guild> guildListPagedList()
+        {
+            return dao.Guild.OrderBy(p=>p.GuildId).ToList();
+        }
     }
 }

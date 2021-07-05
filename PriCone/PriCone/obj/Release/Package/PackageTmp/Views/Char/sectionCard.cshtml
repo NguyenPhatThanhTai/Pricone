@@ -5,9 +5,10 @@
 
 
 <div class="pic-contain">
-
     @foreach (var items in Model)
     {
-        <img width="30%" src="~/Images/charCard/@items.Card1">
+        Random r = new Random();
+        var pic = @items.Card1 +"?"+ (r.Next(9, 9999)*3.14);
+        <img width="30%" src="~/Images/charCard/@pic">
     }
 </div>

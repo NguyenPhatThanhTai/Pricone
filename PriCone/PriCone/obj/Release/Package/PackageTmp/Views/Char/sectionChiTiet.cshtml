@@ -5,9 +5,7 @@
 
 <div id="img-right">
     <div id="button-img">
-        <a href="javascript:void(0);">Mặc định</a>
         <a href="javascript:void(0);" onclick="chancePic('MH')">Mùa hè</a>
-        <a href="javascript:void(0);">Bãi biển</a>
         <a href="javascript:void(0);" onclick="chancePic('MX')">Mùa xuân</a>
         <a href="javascript:void(0);" onclick="chancePic('MD')">Mùa đông</a>
     </div>
@@ -84,3 +82,9 @@
         </p>
     </div>
 </div>
+
+<script>
+    $(document).ready(function (e){
+        $('#myImage').attr('src', '/Images/charCard/MX' + '@Model.CharId' + '.png?' + Math.random()+'');
+    })
+</script>

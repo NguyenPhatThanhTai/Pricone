@@ -38,9 +38,8 @@ namespace PriCone.Controllers
                     ViewBag.CheckLogin = u.FullName + " - User";
                 }
             }
-            //List<Guild> guildList = new DAOController().getAllGuild();
-            //ViewBag.guild = guildList;
-            //List<Characters> list = new DAOController().getAllChar();
+            List<Characters> charTop = new DAOController().getCharTop();
+            ViewBag.charTop = charTop;
             return View(pagedList.ToPagedList(pageNumber, pageSize));
         }
 

@@ -20,47 +20,29 @@
         <!-- <img id="pic" src="wp5828620.png"> -->
     </div>
     <div class="right-slide">
-        <b>Top nhân vật <span style="color: rgb(192, 88, 88);">Tuần</span></b>
+        <b>Nhân vật được <span style="color: rgb(192, 88, 88);">Yêu thích</span> nhất</b>
         <div id="list">
-            <a href="#">
-                <div id="top">
-                    <img src="https://redive.estertion.win/icon/unit/100161.webp" alt="">
-                    <p>Top 1</p>
-                </div>
-            </a>
-            <a href="#">
-                <div id="top">
-                    <img src="https://redive.estertion.win/icon/unit/100361.webp" alt="">
-                    <p>Top 2</p>
-                </div>
-            </a>
-            <a href="#">
-                <div id="top">
-                    <img src="https://redive.estertion.win/icon/unit/100461.webp" alt="">
-                    <p>Top 3</p>
-                </div>
-            </a>
+            @foreach (var items in ViewBag.charTop)
+            {
+                Random r = new Random();
+                var pic = @items.Icon + "?" + (r.Next(9, 9999) * 3.14);
+                <a href="@Url.Action("ChiTiet", "Char", new { Id = items.CharId })">
+                    <img src="~/Images/charICon/@pic" alt="@pic">
+                    <p style="color: black; font-size: small">Lượt thích: <span id="numberLike">@items.Likes</span></p>
+                </a>
+            }
         </div>
-        <b>Top nhân vật <span style="color: rgb(192, 88, 88);">Tháng</span></b>
+        <b>Nhân vật <span style="color: rgb(192, 88, 88);">mới ra mắt</span></b>
         <div id="list">
-            <a href="#">
-                <div id="top">
-                    <img src="https://redive.estertion.win/icon/unit/100161.webp" alt="">
-                    <p>Top 1</p>
-                </div>
-            </a>
-            <a href="#">
-                <div id="top">
-                    <img src="https://redive.estertion.win/icon/unit/100361.webp" alt="">
-                    <p>Top 2</p>
-                </div>
-            </a>
-            <a href="#">
-                <div id="top">
-                    <img src="https://redive.estertion.win/icon/unit/100461.webp" alt="">
-                    <p>Top 3</p>
-                </div>
-            </a>
+            @foreach (var items in ViewBag.charTop)
+            {
+                Random r = new Random();
+                var pic = @items.Icon + "?" + (r.Next(9, 9999) * 3.14);
+                <a href="@Url.Action("ChiTiet", "Char", new { Id = items.CharId })">
+                    <img src="~/Images/charICon/@pic" alt="@pic">
+                    <p style="color: black; font-size: small"><span id="numberLike">@items.Released.ToString("dd/MM/yyyy")</span></p>
+                </a>
+            }
         </div>
     </div>
 </div>
@@ -76,10 +58,10 @@
                     {
                         Random r = new Random();
                         var pic = @ite.Icon + "?" + (r.Next(9, 9999) * 3.14);
-                        <a href="@Url.Action("ChiTiet", "Char", new { Id = ite.CharId })">
-                            <img src="~/Images/charICon/@pic" alt="@pic">
-                            <h4>@ite.CharName</h4>
-                        </a>
+                <a href="@Url.Action("ChiTiet", "Char", new { Id = ite.CharId })">
+                    <img src="~/Images/charICon/@pic" alt="@pic">
+                    <h5 style="color: black">@ite.CharName</h5>
+                </a>
                     }
                 }
             </div>

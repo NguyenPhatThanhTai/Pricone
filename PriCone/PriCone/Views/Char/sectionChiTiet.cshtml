@@ -9,11 +9,21 @@
         <a href="javascript:void(0);" onclick="chancePic('MX')">Mùa xuân</a>
         <a href="javascript:void(0);" onclick="chancePic('MD')">Mùa đông</a>
     </div>
-    <img id="myImage" src="~/Images/charCard/default.png">
+    <img id="pic" src="~/Images/charCard/default.png">
     <div id="bottom-img">
         <b>@Model.CharName</b>
         <br />
         <b>@Model.Detail</b>
+    </div>
+    <div class="like">
+        <button href="#" id="like" class="btn btn-danger">
+            <img width="30px" src="~/Content/heart_80px.png">
+            Thả tim
+        </button>
+        <button href="#" id="save" class="btn btn-info">
+            <img width="30px" src="~/Content/add_to_collection_30px.png">
+            Lưu vào bộ sưu tập
+        </button>
     </div>
 </div>
 <div id="content">
@@ -24,7 +34,7 @@
         <p>Bang hội: @Model.Guild.GuildName</p>
         <p>Chủng tộc: @Model.Race</p>
         <p>Tuổi: 18+</p>
-        <p>Sinh nhật: @Model.Birthday</p>
+        <p>Sinh nhật: @Model.Birthday.Value.ToString("dd/MM/yyyy")</p>
         <p>Chiều cao: @Model.Height</p>
         <p>Trọng lượng: @Model.Weight</p>
         <p>Nhóm máu: @Model.BloodType</p>

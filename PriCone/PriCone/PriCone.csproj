@@ -166,12 +166,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\37773f088b060b34f0ac4686b1fbeec4.png" />
+    <Content Include="Content\50571736_579055762663618_6653393284875943936_n.gif" />
+    <Content Include="Content\add_to_collection_30px.png" />
     <Content Include="Content\adminStyle.css" />
     <Content Include="Content\cardManagerStyle.css" />
     <Content Include="Content\charStyle.css" />
     <Content Include="Content\detailCharStyle.css" />
     <Content Include="Content\FullArtMuimi.png" />
     <Content Include="Content\GourmetEdificeHeader.png" />
+    <Content Include="Content\heart_32px.png" />
+    <Content Include="Content\heart_48px.png" />
+    <Content Include="Content\heart_80px.png" />
     <Content Include="Content\home_kv_chara.png" />
     <Content Include="Content\loginStyle.css" />
     <Content Include="Content\main.png" />

@@ -22,6 +22,19 @@ namespace PriCone.Models
             return dao.Guild.ToList();
         }
 
+        public List<Characters> getCharTop()
+        {
+            try
+            {
+                return dao.Characters.OrderByDescending(p => p.Likes).Take(3).ToList();
+            }
+            catch(Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
+        }
+
         public Characters detailChar(String Id)
         {
             var result = dao.Characters.FirstOrDefault(p => p.CharId.Equals(Id));

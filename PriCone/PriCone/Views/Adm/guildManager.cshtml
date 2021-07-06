@@ -1,0 +1,100 @@
+﻿@model List<PriCone.Models.dataModels.Guild>
+@{
+    ViewBag.Title = "guildManager";
+    Layout = "~/Views/Shared/_AdmLayout.cshtml";
+}
+
+@section header{
+    <link rel="stylesheet" href="~/Content/guildStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+}
+
+<div id="content">
+    <div id="left-box">
+        <img src="~/Content/Go">
+    </div>
+    <div id="right-box">
+        <form>
+            <div id="input">
+                <div class="form-group">
+                    <input type="text" size="100" class="form-control" id="usr" placeholder="Nhập tên bang hội" required>
+                </div>
+            </div>
+            <div class="form-group submit">
+                <input type="submit" class="form-control submit" id="pwd" value="Thêm bang hội" required>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="table-character">
+    <table id="list-character">
+        <tr>
+            <th>Mã bang hội</th>
+            <th>Tên bang hội</th>
+            <th>Số nhân vật trong Guild hiện tại</th>
+            <th>Hành động</th>
+        </tr>
+        @foreach (var items in Model)
+        {
+            <tr>
+                <td>@items.GuildId</td>
+                <td>@items.GuildName</td>
+                <td>@items.Characters.Count</td>
+                <td>
+                    <button class="btn btn-warning" id="GetChar" value="@items.GuildId" data-value="@items.GuildName" onclick="openPopUp()">Chỉnh sửa</button>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <div style="float: left">
+                <h3>Sửa thông tin nhân vật</h3>
+            </div>
+            <div style="float: right">
+                <span class="close" onclick="closePopUp()">&times;</span>
+            </div>
+        </div>
+        <div class="modal-body">
+            @Html.ValidationSummary(true, null)
+            @using (Html.BeginForm("updateGuild", "Adm", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="form-group">
+                <input name="GuildName" id="guildName" type="text" class="form-control submit" value="" required/>
+                <input name="GuildId" id="guildId" type="hidden" class="form-control submit" />
+                <button class="btn btn-warning" id="submit">Chỉnh sửa</button>
+                </div>
+            }
+        </div>
+        <div class="modal-footer">
+            <h3>Princess-Connect-Redive</h3>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openPopUp() {
+        document.getElementById("myModal").style.display = "block";
+    }
+
+    function closePopUp() {
+        document.getElementById("myModal").style.display = "none";
+    }
+</script>
+
+<script>
+    $('#list-character button').click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var Id = $(this).val();
+        document.getElementById("guildName").value = $(this).attr("data-value");
+        document.getElementById("guildId").value = Id;
+        
+    })
+</script>
+

@@ -48,6 +48,72 @@ namespace PriCone.Models
             }
         }
 
+        public bool checkLike(string UserId, string CharId)
+        {
+            var like = dao.Liking.FirstOrDefault(p => p.UserId.Equals(UserId) && p.CharId.Equals(CharId));
+            if(like != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool updateLike(Liking liking)
+        {
+            try
+            {
+                var like = dao.Liking.FirstOrDefault(p=>p.CharId.Equals(liking.CharId) && p.UserId.Equals(liking.UserId));
+                if(like != null)
+                {
+                    updateLikeChar("remove", liking.CharId);
+                    dao.Liking.Remove(like);
+                    dao.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    updateLikeChar("add", liking.CharId);
+                    dao.Liking.Add(liking);
+                    dao.SaveChanges();
+                    return true;
+                }
+            }catch(Exception ex)
+            {
+                ex.Message.ToString();
+                return false;
+            }
+        }
+
+        public bool updateLikeChar(string check, string charId)
+        {
+            var flag = false;
+            try
+            {
+                var chars = dao.Characters.FirstOrDefault(p => p.CharId.Equals(charId));
+                if (chars != null)
+                {
+                    if (check == "add")
+                    {
+                        chars.Likes += 1;
+                    }
+                    else
+                    {
+                        chars.Likes -= 1;
+                    }
+                    flag = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                flag = false;
+            }
+            return flag;
+        }
+
         public List<Guild> getListGuild()
         {
             return dao.Guild.ToList();
@@ -133,7 +199,8 @@ namespace PriCone.Models
                     dao.Feedback.RemoveRange(res);
                     var card = dao.Card.Where(p => p.CharId.Equals(Id));
                     dao.Card.RemoveRange(card);
-                    //Xóa skill ở đây
+                    var skill = dao.Skill.Where(p => p.CharId.Equals(Id));
+                    dao.Skill.RemoveRange(skill);
                     dao.Characters.Remove(result);
                     dao.SaveChanges();
                     flag = true;
@@ -392,6 +459,30 @@ namespace PriCone.Models
         public List<Guild> guildListPagedList()
         {
             return dao.Guild.OrderBy(p=>p.GuildId).ToList();
+        }
+
+        public bool updateGuild(Guild guild)
+        {
+            var flag = false;
+            try
+            {
+                var guildId = dao.Guild.FirstOrDefault(p=>p.GuildId.Equals(guild.GuildId));
+                if(guildId != null)
+                {
+                    guildId.GuildName = guild.GuildName;
+                    dao.SaveChanges();
+                    flag = true;
+                }
+                else
+                {
+                    flag = false;
+                }
+            }catch(Exception ex)
+            {
+                ex.Message.ToString();
+                flag = false;
+            }
+            return flag;
         }
     }
 }

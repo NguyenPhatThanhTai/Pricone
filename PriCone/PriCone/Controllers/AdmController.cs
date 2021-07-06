@@ -204,7 +204,7 @@ namespace PriCone.Controllers
             // sau này sẽ delete skill, feedback rồi này nọ.....
             try
             {
-                if(new DAOController().deleteChar(Id))
+                if (new DAOController().deleteChar(Id))
                 {
                     return RedirectToAction("ThemNhanVat", "Adm");
                 }
@@ -213,7 +213,8 @@ namespace PriCone.Controllers
                     ModelState.AddModelError("", "Có lỗi xảy ra rồi");
                     return RedirectToAction("ThemNhanVat", "Adm");
                 }
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 ModelState.AddModelError("", "Có lỗi xảy ra rồi");
                 e.Message.ToString();
@@ -269,7 +270,7 @@ namespace PriCone.Controllers
         [HttpPost]
         public ActionResult addCardDetail(addCard addCard)
         {
-            if(addCard == null)
+            if (addCard == null)
             {
                 List<Characters> listChar = new DAOController().getAllChar();
                 ViewBag.listChar = listChar;
@@ -388,6 +389,31 @@ namespace PriCone.Controllers
                 ModelState.AddModelError("", "Có lỗi xảy ra rồi");
                 var charList = new DAOController().getAllChar();
                 return RedirectToAction("skillManager", charList);
+            }
+        }
+        public ActionResult guildManager()
+        {
+            List<Guild> listGuild = new DAOController().getAllGuild();
+            return View(listGuild);
+        }
+
+        [HttpPost]
+        public ActionResult updateGuild(Guild guild)
+        {
+            Guild newGuild = new Guild {
+                GuildId = guild.GuildId,
+                GuildName = guild.GuildName
+            };
+            if (new DAOController().updateGuild(newGuild))
+            {
+                List<Guild> listGuild = new DAOController().getAllGuild();
+                return RedirectToAction("guildManager", listGuild);
+            }
+            else
+            {
+                ModelState.AddModelError("", "Có lỗi xảy ra rồi");
+                List<Guild> listGuild = new DAOController().getAllGuild();
+                return View(listGuild);
             }
         }
     }

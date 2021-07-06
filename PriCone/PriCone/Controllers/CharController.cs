@@ -77,10 +77,42 @@ namespace PriCone.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult updateLike(Liking like)
+        {
+            if (Session["User"] == null)
+            {
+                return View("Login");
+            }
+            else
+            {
+                string day = DateTime.Now.ToString("dd");
+                string month = DateTime.Now.ToString("MM");
+                string sec = DateTime.Now.ToString("ss");
+                User u = Session["User"] as User;
+
+                Liking likes = new Liking
+                {
+                    LikeId = "LI" + day + "" + month + "" + sec,
+                    CharId = like.CharId,
+                    UserId = u.UserId
+                };
+                new DAOController().updateLike(likes);
+                Characters chars= new DAOController().detailChar(like.CharId);
+                return View("sectionChiTiet", chars);
+            }
+        }
+
         public ActionResult setSection(string flag, string Id)
         {
             if (flag.Equals("sectionChiTiet"))
             {
+                if (Session["User"] != null)
+                {
+                    User u = Session["User"] as User;
+                    bool checkLike = new DAOController().checkLike(u.UserId, Id);
+                    ViewBag.checkLike = checkLike;
+                }
                 Characters characters = new DAOController().detailChar(Id);
                 return View("sectionChiTiet", characters);
             }

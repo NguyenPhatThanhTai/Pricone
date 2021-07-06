@@ -16,8 +16,15 @@
         <b>@Model.Detail</b>
     </div>
     <div class="like">
-        <button href="#" id="like" class="btn btn-danger">
-            <img width="30px" src="~/Content/heart_80px.png">
+        <button id="like" class="btn btn-danger">
+            @if (ViewBag.checkLike == true)
+            {
+                <img width="30px" src="~/Content/heart_80px.png">
+            }
+            else
+            {
+                <img width="30px" src="~/Content/heart_32px.png">
+            }
             Thả tim
         </button>
         <button href="#" id="save" class="btn btn-info">
@@ -96,5 +103,29 @@
 <script>
     $(document).ready(function (e){
         $('#myImage').attr('src', '/Images/charCard/MX' + '@Model.CharId' + '.png?' + Math.random()+'');
+    })
+</script>
+
+<script>
+    $("#like").click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        @*@if (Session["User"] == null){
+            alert("Bạn cần đăng nhập, oke!");
+        }*@
+
+        var content = {
+            'CharId': '@Model.CharId',
+        };
+        $.ajax({
+            url: "../updateLike",
+            type: "POST",
+            data: content,
+/*            contentType: "application/json",*/
+            success: function (data) {
+                $('#ThongTinNhanVat').load('@Url.Action("setSection", "Char")?flag=sectionChiTiet&&Id=' + '@Model.CharId');
+                }
+            })
     })
 </script>

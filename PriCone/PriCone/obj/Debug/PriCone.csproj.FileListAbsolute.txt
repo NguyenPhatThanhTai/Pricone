@@ -90,3 +90,4 @@ D:\PriCone\PriCone\obj\Debug\PriCone.csproj.CoreCompileInputs.cache
 D:\PriCone\PriCone\obj\Debug\PriCone.csproj.CopyComplete
 D:\PriCone\PriCone\obj\Debug\PriCone.dll
 D:\PriCone\PriCone\obj\Debug\PriCone.pdb
+D:\PriCone\PriCone\obj\Debug\PriCone.csproj.AssemblyReference.cache

@@ -61,6 +61,19 @@ namespace PriCone.Models
             }
         }
 
+        public bool checkSave(string UserId, string CharId)
+        {
+            var save = dao.Saved.FirstOrDefault(p => p.UserId.Equals(UserId) && p.CharId.Equals(CharId));
+            if (save != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool updateLike(Liking liking)
         {
             try
@@ -81,6 +94,31 @@ namespace PriCone.Models
                     return true;
                 }
             }catch(Exception ex)
+            {
+                ex.Message.ToString();
+                return false;
+            }
+        }
+
+        public bool updateSave(Saved save)
+        {
+            try
+            {
+                var saved = dao.Saved.FirstOrDefault(p => p.CharId.Equals(save.CharId) && p.UserId.Equals(save.UserId));
+                if (saved != null)
+                {
+                    dao.Saved.Remove(saved);
+                    dao.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    dao.Saved.Add(save);
+                    dao.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
             {
                 ex.Message.ToString();
                 return false;

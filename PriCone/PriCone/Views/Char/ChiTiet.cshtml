@@ -84,12 +84,6 @@
 </script>
 
 <script>
-    function chancePic(flag) {
-        $('#myImage').attr('src', '/Images/charCard/' + flag + '@Model.CharId' + '.png?' + Math.random()+'');
-    }
-</script>
-
-<script>
     function setSection(flag, Id) {
         $('#ThongTinNhanVat').load('@Url.Action("setSection", "Char")?flag=' + flag + '&&Id=' + Id);
     }

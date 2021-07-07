@@ -60,7 +60,7 @@
                         var pic = @ite.Icon + "?" + (r.Next(9, 9999) * 3.14);
                 <a href="@Url.Action("ChiTiet", "Char", new { Id = ite.CharId })">
                     <img src="~/Images/charICon/@pic" alt="@pic">
-                    <h5 style="color: black">@ite.CharName</h5>
+                    <h5 id="nameChar" >@ite.CharName</h5>
                 </a>
                     }
                 }

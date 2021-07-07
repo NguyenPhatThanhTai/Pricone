@@ -105,6 +105,11 @@ body {
             width: 300px;
         }
 
+        .topnav #img-left p {
+            font-weight: bold;
+            font-size: 40px;
+        }
+
 
 /* .topnav #img-left h2 {
         font-size: ;

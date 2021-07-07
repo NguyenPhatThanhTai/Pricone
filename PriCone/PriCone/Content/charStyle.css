@@ -164,7 +164,6 @@
 #myVideo {
     transition: 0.5s;
     height: 445px;
-    border: 5px solid pink;
 }
 
 #main #picture img {
@@ -176,13 +175,13 @@
     transition: 0.5s;
     text-align: center;
     grid-area: right;
-    border: 5px solid pink;
     margin-top: 10px;
     margin-right: 17px;
     align-items: center;
 }
 
     #main .right-slide b {
+        border-radius: 30px;
         display: block;
         transition: 0.5s;
         text-align: center;
@@ -292,9 +291,13 @@
             margin: 10px;
         }
 
-        #content #guild-container h3 {
+        #content #guild-container #nameChar {
             text-align: center;
-            color: black;
+            color: white;
+            background-color: #F65091;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 5px;
         }
 
 #right-content {
@@ -530,7 +533,7 @@
     }
 }
 
-@media only screen and (max-width: 960px) and (min-width: 601px) {
+@media only screen and (max-width: 1365px) and (min-width: 601px) {
     #main {
         margin: auto;
     }

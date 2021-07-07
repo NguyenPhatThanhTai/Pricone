@@ -171,6 +171,7 @@
     <Content Include="Content\adminStyle.css" />
     <Content Include="Content\cardManagerStyle.css" />
     <Content Include="Content\charStyle.css" />
+    <Content Include="Content\checkmark_26px.png" />
     <Content Include="Content\detailCharStyle.css" />
     <Content Include="Content\FullArtMuimi.png" />
     <Content Include="Content\GourmetEdificeHeader.png" />

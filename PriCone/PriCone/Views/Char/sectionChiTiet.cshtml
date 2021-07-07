@@ -9,7 +9,7 @@
         <a href="javascript:void(0);" onclick="chancePic('MX')">Mùa xuân</a>
         <a href="javascript:void(0);" onclick="chancePic('MD')">Mùa đông</a>
     </div>
-    <img id="pic" src="~/Images/charCard/default.png">
+    <img id="myImage" src="~/Images/charCard/default.png">
     <div id="bottom-img">
         <b>@Model.CharName</b>
         <br />
@@ -27,8 +27,15 @@
             }
             Thả tim
         </button>
-        <button href="#" id="save" class="btn btn-info">
-            <img width="30px" src="~/Content/add_to_collection_30px.png">
+        <button id="save" class="btn btn-info">
+            @if (ViewBag.checkSave == true)
+            {
+                <img width="30px" src="~/Content/checkmark_26px.png">
+            }
+            else
+            {
+                <img width="30px" src="~/Content/add_to_collection_30px.png">
+            }
             Lưu vào bộ sưu tập
         </button>
     </div>
@@ -101,6 +108,12 @@
 </div>
 
 <script>
+    function chancePic(flag) {
+        $('#myImage').attr('src', '/Images/charCard/' + flag + '@Model.CharId' + '.png?' + Math.random()+'');
+    }
+</script>
+
+<script>
     $(document).ready(function (e){
         $('#myImage').attr('src', '/Images/charCard/MX' + '@Model.CharId' + '.png?' + Math.random()+'');
     })
@@ -120,6 +133,30 @@
         };
         $.ajax({
             url: "../updateLike",
+            type: "POST",
+            data: content,
+/*            contentType: "application/json",*/
+            success: function (data) {
+                $('#ThongTinNhanVat').load('@Url.Action("setSection", "Char")?flag=sectionChiTiet&&Id=' + '@Model.CharId');
+                }
+            })
+    })
+</script>
+
+<script>
+    $("#save").click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        @*@if (Session["User"] == null){
+            alert("Bạn cần đăng nhập, oke!");
+        }*@
+
+        var content = {
+            'CharId': '@Model.CharId',
+        };
+        $.ajax({
+            url: "../updateSave",
             type: "POST",
             data: content,
 /*            contentType: "application/json",*/

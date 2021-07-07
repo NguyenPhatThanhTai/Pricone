@@ -103,6 +103,32 @@ namespace PriCone.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult updateSave(Saved sav)
+        {
+            if (Session["User"] == null)
+            {
+                return View("Login");
+            }
+            else
+            {
+                string day = DateTime.Now.ToString("dd");
+                string month = DateTime.Now.ToString("MM");
+                string sec = DateTime.Now.ToString("ss");
+                User u = Session["User"] as User;
+
+                Saved save = new Saved
+                {
+                    SaveId = "SA" + day + "" + month + "" + sec,
+                    CharId = sav.CharId,
+                    UserId = u.UserId
+                };
+                new DAOController().updateSave(save);
+                Characters chars = new DAOController().detailChar(sav.CharId);
+                return View("sectionChiTiet", chars);
+            }
+        }
+
         public ActionResult setSection(string flag, string Id)
         {
             if (flag.Equals("sectionChiTiet"))
@@ -112,6 +138,8 @@ namespace PriCone.Controllers
                     User u = Session["User"] as User;
                     bool checkLike = new DAOController().checkLike(u.UserId, Id);
                     ViewBag.checkLike = checkLike;
+                    bool checkSave = new DAOController().checkSave(u.UserId, Id);
+                    ViewBag.checkSave = checkSave;
                 }
                 Characters characters = new DAOController().detailChar(Id);
                 return View("sectionChiTiet", characters);

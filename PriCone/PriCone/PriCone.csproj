@@ -162,6 +162,7 @@
     <Compile Include="Models\viewModels\addCard.cs" />
     <Compile Include="Models\viewModels\addViewModel.cs" />
     <Compile Include="Models\viewModels\registerViewModel.cs" />
+    <Compile Include="Models\viewModels\UserView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +188,7 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\registerStyle.css" />
     <Content Include="Content\skillManagerStyle.css" />
+    <Content Include="Content\userStyle.css" />
     <Content Include="Content\Wiki-background.jpg" />
     <Content Include="Content\Wiki-wordmark.png" />
     <Content Include="Content\wp5828620.png" />
@@ -239,6 +241,7 @@
     <Content Include="Views\Adm\skillManager.cshtml" />
     <Content Include="Views\Adm\getSkill.cshtml" />
     <Content Include="Views\Adm\guildManager.cshtml" />
+    <Content Include="Views\Char\User.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

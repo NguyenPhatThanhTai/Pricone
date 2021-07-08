@@ -19,7 +19,7 @@
                     <img id="logo-image" src="~/Content/Wiki-wordmark.png">
                 </div>
                 <div id="login-right">
-                    <a href="@Url.Action(ViewBag.Login,"Char")">@ViewBag.CheckLogin</a>
+                    <a href="@Url.Action(ViewBag.Login,"Char", new { Id = ViewBag.idUser })">@ViewBag.CheckLogin</a>
                     <a style="display: @ViewBag.display;" href="@Url.Action("Logout","Char")">Đăng xuất</a>
                 </div>
                 <div id="img-left">

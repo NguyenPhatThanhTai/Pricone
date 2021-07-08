@@ -26,9 +26,10 @@ namespace PriCone.Controllers
             }
             else
             {
-                ViewBag.Login = "TrangChu";
                 ViewBag.display = "static";
                 User u = Session["User"] as User;
+                ViewBag.Login = "User";
+                ViewBag.idUser = u.UserId;
                 if (u.Role == true)
                 {
                     ViewBag.CheckLogin = u.FullName + " - Admin";
@@ -276,6 +277,51 @@ namespace PriCone.Controllers
                 ModelState.AddModelError("", "Lỗi rồi...");
                 List<Feedback> feedbacks = new DAOController().comment(Id);
                 return RedirectToAction("comment", feedbacks);
+            }
+        }
+
+        public ActionResult User(string Id)
+        {
+            if (Id == null)
+            {
+                return RedirectToAction("TrangChu");
+            }
+            else
+            {
+                if (Session["User"] == null)
+                {
+                    ViewBag.Login = "Login";
+                    ViewBag.display = "none";
+                    ViewBag.CheckLogin = "Đăng nhập/Đăng ký";
+                }
+                else
+                {
+                    ViewBag.Login = "TrangChu";
+                    ViewBag.display = "static";
+                    User u = Session["User"] as User;
+                    if (u.Role == true)
+                    {
+                        ViewBag.CheckLogin = u.FullName + " - Admin";
+                    }
+                    else
+                    {
+                        ViewBag.CheckLogin = u.FullName + " - User";
+                    }
+                }
+                if (new DAOController().getUser(Id) != null)
+                {
+                    UserView usv = new UserView
+                    {
+                        user = new DAOController().getUser(Id),
+                        listLike = new DAOController().userLikeList(Id),
+                        listSaved = new DAOController().userSavedList(Id)
+                    };
+                    return View(usv);
+                }
+                else
+                {
+                    return View("TrangChu");
+                }
             }
         }
     }

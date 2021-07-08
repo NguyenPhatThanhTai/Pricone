@@ -1,4 +1,5 @@
 ﻿using PriCone.Models.dataModels;
+using PriCone.Models.viewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -521,6 +522,44 @@ namespace PriCone.Models
                 flag = false;
             }
             return flag;
+        }
+
+        public User getUser(string Id)
+        {
+            try
+            {
+                return dao.User.FirstOrDefault(p => p.UserId.Equals(Id));
+            }catch(Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
+        }
+
+        public List<Liking> userLikeList(string Id)
+        {
+            try
+            {
+                return dao.Liking.OrderByDescending(p => p.LikeId).Where(p=>p.UserId.Equals(Id)).Take(3).ToList();
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
+        }
+
+        public List<Saved> userSavedList(string Id)
+        {
+            try
+            {
+                return dao.Saved.Where(p=>p.UserId.Equals(Id)).ToList();
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
         }
     }
 }

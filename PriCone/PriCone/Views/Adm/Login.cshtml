@@ -26,7 +26,7 @@
         <div id="right">
             <img id="logo" src="~/Content/Wiki-wordmark.png">
             @Html.ValidationSummary(true, null, new { @class = "text-danger font-weight-bold" })
-            @using (Html.BeginForm("Login", "Char", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("Login", "Adm", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
                 <div class="form-group">

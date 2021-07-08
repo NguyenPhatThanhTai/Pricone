@@ -280,6 +280,7 @@
             border: 1px solid black;
             box-shadow: 5px 10px #888888;
             margin: 10px;
+            border-radius: 20px;
         }
 
             #content #guild-container a:hover {

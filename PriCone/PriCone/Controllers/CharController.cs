@@ -170,8 +170,16 @@ namespace PriCone.Controllers
             if(new DAOController().checkLogin(user, pass) != null)
             {
                 User u = new DAOController().checkLogin(user, pass);
-                Session["User"] = u;
-                return RedirectToAction("TrangChu", "Char");
+                if(u.Role == true)
+                {
+                    ModelState.AddModelError("", "Sai mật khẩu, tài khoản hoặc tài khoản đã bị khóa!");
+                    return View();
+                }
+                else
+                {
+                    Session["User"] = u;
+                    return RedirectToAction("TrangChu", "Char");
+                }
             }
             else
             {

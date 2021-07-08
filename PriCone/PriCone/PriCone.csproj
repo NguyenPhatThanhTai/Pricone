@@ -242,6 +242,7 @@
     <Content Include="Views\Adm\getSkill.cshtml" />
     <Content Include="Views\Adm\guildManager.cshtml" />
     <Content Include="Views\Char\User.cshtml" />
+    <Content Include="Views\Adm\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

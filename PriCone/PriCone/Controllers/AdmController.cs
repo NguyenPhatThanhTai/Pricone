@@ -45,6 +45,36 @@ namespace PriCone.Controllers
             }
         }
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string user, string pass)
+        {
+            if (new DAOController().checkLogin(user, pass) != null)
+            {
+                User u = new DAOController().checkLogin(user, pass);
+                if (u.Role == false)
+                {
+                    ModelState.AddModelError("", "Sai mật khẩu, tài khoản hoặc tài khoản đã bị khóa!");
+                    return View();
+                }
+                else
+                {
+                    Session["User"] = u;
+                    return RedirectToAction("TrangChu", "Adm");
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Sai mật khẩu, tài khoản hoặc tài khoản đã bị khóa!");
+                return View();
+            }
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ThemNhanVat(addViewModel model)

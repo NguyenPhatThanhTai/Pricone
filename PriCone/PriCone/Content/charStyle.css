@@ -304,10 +304,14 @@
             margin: 5px;
         }
 
-#right-content {
-    grid-area: right;
-    float: right;
-}
+            #content #guild-container #nameChar:hover {
+                background-color: pink;
+            }
+
+            #right-content {
+                grid-area: right;
+                float: right;
+            }
 
 #visisted {
     margin-top: 30px;

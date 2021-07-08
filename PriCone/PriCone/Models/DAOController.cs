@@ -561,5 +561,17 @@ namespace PriCone.Models
                 return null;
             }
         }
+
+        public List<Characters> gacha(int number)
+        {
+            try
+            {
+                return dao.Characters.OrderBy(p => p.CharId).Take(number).ToList();
+            }catch(Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
+        }
     }
 }

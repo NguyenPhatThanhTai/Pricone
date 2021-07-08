@@ -332,5 +332,22 @@ namespace PriCone.Controllers
                 }
             }
         }
+
+        public ActionResult gacha()
+        {
+            return View();
+        }
+
+        public ActionResult getcha(int number)
+        {
+            if(number == null)
+            {
+                return RedirectToAction("TrangChu");
+            }
+            else
+            {
+                return View("getGacha",new DAOController().gacha(number));
+            }
+        }
     }
 }

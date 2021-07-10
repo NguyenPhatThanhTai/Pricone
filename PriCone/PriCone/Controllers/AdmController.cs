@@ -423,8 +423,45 @@ namespace PriCone.Controllers
         }
         public ActionResult guildManager()
         {
-            List<Guild> listGuild = new DAOController().getAllGuild();
-            return View(listGuild);
+            User u = Session["User"] as User;
+            if (Session["User"] == null || u.Role == false)
+            {
+                return RedirectToAction("Login", "Char");
+            }
+            else
+            {
+                List<Guild> listGuild = new DAOController().getAllGuild();
+                return View(listGuild);
+            }
+        }
+
+        public ActionResult addGuild(string guildName)
+        {
+            string day = DateTime.Now.ToString("dd");
+            string month = DateTime.Now.ToString("MM");
+            string year = DateTime.Now.ToString("yyyy");
+            string Min = DateTime.Now.ToString("mm");
+            string sec = DateTime.Now.ToString("ss");
+
+            string MaGuild = "GU" + day + "" + Min + "" + sec;
+
+            Guild guild = new Guild
+            {
+                GuildId = MaGuild,
+                GuildName = guildName
+            };
+
+            if (new DAOController().addGuild(guild))
+            {
+                List<Guild> listGuild = new DAOController().getAllGuild();
+                return View("guildManager", listGuild);
+            }
+            else
+            {
+                ModelState.AddModelError("", "Có lỗi xảy ra rồi");
+                List<Guild> listGuild = new DAOController().getAllGuild();
+                return View("guildManager", listGuild);
+            }
         }
 
         [HttpPost]

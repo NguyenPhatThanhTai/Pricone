@@ -644,5 +644,19 @@ namespace PriCone.Models
 
             return check;
         }
+
+        public bool addGuild(Guild guild)
+        {
+            try
+            {
+                dao.Guild.Add(guild);
+                dao.SaveChanges();
+                return true;
+            }catch(Exception ex)
+            {
+                ex.Message.ToString();
+                return false;
+            }
+        }
     }
 }

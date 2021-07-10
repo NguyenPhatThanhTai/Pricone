@@ -571,3 +571,17 @@ tr:nth-child(even) {
         margin: 50px;
     }
 }
+
+@media only screen and (max-width: 1365px) and (min-width: 601px) {
+    .type-comment #type-pic {
+        width: 95px;
+    }
+
+    .form-group {
+        width: 97%;
+    }
+
+    .feed-back #feed-back-content {
+        width: 94%;
+    }
+}

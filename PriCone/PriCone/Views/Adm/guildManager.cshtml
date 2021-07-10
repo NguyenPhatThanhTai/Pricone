@@ -11,20 +11,22 @@
 
 <div id="content">
     <div id="left-box">
-        <img src="~/Content/Go">
+        <img src="~/Content/GourmetEdificeHeader.png">
     </div>
     <div id="right-box">
-        <form>
+        @Html.ValidationSummary(true, null)
+        @using (Html.BeginForm("addGuild", "Adm", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
             <div id="input">
                 <div class="form-group">
-                    <input type="text" size="100" class="form-control" id="usr" placeholder="Nhập tên bang hội" required>
+                    <input type="text" size="100" class="form-control" id="usr" name="guildName" placeholder="Nhập tên bang hội" required>
                 </div>
             </div>
             <div class="form-group submit">
                 <input type="submit" class="form-control submit" id="pwd" value="Thêm bang hội" required>
             </div>
-        </form>
-    </div>
+        }
+        </div>
 </div>
 <div id="table-character">
     <table id="list-character">

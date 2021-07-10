@@ -190,12 +190,14 @@
     <Content Include="Content\registerStyle.css" />
     <Content Include="Content\Screen_Recording_20210708-164754_R_1.mp4" />
     <Content Include="Content\skillManagerStyle.css" />
+    <Content Include="Content\userManagerStyle.css" />
     <Content Include="Content\userStyle.css" />
     <Content Include="Content\Wiki-background.jpg" />
     <Content Include="Content\Wiki-wordmark.png" />
     <Content Include="Content\wp5828620.png" />
     <Content Include="Content\audio.mp3" />
     <Content Include="Content\y2mate.com - Princess Connect ReDive 4K wallpaper_1080p.mp4" />
+    <Content Include="Content\Yuuki_sprite.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -248,6 +250,8 @@
     <Content Include="Views\Adm\Login.cshtml" />
     <Content Include="Views\Char\gacha.cshtml" />
     <Content Include="Views\Char\getGacha.cshtml" />
+    <Content Include="Views\Adm\userManager.cshtml" />
+    <Content Include="Views\Adm\getUserManager.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

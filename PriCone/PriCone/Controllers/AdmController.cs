@@ -446,6 +446,46 @@ namespace PriCone.Controllers
                 return View(listGuild);
             }
         }
+
+        //gọi view lớn
+        public ActionResult userManager()
+        {
+            User u = Session["User"] as User;
+            if (Session["User"] == null || u.Role == false)
+            {
+                return RedirectToAction("Login", "Char");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        //Gọi view nhỏ
+        public ActionResult actionMiniUser()
+        {
+            if(new DAOController().getAllUser() != null)
+            {
+                return View("getUserManager", new DAOController().getAllUser());
+            }
+            else
+            {
+                return RedirectToAction("TrangChu");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult actionUser(string userId, string flag)
+        {
+            if (new DAOController().updateUser(userId, flag))
+            {
+                return View("getUserManager", new DAOController().getAllUser());
+            }
+            else
+            {
+                return RedirectToAction("TrangChu");
+            }
+        }
     }
 
     //Xóa tất cả hình, xài vòng for xóa card và xóa icon theo charId

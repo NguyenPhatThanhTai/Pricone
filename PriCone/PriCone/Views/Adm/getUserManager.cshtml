@@ -1,0 +1,127 @@
+﻿@model List<PriCone.Models.dataModels.User>
+@{
+    Layout = null;
+}
+
+<table id="list-character">
+    <tr>
+        <th>Mã thành viên</th>
+        <th>Tên thành viên</th>
+        <th>Ngày sinh</th>
+        <th>Quyền hiện tại</th>
+        <th>Tình trạng tài khoản</th>
+        <th>Chức năng</th>
+    </tr>
+    @foreach (var items in Model)
+    {
+        var User = (PriCone.Models.dataModels.User)Session["User"];
+        if (items.UserId.Equals(User.UserId))
+        {
+
+        }
+        else
+        {
+            <tr>
+                <td>@items.UserId</td>
+                <td>@items.FullName</td>
+                <td>@items.Birthday.Value.ToString("dd/MM/yyyy")</td>
+                @if (items.Role == true)
+                {
+                    <td>Quản trị tối cao</td>
+                }
+                else
+                {
+                    <td>Dân thường</td>
+                }
+                @if (items.Status == true)
+                {
+                    <td><span style="color: forestgreen">Hoạt động</span></td>
+                }
+                else
+                {
+                    <td><span style="color: red">Bị khóa</span></td>
+                }
+                <td>
+                    @if (items.Role == true)
+                    {
+                        <button value="@items.UserId" class="btn btn-info Admin">Giáng chức | </button>
+                    }
+                    else
+                    {
+                        <button value="@items.UserId" class="btn btn-success Admin">Nâng lên Admin | </button>
+                    }
+                    @if (items.Status == true)
+                    {
+                        <button value="@items.UserId" class="btn btn-warning Block" style="color: rgb(127, 60, 214);">Chặn |</button>
+                    }
+                    else
+                    {
+                        <button value="@items.UserId" class="btn btn-success Block" style="color: rgb(127, 60, 214);">Bỏ chặn |</button>
+                    }
+                    <button value="@items.UserId" class="btn btn-danger Delete" style="color: white;">Xoá</button>
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+<script>
+    $('.Admin').click(function (e) {
+    e.preventDefault();
+        e.stopPropagation();
+
+
+        var content = {
+            'userId': $(this).val(),
+            'flag': 'Admin'
+    };
+    $.ajax({
+        url: "/Adm/actionUser",
+        type: "POST",
+        data: content,
+        success: function (data) {
+            $('#table-character').load('@Url.Action("actionMiniUser", "Adm")');
+            }
+        })
+    })
+</script>
+
+<script>
+    $('.Block').click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+        var content = {
+            'userId': $(this).val(),
+            'flag': 'Block'
+    };
+    $.ajax({
+        url: "/Adm/actionUser",
+        type: "POST",
+        data: content,
+        success: function (data) {
+            $('#table-character').load('@Url.Action("actionMiniUser", "Adm")');
+            }
+        })
+    })
+</script>
+
+<script>
+    $('.Delete').click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+        var content = {
+            'userId': $(this).val(),
+            'flag': 'Delete'
+    };
+    $.ajax({
+        url: "/Adm/actionUser",
+        type: "POST",
+        data: content,
+        success: function (data) {
+            $('#table-character').load('@Url.Action("actionMiniUser", "Adm")');
+            }
+        })
+    })
+</script>

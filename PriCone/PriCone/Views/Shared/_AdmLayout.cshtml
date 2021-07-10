@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="~/favicon.ico" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.5.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     @RenderSection("header", false)
     <style>
@@ -32,11 +31,11 @@
             </header>
 
             <div class="ThanhChucNang">
-                <a href="@Url.Action("ThemNhanVat", "Adm")">Quản lý nhân vật</a>
-                <a href="@Url.Action("cardManager", "Adm")">Quản lý card nhân vật</a>
-                <a href="#">Quản lý guild</a>
-                <a href="@Url.Action("TrangChu", "Char")">Về trang chủ User</a>
-                <a href="#">Quản lý người dùng</a>
+                <a style="text-decoration: none" href="@Url.Action("ThemNhanVat", "Adm")">Quản lý nhân vật</a>
+                <a style="text-decoration: none" href="@Url.Action("cardManager", "Adm")">Quản lý card nhân vật</a>
+                <a style="text-decoration: none" href="@Url.Action("userManager", "Adm")">Quản lý người dùng</a>
+                <a style="text-decoration: none" href="#">Quản lý guild</a>
+                <a style="text-decoration: none" href="@Url.Action("TrangChu", "Char")">Về trang chủ User</a>
             </div>
         </div>
 

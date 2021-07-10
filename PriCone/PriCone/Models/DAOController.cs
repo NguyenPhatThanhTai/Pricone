@@ -573,5 +573,76 @@ namespace PriCone.Models
                 return null;
             }
         }
+
+        public List<User> getAllUser()
+        {
+            try
+            {
+                return dao.User.ToList();
+            }catch(Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
+        }
+
+        public bool updateUser(string Id, string flag)
+        {
+            bool check = false;
+            try
+            {
+                var user = dao.User.FirstOrDefault(p => p.UserId.Equals(Id));
+                if (user != null)
+                {
+                    if (flag.Equals("Admin"))
+                    {
+                        if (user.Role == true)
+                        {
+                            user.Role = false;
+                            dao.SaveChanges();
+                            check = true;
+                        }
+                        else
+                        {
+                            user.Role = true;
+                            dao.SaveChanges();
+                            check = true;
+                        }
+                    }
+                    else if (flag.Equals("Block"))
+                    {
+                        if(user.Status == true)
+                        {
+                            user.Status = false;
+                            dao.SaveChanges();
+                            check = true;
+                        }
+                        else
+                        {
+                            user.Status = true;
+                            dao.SaveChanges();
+                            check = true;
+                        }
+                    }
+                    else if(flag.Equals("Delete"))
+                    {
+                        dao.User.Remove(user);
+                        dao.SaveChanges();
+                        check = true;
+                    }
+                    else
+                    {
+                        check = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                check = false;
+            }
+
+            return check;
+        }
     }
 }

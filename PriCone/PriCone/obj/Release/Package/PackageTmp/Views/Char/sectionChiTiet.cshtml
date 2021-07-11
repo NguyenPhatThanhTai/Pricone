@@ -15,6 +15,30 @@
         <br />
         <b>@Model.Detail</b>
     </div>
+    <div class="like">
+        <button id="like" class="btn btn-danger">
+            @if (ViewBag.checkLike == true)
+            {
+                <img width="30px" src="~/Content/heart_80px.png">
+            }
+            else
+            {
+                <img width="30px" src="~/Content/heart_32px.png">
+            }
+            Thả tim
+        </button>
+        <button id="save" class="btn btn-info">
+            @if (ViewBag.checkSave == true)
+            {
+                <img width="30px" src="~/Content/checkmark_26px.png">
+            }
+            else
+            {
+                <img width="30px" src="~/Content/add_to_collection_30px.png">
+            }
+            Lưu vào bộ sưu tập
+        </button>
+    </div>
 </div>
 <div id="content">
     <div id="content-infomation">
@@ -24,7 +48,7 @@
         <p>Bang hội: @Model.Guild.GuildName</p>
         <p>Chủng tộc: @Model.Race</p>
         <p>Tuổi: 18+</p>
-        <p>Sinh nhật: @Model.Birthday</p>
+        <p>Sinh nhật: @Model.Birthday.Value.ToString("dd/MM/yyyy")</p>
         <p>Chiều cao: @Model.Height</p>
         <p>Trọng lượng: @Model.Weight</p>
         <p>Nhóm máu: @Model.BloodType</p>
@@ -84,7 +108,62 @@
 </div>
 
 <script>
+    function chancePic(flag) {
+        $('#myImage').attr('src', '/Images/charCard/' + flag + '@Model.CharId' + '.png?' + Math.random()+'');
+    }
+</script>
+
+<script>
     $(document).ready(function (e){
         $('#myImage').attr('src', '/Images/charCard/MX' + '@Model.CharId' + '.png?' + Math.random()+'');
+    })
+</script>
+
+<script>
+    $("#like").click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        @*@if (Session["User"] == null)
+        {
+            <script>alert("Bạn cần đăng nhập");</script>
+        }*@
+
+        var content = {
+            'CharId': '@Model.CharId',
+        };
+        $.ajax({
+            url: "../updateLike",
+            type: "POST",
+            data: content,
+/*            contentType: "application/json",*/
+            success: function (data) {
+                $('#ThongTinNhanVat').load('@Url.Action("setSection", "Char")?flag=sectionChiTiet&&Id=' + '@Model.CharId');
+                }
+            })
+    })
+</script>
+
+<script>
+    $("#save").click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        @*@if (Session["User"] == null){
+            alert("Bạn cần đăng nhập, oke!");
+        }*@
+
+        var content = {
+            'CharId': '@Model.CharId',
+        };
+        $.ajax({
+            url: "../updateSave",
+            type: "POST",
+            data: content,
+/*            contentType: "application/json",*/
+            success: function (data) {
+                $('#ThongTinNhanVat').load('@Url.Action("setSection", "Char")?flag=sectionChiTiet&&Id=' + '@Model.CharId');
+                }
+            })
     })
 </script>

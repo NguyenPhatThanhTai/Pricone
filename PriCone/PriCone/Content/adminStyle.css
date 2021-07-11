@@ -204,6 +204,67 @@ footer {
     animation-name: animatetop;
     animation-duration: 0.4s
 }
+
+.out-side-popup {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.popup {
+    width: 430px;
+    height: 150px;
+    margin-top: 10%;
+    margin-left: 37%;
+    position: relative;
+    background-color: pink;
+    border-radius: 30px;
+    border: 3px solid rgb(209, 107, 124);
+    transition: 0.5s;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.popup img {
+    float: left;
+}
+
+.tittle-popup{
+    width: 300px;
+}
+
+.comfirm button {
+    border-radius: 30px;
+}
+
+.content-right p {
+    height: 70px;
+    width: 100%;
+}
+
+.content-right #content button {
+    border-radius: 30px;
+}
+
 /* Add Animation */
 
 @-webkit-keyframes animatetop {

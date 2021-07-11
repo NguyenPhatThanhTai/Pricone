@@ -1,5 +1,6 @@
-namespace PriCone.Models.dataModels
+﻿namespace PriCone.Models.dataModels
 {
+    using PriCone.Models.checkValid;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;

@@ -220,7 +220,7 @@ namespace PriCone.Controllers
 
             if (new DAOController().updateChar(characters))
             {
-                return RedirectToAction("TrangChu", "Char");
+                return RedirectToAction("ThemNhanVat", "Adm");
             }
             else
             {

@@ -489,6 +489,7 @@ tr:nth-child(even) {
         #header .topnav #img-left img {
             text-align: center;
             width: 325px;
+            margin-left: 10px;
         }
 
         #header .topnav #img-left h2 {
@@ -509,7 +510,7 @@ tr:nth-child(even) {
         margin: 0;
         float: none;
         text-align: center;
-        height: 120px;
+        height: 130px;
     }
 
         .topnav h1 {

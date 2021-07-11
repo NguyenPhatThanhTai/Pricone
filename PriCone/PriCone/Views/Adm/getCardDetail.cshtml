@@ -138,7 +138,7 @@
             data: content,
 /*            contentType: "application/json",*/
             success: function (data) {
-                $('.loadHere').load('@Url.Action("getCardDetail", "Adm")?Id=' + @Model.CharId);
+                $('.loadHere').load('@Url.Action("getCardDetail", "Adm")?Id=' + '@Model.CharId');
             }
         })
     })

@@ -1,0 +1,92 @@
+﻿body {
+    font-family: Cursive, Helvetica, sans-serif;
+    background-image: url("Wiki-background.jpg");
+    background-attachment: fixed;
+    margin-top: 10px;
+    background-size: cover;
+    overflow: hidden;
+}
+/* slide bar bên trái */
+
+#main {
+    transition: 0.5s;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 10px;
+    height: 400px;
+}
+
+    #gatcha1 {
+        text-align: center;
+        margin-left: 35%;
+        width: 500px;
+        background-color: pink;
+        box-shadow: 5px 10px #818181;
+    }
+
+    #gatcha10 {
+        text-align: center;
+        margin-left: 35%;
+        margin-top: 20px;
+        margin-bottom: 40%;
+        width: 500px;
+        height: 100px;
+        background-color: rgb(233, 90, 114);
+        box-shadow: 5px 10px #818181;
+    }
+
+    #main #main-page {
+        margin-top: 20px;
+        margin-left: 20px;
+        width: 50px;
+        background-color: rgb(64, 161, 113);
+        box-shadow: 5px 10px #818181;
+    }
+
+    #main #gatcha:hover {
+        background-color: rgb(230, 74, 100);
+    }
+
+.play-video #myVideo {
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    display: none;
+    z-index: -1;
+    position: absolute;
+}
+
+.contain-gatcha {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid pink;
+    box-shadow: 5px 10px #888888;
+    width: 60%;
+    margin-left: 20%;
+    margin-bottom: 20px;
+    display: none;
+    border-radius: 30px;
+}
+
+    .contain-gatcha p {
+        background-color: pink;
+        border-radius: 30px;
+        text-align: center;
+        margin: 10px;
+    }
+
+.char-gacha #contain {
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.char-gacha {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .char-gacha #contain img {
+        border-radius: 50%;
+        width: 70%;
+    }

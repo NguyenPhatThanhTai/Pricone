@@ -124,8 +124,9 @@
         e.preventDefault();
         e.stopPropagation();
 
-        @*@if (Session["User"] == null){
-            alert("Bạn cần đăng nhập, oke!");
+        @*@if (Session["User"] == null)
+        {
+            <script>alert("Bạn cần đăng nhập");</script>
         }*@
 
         var content = {

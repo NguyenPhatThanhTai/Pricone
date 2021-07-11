@@ -149,6 +149,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\checkValid\checkBirthDay.cs" />
     <Compile Include="Models\DAOController.cs" />
     <Compile Include="Models\dataModels\Card.cs" />
     <Compile Include="Models\dataModels\Characters.cs" />
@@ -187,6 +188,7 @@
     <Content Include="Content\nen.png" />
     <Content Include="Content\Nozomi-christmas-sprite-normal.png" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\popupStyle.css" />
     <Content Include="Content\registerStyle.css" />
     <Content Include="Content\Screen_Recording_20210708-164754_R_1.mp4" />
     <Content Include="Content\skillManagerStyle.css" />
@@ -201,7 +203,21 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\charCard\0057CACH115415.png" />
     <Content Include="Images\charCard\default.png" />
+    <Content Include="Images\charCard\MDCH115415.png" />
+    <Content Include="Images\charCard\MHCH115415.png" />
+    <Content Include="Images\charCard\MXCH115415.png" />
+    <Content Include="Images\charICon\CH110005.jpg" />
+    <Content Include="Images\charICon\CH114600.jpg" />
+    <Content Include="Images\charICon\CH115415.jpg" />
+    <Content Include="Images\charICon\CH115446.jpg" />
+    <Content Include="Images\charICon\CH115520.jpg" />
+    <Content Include="Images\charICon\CH115603.jpg" />
+    <Content Include="Images\charICon\CH115643.jpg" />
+    <Content Include="Images\charICon\CH115751.jpg" />
+    <Content Include="Images\charICon\CH115838.jpg" />
+    <Content Include="Images\charICon\CH115924.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\62K58PICb88i68HEwVnm5_PIC2018.gif" />
@@ -255,7 +271,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\charICon\" />
     <Folder Include="Picture\" />
   </ItemGroup>
   <ItemGroup>

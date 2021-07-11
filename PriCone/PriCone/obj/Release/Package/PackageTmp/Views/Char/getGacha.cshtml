@@ -1,0 +1,17 @@
+﻿@model List<PriCone.Models.dataModels.Characters>
+@{
+    Layout = null;
+}
+
+<div class="contain-gatcha">
+    <p>Chúc mừng bạn đã quay trúng các nhân vật</p>
+    <div class="char-gacha">
+        @foreach (var items in Model)
+        {
+            <a href="#" id="contain">
+                <img src="~/Images/charICon/@items.Icon" alt="@items.CharName">
+            </a>
+        }
+    </div>
+</div>
+

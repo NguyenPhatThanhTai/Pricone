@@ -31,21 +31,25 @@
                 @Html.AntiForgeryToken()
                 <div class="form-group">
                     <input type="text" class="form-control" id="usr" name="Username" placeholder="Người dùng" required>
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" id="pwd" name="Password" placeholder="Mật khẩu" required>
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" id="pwd" name="FullName" placeholder="Đầy đủ tên" required>
                 </div>
                 <div class="form-group">
                     <input type="date" class="form-control" id="pwd" name="Birthday" required>
+                    @*@Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })*@
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" id="pwd" name="Address" placeholder="Địa chỉ" required>
                 </div>
                 <div class="form-group">
                     <input type="number" class="form-control" id="pwd" name="Phone" placeholder="Số điện thoại" required>
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
                     <input type="email" class="form-control" id="pwd" name="Email" placeholder="Email" required>

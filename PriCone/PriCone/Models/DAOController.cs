@@ -240,6 +240,10 @@ namespace PriCone.Models
                     dao.Card.RemoveRange(card);
                     var skill = dao.Skill.Where(p => p.CharId.Equals(Id));
                     dao.Skill.RemoveRange(skill);
+                    var likes = dao.Liking.Where(p => p.CharId.Equals(Id));
+                    dao.Liking.RemoveRange(likes);
+                    var saves = dao.Saved.Where(p => p.CharId.Equals(Id));
+                    dao.Saved.RemoveRange(saves);
                     dao.Characters.Remove(result);
                     dao.SaveChanges();
                     flag = true;

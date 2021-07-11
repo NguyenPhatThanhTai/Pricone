@@ -476,11 +476,15 @@
     }
 
     #content {
-        margin-left: 25px;
-        margin-right: 25px;
+        margin-left: 10px;
+        margin-right: 10px;
         grid-area: middle;
         width: fit-content
     }
+
+            #content #guild-container a:hover {
+                margin: 10px;
+            }
 
     #visisted {
         display: none;

@@ -205,36 +205,43 @@ namespace PriCone.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(registerViewModel user)
         {
-            //Tạo mã người dùng
-            DateTime time = DateTime.Now;
-            string day = DateTime.Now.ToString("dd");
-            string month = DateTime.Now.ToString("MM");
-            string year = DateTime.Now.ToString("yyyy");
-            string Min = DateTime.Now.ToString("mm");
-            string sec = DateTime.Now.ToString("ss");
-
-            string MaNguoiDung = "US" + day + "" + Min + "" + sec;
-
-            User use = new User();
-            use.UserId = MaNguoiDung;
-            use.Username = user.Username;
-            use.Password = user.Password;
-            use.FullName = user.FullName;
-            use.Birthday = user.Birthday;
-            use.Address = user.Address;
-            use.Phone = user.Phone;
-            use.Email = user.Email;
-            use.Avatar = "Default";
-            use.Status = true;
-
-            if(new DAOController().registerUser(use))
+            if (!ModelState.IsValid)
             {
-                return RedirectToAction("Login", "Char");
+                return View("Register", user);
             }
             else
             {
-                ModelState.AddModelError("", "Đăng ký không thành công!");
-                return View();
+                //Tạo mã người dùng
+                DateTime time = DateTime.Now;
+                string day = DateTime.Now.ToString("dd");
+                string month = DateTime.Now.ToString("MM");
+                string year = DateTime.Now.ToString("yyyy");
+                string Min = DateTime.Now.ToString("mm");
+                string sec = DateTime.Now.ToString("ss");
+
+                string MaNguoiDung = "US" + day + "" + Min + "" + sec;
+
+                User use = new User();
+                use.UserId = MaNguoiDung;
+                use.Username = user.Username;
+                use.Password = user.Password;
+                use.FullName = user.FullName;
+                use.Birthday = user.Birthday;
+                use.Address = user.Address;
+                use.Phone = user.Phone;
+                use.Email = user.Email;
+                use.Avatar = "Default";
+                use.Status = true;
+
+                if (new DAOController().registerUser(use))
+                {
+                    return RedirectToAction("Login", "Char");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Đăng ký không thành công!");
+                    return View();
+                }
             }
         }
 

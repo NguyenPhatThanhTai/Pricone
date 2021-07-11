@@ -6,7 +6,6 @@
 
 @section header{
     <link rel="stylesheet" href="~/Content/adminStyle.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 }
 
 @Html.ValidationSummary(true, null)
@@ -106,7 +105,7 @@
                 <td><img width="70" src="~/Images/charICon/@pic"></td>
                 <td>
                     <button class="btn btn-warning" id="GetChar" value="@items.CharId" onclick="openPopUp()">Chỉnh sửa</button>
-                    <button class="btn btn-danger" style="color: white;" value="Delete" data-value="@items.CharId">Xoá</button>
+                    <button class="btn btn-danger" style="color: white;" value="Delete" data-name="@items.CharName" data-value="@items.CharId">Xoá</button>
                 </td>
             </tr>
         }
@@ -134,14 +133,18 @@
 </div>
 
 <!-- The Modal check delete -->
-<div id="modelDelete" class="modal">
-    <!-- Modal content -->
-    <div class="modal-footer">
-        <div style="float: left">
-            <h3>Xác nhận xóa nhân vật <span id="Id-Delete"></span></h3>
+<div id="modelDelete" class="out-side-popup">
+    <div class="popup">
+        <img width="130" src="~/Content/main.png">
+        <div class="content-right">
+            <div class="tittle-popup">
+                <p>Bạn có chắn muốn xóa nhân vật <span id="Id-Delete" style="font-weight: bold; color: indianred"></span>!</p>
+            </div>
+            <div class="comfirm">
+                <button id="confirm-delete" class="btn btn-success">Đồng ý</button>
+                <button class="btn btn-danger" onclick="closeCheckDelete()">Hủy bỏ</button>
+            </div>
         </div>
-        <button class="btn btn-success" id="confirm-delete">Xác nhận xóa</button>
-        <button class="btn btn-danger" onclick="closeCheckDelete()">Hủy xóa</button>
     </div>
 </div>
 
@@ -174,7 +177,7 @@
         var Id = $(this).val();
         if (Id == "Delete") {
             document.getElementById("confirm-delete").value = $(this).attr("data-value");
-            document.getElementById("Id-Delete").innerHTML = $(this).attr("data-value");
+            document.getElementById("Id-Delete").innerHTML = $(this).attr("data-name");
             document.getElementById("modelDelete").style.display = "block";
         }
         else {

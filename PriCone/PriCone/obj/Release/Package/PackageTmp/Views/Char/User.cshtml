@@ -1,0 +1,50 @@
+﻿@model PriCone.Models.viewModels.UserView
+@{
+    ViewBag.Title = "User";
+    Layout = "~/Views/Shared/_CharLayout.cshtml";
+}
+
+@section header{
+    <link rel="stylesheet" href="~/Content/userStyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+}
+
+<div class="container">
+    <div class="Tittle-User">
+        <p id="Tittle-content">Thông tin người dùng</p>
+        <div class="content">
+            <li>Tên đăng nhập: <span> @Model.user.Username </span></li>
+            <li>Đầy đủ họ tên:<span> @Model.user.FullName </span></li>
+            <li>Ngày sinh: <span> @Model.user.Birthday.Value.ToString("dd/MM/yyyy")</span></li>
+            <li>Địa chỉ:<span> @Model.user.Address</span></li>
+            <li>Số điện thoại: <span> @Model.user.Phone</span></li>
+            <li>Email: <span> @Model.user.Email</span></li>
+            <button class="btn btn-info">Sửa thông tin</button>
+        </div>
+    </div>
+    <div class="Tittle-Like">
+        <p id="Tittle-content"><span><img width="30px" src="heart_48px.png"></span> Đã thả tim gần đây <span><img width="30px" src="heart_48px.png"></span></p>
+        <div id="list-like">
+            @foreach (var items in Model.listLike)
+            {
+                <a href="@Url.Action("ChiTiet", "Char", new { Id = items.Characters.CharId })">
+                    <img src="~/Images/charICon/@items.Characters.Icon" alt="">
+                    <p>@items.Characters.CharName</p>
+                </a>
+            }
+        </div>
+    </div>
+    <div class="Tittle-Saved">
+        <p id="Tittle-content">Bộ sưu tập</p>
+        <div id="list-saved">
+            @foreach (var items in Model.listSaved)
+            {
+                <a href="@Url.Action("ChiTiet", "Char", new { Id = items.Characters.CharId })">
+                    <img src="~/Images/charICon/@items.Characters.Icon" alt="">
+                    <p>@items.Characters.CharName</p>
+                </a>
+            }
+        </div>
+    </div>
+</div>
+

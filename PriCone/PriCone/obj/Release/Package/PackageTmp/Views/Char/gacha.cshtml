@@ -1,0 +1,75 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/gachaStyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.5.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Gacha</title>
+</head>
+
+<body>
+    <div class="play-video">
+        <video id="myVideo">
+            <source src="~/Content/Screen_Recording_20210708-164754_R_1.mp4" type="video/mp4">
+        </video>
+    </div>
+    <a href="@Url.Action("TrangChu", "Char")"><button style="margin-left: 20px;" id="main-page" class="btn btn-success">Dìa trang chủ >>></button></a>
+    <div id="main">
+        @*  load  *@
+    </div>
+    <button id="gatcha1" class="btn btn-success gatcha" value="1">Gacha 1 lần</button>
+    <button id="gatcha10" class="btn btn-success gatcha" value="10">Gacha 10 lần</button>
+</body>
+
+</html>
+
+<script>
+    $('.gatcha').click(function() {
+        $('#main-page').css('margin-top', '-50%');
+        $('#main').css('margin-top', '-70%');
+        $('#myVideo').css('display', 'block');
+        $('#gatcha').css('display', 'none');
+        $('#myVideo').get(0).play();
+        var Id = $(this).val();
+        $('#main').load('@Url.Action("getcha", "Char")?number=' + Id);
+        setTimeout(
+            function() {
+                $('#main-page').css('margin-top', '10px');
+                $('#main').css('margin-top', '10px');
+                $('#myVideo').css('display', 'none');
+                $('.contain-gatcha').css('display', 'block');
+                $('#gatcha1').css('margin-top', '10px');
+            }, 7000);
+    })
+</script>
+
+<script>
+    $(document).ready(function() {
+        document.getElementById('load').style.display = "block";
+        setTimeout(
+            function() {
+                document.getElementById('load').style.display = "none";
+            }, 3000);
+    });
+</script>
+
+<script>
+    $('.like button').click(function(e) {
+        e.preventDefault();
+        document.getElementById('heart').style.display = "block";
+        setTimeout(
+            function() {
+                document.getElementById('heart').style.display = "none";
+            }, 500);
+    })
+</script>

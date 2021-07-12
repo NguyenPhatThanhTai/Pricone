@@ -31,8 +31,8 @@
 
 <script>
     $(document).ready(function () {
-        if (@Model.CharId != null) {
-            $('.loadHere').load('@Url.Action("getCardDetail", "Adm")?Id=' + @Model.CharId);
+        if ('@Model.CharId' != null) {
+            $('.loadHere').load('@Url.Action("getCardDetail", "Adm")?Id=' + '@Model.CharId');
         }
     });
 </script>

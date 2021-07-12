@@ -107,9 +107,30 @@
     </div>
 </div>
 
+<div id="modelDelete" class="out-side-popup">
+    <div class="popup">
+        <img width="130" src="~/Content/main.png">
+        <div class="content-right">
+            <div class="tittle-popup">
+                <p>Bạn cần <b style="color: red;">Đăng Nhập</b> để thực hiện tính năng này!</p>
+            </div>
+            <div class="comfirm">
+                <button class="btn btn-success" onclick="redirectToLogin()">Đến đăng nhập</button>
+                <button class="btn btn-danger" onclick="closeCheckDelete()">Hủy bỏ</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     function chancePic(flag) {
         $('#myImage').attr('src', '/Images/charCard/' + flag + '@Model.CharId' + '.png?' + Math.random()+'');
+    }
+    function closeCheckDelete() {
+        document.getElementById("modelDelete").style.display = "none";
+    }
+    function redirectToLogin() {
+        window.location.href = "../Login";
     }
 </script>
 
@@ -122,13 +143,12 @@
 <script>
     $("#like").click(function (e) {
         e.preventDefault();
-        e.stopPropagation();
 
-        @*@if (Session["User"] == null)
-        {
-            <script>alert("Bạn cần đăng nhập");</script>
-        }*@
-
+        var value = '@Request.RequestContext.HttpContext.Session["User"]';
+        if (value == '') {
+            document.getElementById("modelDelete").style.display = "block";
+        }
+        else {
         var content = {
             'CharId': '@Model.CharId',
         };
@@ -141,18 +161,19 @@
                 $('#ThongTinNhanVat').load('@Url.Action("setSection", "Char")?flag=sectionChiTiet&&Id=' + '@Model.CharId');
                 }
             })
+        }
     })
 </script>
 
 <script>
     $("#save").click(function (e) {
         e.preventDefault();
-        e.stopPropagation();
 
-        @*@if (Session["User"] == null){
-            alert("Bạn cần đăng nhập, oke!");
-        }*@
-
+        var value = '@Request.RequestContext.HttpContext.Session["User"]';
+        if (value == '') {
+            document.getElementById("modelDelete").style.display = "block";
+        }
+        else {
         var content = {
             'CharId': '@Model.CharId',
         };
@@ -165,5 +186,6 @@
                 $('#ThongTinNhanVat').load('@Url.Action("setSection", "Char")?flag=sectionChiTiet&&Id=' + '@Model.CharId');
                 }
             })
+        }
     })
 </script>

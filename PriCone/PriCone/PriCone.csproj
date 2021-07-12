@@ -203,11 +203,11 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Images\charCard\0057CACH115415.png" />
     <Content Include="Images\charCard\default.png" />
     <Content Include="Images\charCard\MDCH115415.png" />
     <Content Include="Images\charCard\MHCH115415.png" />
     <Content Include="Images\charCard\MXCH115415.png" />
+    <Content Include="Images\charCard\MXCH115446.png" />
     <Content Include="Images\charICon\CH110005.jpg" />
     <Content Include="Images\charICon\CH114600.jpg" />
     <Content Include="Images\charICon\CH115415.jpg" />

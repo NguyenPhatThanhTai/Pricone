@@ -99,7 +99,7 @@ namespace PriCone.Controllers
                     UserId = u.UserId
                 };
                 new DAOController().updateLike(likes);
-                Characters chars= new DAOController().detailChar(like.CharId);
+                Characters chars = new DAOController().detailChar(like.CharId);
                 return View("sectionChiTiet", chars);
             }
         }
@@ -150,7 +150,7 @@ namespace PriCone.Controllers
                 List<Card> listCard = new DAOController().getListCard(Id);
                 return View("sectionCard", listCard);
             }
-            else if (flag.Equals("sectionSkill")) 
+            else if (flag.Equals("sectionSkill"))
             {
                 Skill skill = new DAOController().getSkill(Id);
                 return View("sectionSkill", skill);
@@ -167,10 +167,10 @@ namespace PriCone.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(string user, string pass)
         {
-            if(new DAOController().checkLogin(user, pass) != null)
+            if (new DAOController().checkLogin(user, pass) != null)
             {
                 User u = new DAOController().checkLogin(user, pass);
-                if(u.Role == true)
+                if (u.Role == true)
                 {
                     ModelState.AddModelError("", "Sai mật khẩu, tài khoản hoặc tài khoản đã bị khóa!");
                     return View();
@@ -282,8 +282,8 @@ namespace PriCone.Controllers
         [HttpPost]
         public ActionResult deleteComment(string FeedId, string Id)
         {
-            if(new DAOController().deleteComent(FeedId))
-            { 
+            if (new DAOController().deleteComent(FeedId))
+            {
                 List<Feedback> feedbacks = new DAOController().comment(Id);
                 return RedirectToAction("comment", feedbacks);
             }
@@ -347,14 +347,39 @@ namespace PriCone.Controllers
 
         public ActionResult getcha(int number)
         {
-            if(number == null)
+            if (number == null)
             {
                 return RedirectToAction("TrangChu");
             }
             else
             {
-                return View("getGacha",new DAOController().gacha(number));
+                return View("getGacha", new DAOController().gacha(number));
             }
+        }
+
+        public ActionResult covid19(){
+            if (Session["User"] == null)
+            {
+                ViewBag.Login = "Login";
+                ViewBag.display = "none";
+                ViewBag.CheckLogin = "Đăng nhập/Đăng ký";
+            }
+            else
+            {
+                ViewBag.display = "static";
+                User u = Session["User"] as User;
+                ViewBag.Login = "User";
+                ViewBag.idUser = u.UserId;
+                if (u.Role == true)
+                {
+                    ViewBag.CheckLogin = u.FullName + " - Admin";
+                }
+                else
+                {
+                    ViewBag.CheckLogin = u.FullName + " - User";
+                }
+            }
+            return View();
         }
     }
 }

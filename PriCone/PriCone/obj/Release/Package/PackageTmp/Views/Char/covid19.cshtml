@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "covid19";
+    Layout = "~/Views/Shared/_CharLayout.cshtml";
+}
+
+@section header{
+    <link rel="stylesheet" href="~/Content/covid19.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+}
+
+<div class="tittle-covid">Hãy luôn thực hiện quy tắc 5k nhé</div>
+<p>(Lưu ý hiện tại Api vẫn đang phát triển nên dữ liệu vẫn <span style="font-weight: bold;color: red;">chưa chính xác</span>, vui lòng không tin tuyệt đối vào dữ liệu dưới đây!!!)</p>
+
+<div class="VietNamBoard">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_North_Vietnam_%281955%E2%80%931976%29.svg/230px-Flag_of_North_Vietnam_%281955%E2%80%931976%29.svg.png">
+    <div class="VietNamContain">
+        <b>Tên nước: </b><span>Việt Nam</span><br>
+        <b>Tổng số ca: </b><span id="VietNamTotalCase">Đang tải...</span><br>
+        <b>Số ca mới: </b><span id="VietNamNewCase">Đang tải...</span><br>
+        <b>Tổng số ca chết: </b><span id="VietNamTotalDeath">Đang tải...</span><br>
+        <b>Ca chết mới: </b><span id="VietNamNewDeath">Đang tải...</span><br>
+        <b>Tổng ca hồi phục: </b><span id="VietNamTotalRecover">Đang tải...</span><br>
+    </div>
+</div>
+
+<div class="GlobalBoard">
+    <img src="https://chuyenphatnhanhquoctedhl.com.vn/wp-content/uploads/2017/12/sub-buzz-23725-1476176180-1-1476865251450.png">
+    <div class="VietNamContain">
+        <b>Tên nước: </b><span>Thế giới</span><br>
+        <b>Tổng số ca: </b><span id="GlobalTotalCase">Đang tải...</span><br>
+        <b>Số ca mới: </b><span id="GlobalNewCase">Đang tải...</span><br>
+        <b>Tổng số ca chết: </b><span id="GlobalTotalDeath">Đang tải...</span><br>
+        <b>Ca chết mới: </b><span id="GlobalNewDeath">Đang tải...</span><br>
+        <b>Tổng ca hồi phục: </b><span id="GlobalTotalRecover">Đang tải...</span><br>
+    </div>
+</div>
+
+<img style="margin-top: 50px; box-shadow: 5px 10px black;" width="350px" src="https://phutho.gov.vn/sites/default/files/users/user204/5k.gif">
+
+<div class="table">
+    <div class="loading" id="getLoad">
+        <img width="300px" style="margin-top: 15%;" src="~/Content/3.gif">
+        <p style="font-weight: bold; font-size: 20px; color: red">Đang load dữ liệu, hãy đợi...</p>
+    </div>
+    <table class="contain-covid">
+        <tr>
+            <th>STT</th>
+            <th>Tên nước</th>
+            <th>Tổng số ca</th>
+            <th>Số ca mới</th>
+            <th>Tổng số ca chết</th>
+            <th>Ca chết mới</th>
+            <th>Tổng hồi phục</th>
+            <th>Bị nhiễm</th>
+            <th>Nguy cơ</th>
+            <th>Tỷ lệ lây nhiễm</th>
+            <th>Tỷ lệ chết</th>
+            <th>Đã xét nghiệm</th>
+            <th>Khu vực</th>
+        </tr>
+    </table>
+</div>
+
+<script>
+    $(document).ready(function (e) {
+        document.getElementById('getLoad').style.display = "block";
+        setTimeout(
+            function () {
+                document.getElementById('getLoad').style.display = "none";
+            }, 5000);
+        $.ajax({
+            type: 'GET',
+            dataType: "json",
+            url: 'https://taei-taei.herokuapp.com/',
+            success: function (data) {
+                $.each(data.data.global, function (index, element) {
+                    if (element.CountryName == 'Việt Nam') {
+                        document.getElementById('VietNamTotalCase').innerHTML = this.TotalCase
+                        document.getElementById('VietNamNewCase').innerHTML = this.NewCase
+                        document.getElementById('VietNamTotalDeath').innerHTML = this.TotalDeath
+                        document.getElementById('VietNamNewDeath').innerHTML = this.NewDeath
+                        document.getElementById('VietNamTotalRecover').innerHTML = this.TotalRecovery
+                    }
+                    if (element.CountryName == 'Thế giới') {
+                        document.getElementById('GlobalTotalCase').innerHTML = this.TotalCase
+                        document.getElementById('GlobalNewCase').innerHTML = this.NewCase
+                        document.getElementById('GlobalTotalDeath').innerHTML = this.TotalDeath
+                        document.getElementById('GlobalNewDeath').innerHTML = this.NewDeath
+                        document.getElementById('GlobalTotalRecover').innerHTML = this.TotalRecovery
+                    }
+                    $('.contain-covid').append(
+                        '<tr>' +
+                        '<td>' + element.CountryId + '</td>' +
+                        '<td style="font-weight: bold;">' + element.CountryName + '</td>' +
+                        '<td>' + element.TotalCase + '</td>' +
+                        '<td style="color: blue;">' + element.NewCase + '</td>' +
+                        '<td>' + element.TotalDeath + '</td>' +
+                        '<td style="color: red;">' + element.NewDeath + '</td>' +
+                        '<td>' + element.TotalRecovery + '</td>' +
+                        '<td style="color: green;">' + element.Infected + '</td>' +
+                        '<td>' + element.Critical + '</td>' +
+                        '<td>' + element.InfectionRate + '</td>' +
+                        '<td>' + element.DeathRate + '</td>' +
+                        '<td>' + element.Tested + '</td>' +
+                        '<td>' + element.Area + '</td>' +
+                        '</tr>'
+                    )
+                });
+            }
+        });
+    })
+</script>
+

@@ -167,6 +167,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\3.gif" />
     <Content Include="Content\37773f088b060b34f0ac4686b1fbeec4.png" />
     <Content Include="Content\50571736_579055762663618_6653393284875943936_n.gif" />
     <Content Include="Content\add_to_collection_30px.png" />
@@ -174,7 +175,9 @@
     <Content Include="Content\cardManagerStyle.css" />
     <Content Include="Content\charStyle.css" />
     <Content Include="Content\checkmark_26px.png" />
+    <Content Include="Content\covid19.css" />
     <Content Include="Content\detailCharStyle.css" />
+    <Content Include="Content\FQuygXPMd2A4O0deuG3gXRCqpEng4BdwvO3kMkn6Aoo.jpeg" />
     <Content Include="Content\FullArtMuimi.png" />
     <Content Include="Content\gachaStyle.css" />
     <Content Include="Content\GourmetEdificeHeader.png" />
@@ -268,6 +271,7 @@
     <Content Include="Views\Char\getGacha.cshtml" />
     <Content Include="Views\Adm\userManager.cshtml" />
     <Content Include="Views\Adm\getUserManager.cshtml" />
+    <Content Include="Views\Char\covid19.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,7 +1,8 @@
 ﻿body {
     font-family: Cursive, Helvetica, sans-serif;
-    background-image: url("FQuygXPMd2A4O0deuG3gXRCqpEng4BdwvO3kMkn6Aoo.jpeg");
+    background-image: url("white-covid-19-background-with-virus-particles-and-space-for-text-2BEP2TK.jpg");
     background-attachment: fixed;
+    background-size: cover;
     transition: 0.5s;
 }
 /* slide bar bên trái */
@@ -164,31 +165,55 @@
 .table {
     overflow: auto;
     height: 1000px;
+    text-align: center;
 }
 
-.contain-covid {
+.contain-covid-detail {
     text-align: center;
     margin: 0 20px 20px 20px;
 }
 
-    .contain-covid td {
+    .contain-covid-detail td {
         border: 1px solid black;
     }
 
-    .contain-covid th {
+    .contain-covid-detail th {
         border: 1px solid black;
         background-color: pink;
-        color: rgb(211, 41, 69);
         position: sticky;
         top: 0;
     }
 
+.contain-covid-global {
+    text-align: center;
+    margin: 0 20px 20px 100px;
+}
+
+    .contain-covid-global td {
+        border: 1px solid black;
+        padding: 20px;
+    }
+
+    .contain-covid-global th {
+        border: 1px solid black;
+        background-color: rgb(102, 200, 224);
+        position: sticky;
+        top: 0;
+    }
+
+.tittle-table {
+    background-color: rgb(96, 214, 230);
+    border-radius: 30px;
+    border: 1px solid black;
+    margin: 30px;
+}
+
 .VietNamBoard {
-    border: 2px solid red;
+    border: 5px solid rgb(255, 0, 0);
     border-radius: 30px;
     box-shadow: 5px 10px black;
     float: left;
-    width: 300px;
+    width: 350px;
     margin: 30px;
     text-align: center;
 }
@@ -206,7 +231,7 @@
 
 .GlobalBoard {
     text-align: center;
-    border: 2px solid red;
+    border: 5px solid rgb(48, 98, 163);
     border-radius: 30px;
     box-shadow: 5px 10px black;
     float: left;
@@ -230,4 +255,97 @@
     left: 0;
     z-index: 1;
     display: none;
+}
+
+.img-5k {
+    margin-top: 50px;
+    box-shadow: 5px 10px black;
+    width: 350px;
+}
+
+@media only screen and (max-width: 600px) {
+    #main {
+        margin: auto;
+    }
+
+    #header {
+        margin: 0;
+    }
+
+        #header .topnav #logo-left {
+            display: none;
+        }
+
+        #header .topnav #img-left img {
+            text-align: center;
+            width: 325px;
+            margin-left: 10px;
+        }
+
+        #header .topnav #img-left h2 {
+            display: none;
+        }
+
+        #header .topnav #login-right {
+            float: none;
+            text-align: center;
+        }
+
+    #main #header-main {
+        display: grid;
+        grid-template-areas: 'middle''right';
+    }
+
+    .topnav {
+        margin: 0;
+        float: none;
+        text-align: center;
+        height: 130px;
+    }
+
+        .topnav h1 {
+            font-size: 25px;
+        }
+
+        .topnav #img-left p {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+    .ThanhChucNang {
+        margin-top: 10px;
+    }
+
+    .VietNamBoard {
+        margin: 10px;
+    }
+
+    .GlobalBoard {
+        margin: 10px;
+    }
+
+    .contain-covid-global {
+        margin: 5px;
+    }
+
+    .contain-covid-detail {
+        margin: 5px;
+    }
+}
+
+@media only screen and (max-width: 1366px) and (min-width: 768px) {
+    .contain-covid-global {
+        margin: 25px;
+    }
+
+    .img-5k{
+        display: none;
+    }
+
+    .VietNamBoard {
+        width: 400px;
+    }
+    .GlobalBoard{
+        width: 400px;
+    }
 }

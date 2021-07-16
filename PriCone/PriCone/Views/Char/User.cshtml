@@ -6,6 +6,7 @@
 
 @section header{
     <link rel="stylesheet" href="~/Content/userStyle.css">
+    <link rel="stylesheet" href="~/Content/_CharLayout.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 }
 
@@ -19,7 +20,7 @@
             <li>Địa chỉ:<span> @Model.user.Address</span></li>
             <li>Số điện thoại: <span> @Model.user.Phone</span></li>
             <li>Email: <span> @Model.user.Email</span></li>
-            <button class="btn btn-info">Sửa thông tin</button>
+            <button onclick="openPopUp()" id="updateInf" class="btn btn-info">Sửa thông tin</button>
         </div>
     </div>
     <div class="Tittle-Like">
@@ -47,4 +48,41 @@
         </div>
     </div>
 </div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <div style="float: left">
+                <h3>Sửa thông tin cá nhân</h3>
+            </div>
+            <div style="float: right">
+                <span class="close" onclick="closePopUp()">&times;</span>
+            </div>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+            <h3>Princess-Connect-Redive</h3>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openPopUp() {
+        document.getElementById("myModal").style.display = "block";
+    }
+
+    function closePopUp() {
+        document.getElementById("myModal").style.display = "none";
+    }
+</script>
+
+<script>
+    $('#updateInf').click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $('.modal-body').load('@Url.Action("getUser", "Char")?Id=' + '@Model.user.UserId')
+    })
+</script>
 

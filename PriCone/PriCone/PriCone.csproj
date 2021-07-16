@@ -204,6 +204,7 @@
     <Content Include="Content\audio.mp3" />
     <Content Include="Content\y2mate.com - Princess Connect ReDive 4K wallpaper_1080p.mp4" />
     <Content Include="Content\Yuuki_sprite.png" />
+    <Content Include="Content\_CharLayout.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -273,6 +274,7 @@
     <Content Include="Views\Adm\userManager.cshtml" />
     <Content Include="Views\Adm\getUserManager.cshtml" />
     <Content Include="Views\Char\covid19.cshtml" />
+    <Content Include="Views\Char\getUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

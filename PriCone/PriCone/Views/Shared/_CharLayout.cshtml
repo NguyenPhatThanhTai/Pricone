@@ -23,7 +23,7 @@
                     <a style="display: @ViewBag.display;" href="@Url.Action("Logout","Char")">Đăng xuất</a>
                 </div>
                 <div id="img-left">
-                    <p style="font-weight: bold;font-family: Arial, Helvetica, sans-serif; text-align: center;">Princess Connect! Re:Dive Character</p>
+                    <p style="font-weight: bold; font-family: Arial, Helvetica, sans-serif; text-align: center; color: deeppink; text-shadow: 2px 2px #534d4d; ">Princess Connect! Re:Dive Character</p>
                 </div>
                 <!-- <a href="#news">News</a>
                 <a href="#contact">Contact</a>
@@ -49,6 +49,15 @@
 
     <div id="main">
         @RenderBody()
+        <footer>
+            <div class="footer">
+                <div class="left_footer"> <img width="300px" src="~/Content/Wiki-wordmark.png" alt="" /> </div>
+                <div class="center_footer">
+                    Trang web này được tạo ra cho fan và không liên quan gì đến Cygames<br />© 2021 full right service
+                </div>
+                <div class="right_footer">Bản quyền, quyền thương hiệu và quyền sở hữu trí tuệ hình ảnh của trò chơi được sử dụng trên trang web này thuộc về nhà cung cấp nội dung gốc (Cygames).</div>
+            </div>
+        </footer>
     </div>
 </body>
 

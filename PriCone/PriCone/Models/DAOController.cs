@@ -540,6 +540,36 @@ namespace PriCone.Models
             }
         }
 
+        public bool updateUser(User user)
+        {
+            try
+            {
+                var us = dao.User.FirstOrDefault(p => p.UserId.Equals(user.UserId));
+                if(us != null)
+                {
+                    us.Username = user.Username;
+                    us.Password = user.Password;
+                    us.FullName = user.FullName;
+                    us.Birthday = user.Birthday;
+                    us.Address = user.Address;
+                    us.Phone = user.Phone;
+                    us.Email = user.Email;
+
+                    dao.SaveChanges();
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }catch(Exception ex)
+            {
+                ex.Message.ToString();
+                return false;
+            }
+        }
+
         public List<Liking> userLikeList(string Id)
         {
             try

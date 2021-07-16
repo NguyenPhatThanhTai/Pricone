@@ -1,165 +1,18 @@
-﻿body {
-    font-family: Cursive, Helvetica, sans-serif;
-    background-image: url("white-covid-19-background-with-virus-particles-and-space-for-text-2BEP2TK.jpg");
-    background-attachment: fixed;
-    background-size: cover;
-    transition: 0.5s;
-}
-/* slide bar bên trái */
-
-.sidenav {
-    grid-area: left;
-    height: 1480px;
-    width: 0;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: pink;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 50px;
-    margin-top: 10px;
-}
-
-    .sidenav a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
-        display: block;
-        transition: 0.5s;
-    }
-
-        .sidenav a:hover {
-            color: #f1f1f1;
-        }
-
-    .sidenav .closebtn {
-        color: rgb(131, 56, 112);
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-    }
-/* Header đầu trang (logo...) */
-
-.topnav {
-    margin-top: 10px;
-    transition: 0.5s;
-    overflow: hidden;
-    border-top: 5px solid pink;
-    height: 100px;
-    background-image: url("37773f088b060b34f0ac4686b1fbeec4.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-    .topnav #logo-left {
-        float: left;
-        text-align: center;
-        width: 50px;
-        height: 80px;
-    }
-
-        .topnav #logo-left #logo {
-            transition: 0.5s;
-            background-color: pink;
-            font-size: 15px;
-            width: 100%;
-            padding-top: 35px;
-            padding-bottom: 35px;
-        }
-
-        .topnav #logo-left a {
-            text-decoration: none;
-        }
-
-    .topnav #login-right {
-        float: right;
-        text-align: right;
-    }
-
-        .topnav #login-right a {
-            text-decoration: none;
-            color: rgba(59, 56, 56, 0.753);
-            padding: 4px;
-            background-color: pink;
-        }
-
-        .topnav #login-right p {
-            margin-right: 10px;
-        }
-
-    .topnav #img-left {
-        float: left;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-
-        .topnav #img-left img {
-            transition: 0.5s;
-            width: 300px;
-        }
-
-        .topnav #img-left p {
-            font-weight: bold;
-            font-size: 40px;
-        }
-/* .topnav #img-left h2 {
-        font-size: ;
-    } */
-.ThanhChucNang {
-    transition: 0.5s;
-    background-color: rgb(229, 119, 233);
-    text-align: center;
-    padding: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-    .ThanhChucNang a {
-        transition: 0.5s;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        padding-left: 10px;
-        padding-right: 10px;
-        text-decoration: none;
-        color: white;
-    }
-
-        .ThanhChucNang a:hover {
-            background-color: pink;
-            color: black;
-            font-size: 20px;
-        }
-
-#header {
-    margin-left: 150px;
-    margin-right: 150px;
-    transition: margin-right .5s;
-    transition: margin-left .5s;
-}
-/* Nội dung content */
-
-#main {
-    transition: 0.5s;
-    margin-left: 150px;
-    margin-right: 150px;
-    margin-top: 10px;
-    background-color: rgba(248, 248, 255, 0.7);
-    transition: margin-right .5s;
-    transition: margin-left .5s;
-    text-align: center;
-}
-
-
-.tittle-covid {
+﻿.tittle-covid {
     font-weight: bold;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 40px;
+    font-size: 30px;
     color: #aa3461;
+    text-align: center;
+}
+
+    .tittle-covid p {
+        font-size: 20px;
+    }
+
+.contain-table{
+    margin: 20px;
+    padding-bottom: 20px;
 }
 
 .table {

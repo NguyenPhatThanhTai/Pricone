@@ -6,13 +6,16 @@
 
 @section header{
     <link rel="stylesheet" href="~/Content/covid19.css">
+    <link rel="stylesheet" href="~/Content/_CharLayout.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 }
 
-<div class="tittle-covid">Hãy luôn thực hiện quy tắc 5k nhé</div>
-<p>(Lưu ý hiện tại Api vẫn đang phát triển nên dữ liệu vẫn <span style="font-weight: bold;color: red;">chưa chính xác</span>, vui lòng không tin tuyệt đối vào dữ liệu dưới đây!!!)</p>
+<div class="tittle-covid">
+    <div>Hãy luôn thực hiện quy tắc <b style="color: darksalmon">5K</b> nhé</div>
+    <p>(Lưu ý hiện tại Api vẫn đang phát triển nên dữ liệu vẫn <span style="font-weight: bold;color: red;">chưa chính xác</span>, vui lòng không tin tuyệt đối vào dữ liệu dưới đây!!!)</p>
+</div>
 
 <div class="VietNamBoard">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_North_Vietnam_%281955%E2%80%931976%29.svg/230px-Flag_of_North_Vietnam_%281955%E2%80%931976%29.svg.png">
@@ -40,41 +43,43 @@
 
 <img class="img-5k" src="https://phutho.gov.vn/sites/default/files/users/user204/5k.gif">
 
-<div class="table">
-    <div class="loading" id="getLoad">
-        <img width="300px" style="margin-top: 15%;" src="~/Content/3.gif">
+<div class="contain-table">
+    <div class="table">
+        <div class="loading" id="getLoad">
+            <img width="300px" style="margin-top: 15%;" src="~/Content/3.gif">
+        </div>
+        <div class="tittle-table">Thông tin theo khu vực, châu lục...</div>
+        <table class="contain-covid-global">
+            <tr>
+                <th>Khu vực</th>
+                <th style="background-color: rgb(116, 170, 206); color:rgb(255, 255, 255);">Tổng số ca</th>
+                <th>Số ca mới</th>
+                <th style="background-color: rgb(212, 120, 113); color:rgb(255, 255, 255);">Tổng số ca chết</th>
+                <th>Ca chết mới</th>
+                <th style="background-color: rgb(107, 199, 122); color:rgb(255, 255, 255);">Tổng hồi phục</th>
+                <th>Bị nhiễm</th>
+                <th>Nguy cơ</th>
+                <th>Tỷ lệ lây nhiễm</th>
+            </tr>
+        </table>
+        <div class=" tittle-table ">Thông tin chi tiết từng nước...</div>
+        <table class="contain-covid-detail ">
+            <tr>
+                <th>STT</th>
+                <th>Khu vực</th>
+                <th style="background-color: rgb(116, 170, 206); color:rgb(255, 255, 255);">Tổng số ca</th>
+                <th>Số ca mới</th>
+                <th style="background-color: rgb(212, 120, 113); color:rgb(255, 255, 255);">Tổng số ca chết</th>
+                <th>Ca chết mới</th>
+                <th style="background-color: rgb(107, 199, 122); color:rgb(255, 255, 255);">Tổng hồi phục</th>
+                <th>Bị nhiễm</th>
+                <th>Nguy cơ</th>
+                <th>Tỷ lệ lây nhiễm</th>
+                <th>Tỷ lệ chết</th>
+                <th>Đã xét nghiệm</th>
+            </tr>
+        </table>
     </div>
-    <div class="tittle-table">Thông tin theo khu vực, châu lục...</div>
-    <table class="contain-covid-global">
-        <tr>
-            <th>Khu vực</th>
-            <th style="background-color: rgb(116, 170, 206); color:rgb(255, 255, 255);">Tổng số ca</th>
-            <th>Số ca mới</th>
-            <th style="background-color: rgb(212, 120, 113); color:rgb(255, 255, 255);">Tổng số ca chết</th>
-            <th>Ca chết mới</th>
-            <th style="background-color: rgb(107, 199, 122); color:rgb(255, 255, 255);">Tổng hồi phục</th>
-            <th>Bị nhiễm</th>
-            <th>Nguy cơ</th>
-            <th>Tỷ lệ lây nhiễm</th>
-        </tr>
-    </table>
-    <div class=" tittle-table ">Thông tin chi tiết từng nước...</div>
-    <table class="contain-covid-detail ">
-        <tr>
-            <th>STT</th>
-            <th>Khu vực</th>
-            <th style="background-color: rgb(116, 170, 206); color:rgb(255, 255, 255);">Tổng số ca</th>
-            <th>Số ca mới</th>
-            <th style="background-color: rgb(212, 120, 113); color:rgb(255, 255, 255);">Tổng số ca chết</th>
-            <th>Ca chết mới</th>
-            <th style="background-color: rgb(107, 199, 122); color:rgb(255, 255, 255);">Tổng hồi phục</th>
-            <th>Bị nhiễm</th>
-            <th>Nguy cơ</th>
-            <th>Tỷ lệ lây nhiễm</th>
-            <th>Tỷ lệ chết</th>
-            <th>Đã xét nghiệm</th>
-        </tr>
-    </table>
 </div>
 
 <script>

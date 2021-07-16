@@ -340,6 +340,58 @@ namespace PriCone.Controllers
             }
         }
 
+        public ActionResult getUser(string Id)
+        {
+            if(new DAOController().getUser(Id) != null)
+            {
+                return View(new DAOController().getUser(Id));
+            }
+            else
+            {
+                return RedirectToAction("TrangChu");
+            }
+        }
+
+        public ActionResult updateUser(User user)
+        {
+            if (new DAOController().updateUser(user))
+            {
+                UserView usv = new UserView
+                {
+                    user = new DAOController().getUser(user.UserId),
+                    listLike = new DAOController().userLikeList(user.UserId),
+                    listSaved = new DAOController().userSavedList(user.UserId)
+                };
+                Session.Remove("User");
+                Session["User"] = new DAOController().getUser(user.UserId);
+                if (Session["User"] == null)
+                {
+                    ViewBag.Login = "Login";
+                    ViewBag.display = "none";
+                    ViewBag.CheckLogin = "Đăng nhập/Đăng ký";
+                }
+                else
+                {
+                    ViewBag.Login = "TrangChu";
+                    ViewBag.display = "static";
+                    User u = Session["User"] as User;
+                    if (u.Role == true)
+                    {
+                        ViewBag.CheckLogin = u.FullName + " - Admin";
+                    }
+                    else
+                    {
+                        ViewBag.CheckLogin = u.FullName + " - User";
+                    }
+                }
+                return View("User", usv);
+            }
+            else
+            {
+                return View("TrangChu");
+            }
+        }
+
         public ActionResult gacha()
         {
             return View();

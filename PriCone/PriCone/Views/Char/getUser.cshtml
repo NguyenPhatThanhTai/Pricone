@@ -1,0 +1,42 @@
+﻿@model PriCone.Models.dataModels.User
+@{
+    Layout = null;
+}
+
+@Html.ValidationSummary(true, null)
+@using (Html.BeginForm("updateUser", "Char", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label for="usr">Tên đăng nhập:</label>
+        <input name="Username" type="text" size="50" class="form-control" id="charName" placeholder="Tên đăng nhập" value="@Model.Username" required>
+        <input name="UserId" type="hidden" size="50" class="form-control" id="charName" placeholder="Nhập tên nhân vật" value="@Model.UserId">
+    </div>
+    <div class="form-group">
+        <label for="pwd">Mật khẩu:</label>
+        <input name="Password" type="password" size="30" class="form-control" id="pwd" placeholder="Mật khẩu" value="@Model.Password" required>
+    </div>
+    <div class="form-group">
+        <label for="pwd">Đầy đủ tên:</label>
+        <input name="FullName" type="text" size="20" class="form-control" id="pwd" placeholder="Đầy đủ tên" value="@Model.FullName" required>
+    </div>
+    <div class="form-group">
+        <label for="pwd">Sinh nhật:</label>
+        <input name="Birthday" type="date" class="form-control" id="pwd" value="@Model.Birthday.Value.ToString("yyyy-MM-dd")" required>
+    </div>
+    <div class="form-group">
+        <label for="pwd">Địa chỉ:</label>
+        <input name="Address" type="text" size="15" class="form-control" id="pwd" placeholder="Dịa chỉ" value="@Model.Address" required>
+    </div>
+    <div class="form-group">
+        <label for="pwd">SDT:</label>
+        <input name="Phone" type="text" size="25" class="form-control" id="pwd" placeholder="SDT" value="@Model.Phone" required>
+    </div>
+    <div class="form-group">
+        <label for="pwd">Email:</label>
+        <input name="Email" type="text" size="33" class="form-control" id="pwd" placeholder="Nhập sở thích" value="@Model.Email" required>
+    </div>
+    <div class="form-group submit">
+        <input style="background-color: pink;" type="submit" size="30" class="form-control submit" id="pwd" value="Sửa thông tin" required>
+    </div>
+}

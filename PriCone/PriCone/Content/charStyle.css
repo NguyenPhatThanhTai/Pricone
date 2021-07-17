@@ -193,6 +193,7 @@
     width: 320px;
     height: 500px;
     margin: 10px 0px 10px 10px;
+    border-radius: 15px;
 }
 
 #maps {
@@ -200,7 +201,8 @@
     grid-area: fb;
     width: 320px;
     height: 500px;
-    margin: 10px 0px 10px 10px ;
+    margin: 10px 0px 10px 10px;
+    border-radius: 15px;
 }
 
 @media (max-width:767px) {

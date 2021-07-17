@@ -168,7 +168,7 @@
 .center_footer {
     width: 450px;
     float: left;
-    color: white;
+    color: black;
     margin: 10px;
 }
 
@@ -184,7 +184,7 @@
 .right_footer {
     width: 300px;
     float: left;
-    color: white;
+    color: black;
     margin: 10px;
 }
 

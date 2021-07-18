@@ -102,11 +102,6 @@
             transition: 0.5s;
             width: 300px;
         }
-
-        .topnav #img-left p {
-            font-weight: bold;
-            font-size: 40px;
-        }
 /* .topnav #img-left h2 {
         font-size: ;
     } */
@@ -163,6 +158,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 15px;
+    margin-bottom: 20px;
 }
 
 .center_footer {
@@ -188,7 +184,76 @@
     margin: 10px;
 }
 
-@media only screen and (max-width: 600px) {
+.PRC {
+    font-weight: bold;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: deeppink;
+    text-shadow: 2px 2px #534d4d;
+}
+
+@media screen and (max-width: 600px) {
+    #main {
+        margin: auto;
+    }
+
+    #header {
+        margin: 0;
+    }
+
+        #header .topnav #logo-left {
+            display: none;
+        }
+
+        #header .topnav #img-left img {
+            text-align: center;
+            width: 325px;
+            margin-left: 10px;
+        }
+
+        #header .topnav #img-left h2 {
+            display: none;
+        }
+
+        #header .topnav #login-right {
+            float: none;
+            text-align: center;
+        }
+
+    #main #header-main {
+        display: grid;
+        grid-template-areas: 'middle''right';
+    }
+
+    .topnav {
+        margin: 0;
+        float: none;
+        text-align: center;
+        height: 130px;
+    }
+
+        .topnav h1 {
+            font-size: 25px;
+        }
+
+    .ThanhChucNang {
+        margin: 0;
+        justify-content: center;
+        margin: 10px 0 10px 0;
+    }
+
+    #main #thanhchitiet {
+        margin-top: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+    }
+
+        #main #thanhchitiet a {
+            margin: 10px;
+        }
+
     .center_footer {
         width: 300px;
         float: left;
@@ -210,5 +275,37 @@
         float: left;
         color: white;
         margin: 10px;
+    }
+
+    .PRC {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1365px) and (min-width: 601px) {
+    .type-comment #type-pic {
+        width: 100px;
+    }
+
+    .form-group {
+        width: 97%;
+    }
+
+    .feed-back #feed-back-content {
+        width: 94%;
+    }
+
+    .PRC{
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
+    #main {
+        margin: auto;
+    }
+
+    #header {
+        margin: 0;
     }
 }
